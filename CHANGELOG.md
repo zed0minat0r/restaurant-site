@@ -2,6 +2,24 @@
 
 ## 2026-03-30
 
+### QA + Pixel Review — Bug Fixes & Mobile Design Audit
+**QA (Functional):**
+- Fixed XSS vulnerability: reservation form name field was injected via innerHTML, now uses DOM API with textContent
+- Fixed smooth scroll ignoring fixed nav: anchor links now calculate offset from nav height instead of relying on scrollIntoView
+- Added accessible form validation: aria-invalid, role="alert" error messages (previously visual-only red border)
+- Added skip-to-content link for keyboard/screen-reader navigation
+- Added ARIA tablist/tab/tabpanel roles and aria-selected sync on menu category tabs
+- Added proper value attributes to all select options (time slots, party size)
+- Reservation success state now uses role="status" + aria-live="polite"
+
+**Pixel (Mobile Design @ 375px):**
+- Fixed 6 font-size violations below 14px minimum: section labels (0.8rem->0.875rem), form labels (0.8rem->0.875rem), hours notes (0.85rem->0.875rem), footer copyright (0.8rem->0.875rem), menu tabs (0.85rem->0.875rem), swipe hint (0.75rem->0.875rem)
+- Fixed footer social icons below 44px touch target: 40px->44px
+- Added min-height: 44px to menu tabs and small buttons for reliable touch targets
+- Added CSS for menu panel slide transitions (slideInFromLeft/Right, slideOutLeft/Right)
+- Added .form-error styles with dark-mode-aware color
+- Added .skip-link styles with focus-visible treatment
+
 ### Swipeable Menu Tabs — Mobile Enhancement (Spark)
 - Added touch swipe gestures to menu section: swipe left/right to navigate between categories
 - Smooth directional slide animations on tab switch (subtle 30px translateX, 250ms ease-out)
