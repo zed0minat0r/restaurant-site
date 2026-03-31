@@ -2,6 +2,15 @@
 
 ## 2026-03-30
 
+### Swipeable Menu Tabs — Mobile Enhancement (Spark)
+- Added touch swipe gestures to menu section: swipe left/right to navigate between categories
+- Smooth directional slide animations on tab switch (subtle 30px translateX, 250ms ease-out)
+- Menu tabs now horizontally scrollable on mobile with hidden scrollbar
+- Active tab auto-scrolls into view when switching via swipe
+- Added "Swipe to browse categories" hint text, visible only on mobile (<=768px)
+- ARIA attributes (aria-selected, role=tab) kept in sync during swipe navigation
+- No hover/cursor features — fully touch-driven, mobile-first
+
 ### Mobile-First Audit (Nigel)
 - Added AUDIT.md with full mobile-first site audit
 - Scores: Design 5 | Content 5 | UX 7 | Technical 7 | Conversion 4 | Simplicity 8 (Total: 36/60, 60%)

@@ -98,7 +98,7 @@ img {
 
 .section-header__label {
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -167,8 +167,9 @@ img {
 }
 
 .btn--sm {
-  padding: 0.6rem 1.4rem;
-  font-size: 0.8rem;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.875rem;
+  min-height: 44px;
 }
 
 .btn--lg {
@@ -228,7 +229,11 @@ img {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+  align-items: center;
   z-index: 1001;
 }
 
@@ -460,6 +465,8 @@ img {
 .menu {
   padding: var(--section-pad);
   background: var(--bg-surface);
+  position: relative;
+  overflow: hidden;
 }
 
 .menu__tabs {
@@ -467,16 +474,25 @@ img {
   justify-content: center;
   gap: 0.25rem;
   margin-bottom: 2.5rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.menu__tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .menu__tab {
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 1px;
   text-transform: uppercase;
   padding: 0.7rem 1.3rem;
+  min-height: 44px;
   background: transparent;
   color: var(--text-secondary);
   border: 1.5px solid transparent;
@@ -501,6 +517,58 @@ img {
 
 .menu__panel.active {
   display: block;
+  animation: menuFadeIn 0.25s ease-out;
+}
+
+/* Swipe transition animations */
+.menu__panel--exit-left,
+.menu__panel--exit-right {
+  display: block;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu__panel--enter-right {
+  animation: menuSlideFromRight 0.25s ease-out;
+}
+
+.menu__panel--enter-left {
+  animation: menuSlideFromLeft 0.25s ease-out;
+}
+
+@keyframes menuSlideFromRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes menuSlideFromLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes menuFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Swipe hint for mobile */
+.menu__swipe-hint {
+  display: none;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  opacity: 0.6;
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .menu__swipe-hint {
+    display: block;
+  }
 }
 
 .menu__grid {
@@ -749,7 +817,7 @@ img {
 }
 
 .hours__note p {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: var(--text-muted);
   margin-bottom: 0.25rem;
 }
@@ -854,7 +922,7 @@ img {
 }
 
 .form-group label {
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -985,11 +1053,11 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border: 1.5px solid rgba(212, 168, 83, 0.3);
   border-radius: 50%;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   color: var(--text-muted);
@@ -1009,8 +1077,82 @@ img {
 }
 
 .footer__bottom p {
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   color: var(--text-muted);
+}
+
+/* ============================================
+   SKIP TO CONTENT (Accessibility)
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--gold);
+  color: var(--dark);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.875rem;
+  z-index: 9999;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+  color: var(--dark);
+}
+
+/* ============================================
+   FORM ERRORS (Accessibility)
+   ============================================ */
+.form-error {
+  color: var(--wine);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+[data-theme="dark"] .form-error {
+  color: #e5737f;
+}
+
+/* ============================================
+   MENU PANEL TRANSITIONS
+   ============================================ */
+.menu__panel--exit-left {
+  animation: slideOutLeft 0.25s ease forwards;
+}
+
+.menu__panel--exit-right {
+  animation: slideOutRight 0.25s ease forwards;
+}
+
+.menu__panel--enter-left {
+  animation: slideInFromLeft 0.25s ease forwards;
+}
+
+.menu__panel--enter-right {
+  animation: slideInFromRight 0.25s ease forwards;
+}
+
+@keyframes slideOutLeft {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(-30px); }
+}
+
+@keyframes slideOutRight {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(30px); }
+}
+
+@keyframes slideInFromLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInFromRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 /* ============================================

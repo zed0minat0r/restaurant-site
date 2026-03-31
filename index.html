@@ -12,6 +12,9 @@
 </head>
 <body>
 
+  <!-- Skip to Content (Accessibility) -->
+  <a href="#menu" class="skip-link">Skip to content</a>
+
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
@@ -59,15 +62,16 @@
         <div class="section-header__line"></div>
       </div>
 
-      <div class="menu__tabs anim-fade">
-        <button class="menu__tab active" data-tab="starters">Starters</button>
-        <button class="menu__tab" data-tab="mains">Mains</button>
-        <button class="menu__tab" data-tab="desserts">Desserts</button>
-        <button class="menu__tab" data-tab="drinks">Drinks</button>
+      <div class="menu__tabs anim-fade" role="tablist" aria-label="Menu categories">
+        <button class="menu__tab active" data-tab="starters" role="tab" aria-selected="true" aria-controls="tab-starters">Starters</button>
+        <button class="menu__tab" data-tab="mains" role="tab" aria-selected="false" aria-controls="tab-mains">Mains</button>
+        <button class="menu__tab" data-tab="desserts" role="tab" aria-selected="false" aria-controls="tab-desserts">Desserts</button>
+        <button class="menu__tab" data-tab="drinks" role="tab" aria-selected="false" aria-controls="tab-drinks">Drinks</button>
       </div>
+      <p class="menu__swipe-hint">Swipe to browse categories</p>
 
       <!-- Starters -->
-      <div class="menu__panel active" id="tab-starters">
+      <div class="menu__panel active" id="tab-starters" role="tabpanel">
         <div class="menu__grid">
           <div class="menu__item anim-fade">
             <div class="menu__item-img" style="--hue:25"></div>
@@ -117,7 +121,7 @@
       </div>
 
       <!-- Mains -->
-      <div class="menu__panel" id="tab-mains">
+      <div class="menu__panel" id="tab-mains" role="tabpanel">
         <div class="menu__grid">
           <div class="menu__item anim-fade">
             <div class="menu__item-img" style="--hue:10"></div>
@@ -178,7 +182,7 @@
       </div>
 
       <!-- Desserts -->
-      <div class="menu__panel" id="tab-desserts">
+      <div class="menu__panel" id="tab-desserts" role="tabpanel">
         <div class="menu__grid">
           <div class="menu__item anim-fade">
             <div class="menu__item-img" style="--hue:5"></div>
@@ -217,7 +221,7 @@
       </div>
 
       <!-- Drinks -->
-      <div class="menu__panel" id="tab-drinks">
+      <div class="menu__panel" id="tab-drinks" role="tabpanel">
         <div class="menu__grid">
           <div class="menu__item anim-fade">
             <div class="menu__item-img" style="--hue:0"></div>
@@ -362,30 +366,30 @@
             <label for="resTime">Time</label>
             <select id="resTime" name="time" required>
               <option value="">Select time</option>
-              <option>5:00 PM</option>
-              <option>5:30 PM</option>
-              <option>6:00 PM</option>
-              <option>6:30 PM</option>
-              <option>7:00 PM</option>
-              <option>7:30 PM</option>
-              <option>8:00 PM</option>
-              <option>8:30 PM</option>
-              <option>9:00 PM</option>
-              <option>9:30 PM</option>
+              <option value="17:00">5:00 PM</option>
+              <option value="17:30">5:30 PM</option>
+              <option value="18:00">6:00 PM</option>
+              <option value="18:30">6:30 PM</option>
+              <option value="19:00">7:00 PM</option>
+              <option value="19:30">7:30 PM</option>
+              <option value="20:00">8:00 PM</option>
+              <option value="20:30">8:30 PM</option>
+              <option value="21:00">9:00 PM</option>
+              <option value="21:30">9:30 PM</option>
             </select>
           </div>
           <div class="form-group">
             <label for="resParty">Party Size</label>
             <select id="resParty" name="party" required>
               <option value="">Guests</option>
-              <option>1 Guest</option>
-              <option>2 Guests</option>
-              <option>3 Guests</option>
-              <option>4 Guests</option>
-              <option>5 Guests</option>
-              <option>6 Guests</option>
-              <option>7 Guests</option>
-              <option>8 Guests</option>
+              <option value="1">1 Guest</option>
+              <option value="2">2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5 Guests</option>
+              <option value="6">6 Guests</option>
+              <option value="7">7 Guests</option>
+              <option value="8">8 Guests</option>
             </select>
           </div>
         </div>
