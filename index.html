@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ember &amp; Oak | Wood-Fired Flavors, Warm Hospitality</title>
+  <meta name="description" content="Ember & Oak — upscale-casual dining with wood-fired flavors and warm hospitality. Reserve your table tonight.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo">Ember <span>&amp;</span> Oak</a>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#hours">Hours &amp; Location</a></li>
+        <li><a href="#reservations">Reservations</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+            <span class="theme-toggle__icon" aria-hidden="true"></span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="hero__tagline-top">Est. 2019</p>
+      <h1 class="hero__title">Ember <span>&amp;</span> Oak</h1>
+      <p class="hero__tagline">Wood-Fired Flavors, Warm Hospitality</p>
+      <div class="hero__divider"></div>
+      <p class="hero__subtitle">Seasonal ingredients, open flame, unforgettable evenings</p>
+      <a href="#reservations" class="btn btn--primary hero__cta">Reserve a Table</a>
+    </div>
+    <div class="hero__scroll-hint" aria-hidden="true">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section class="menu" id="menu">
+    <div class="container">
+      <div class="section-header anim-fade">
+        <p class="section-header__label">Our Menu</p>
+        <h2 class="section-header__title">Crafted with Fire &amp; Care</h2>
+        <div class="section-header__line"></div>
+      </div>
+
+      <div class="menu__tabs anim-fade">
+        <button class="menu__tab active" data-tab="starters">Starters</button>
+        <button class="menu__tab" data-tab="mains">Mains</button>
+        <button class="menu__tab" data-tab="desserts">Desserts</button>
+        <button class="menu__tab" data-tab="drinks">Drinks</button>
+      </div>
+
+      <!-- Starters -->
+      <div class="menu__panel active" id="tab-starters">
+        <div class="menu__grid">
+          <div class="menu__item anim-fade">
+            <div class="menu__item-img" style="--hue:25"></div>
+            <div class="menu__item-body">
+              <div class="menu__item-header">
+                <h3 class="menu__item-name">Oak-Smoked Burrata</h3>
+                <span class="menu__item-dots"></span>
+                <span class="menu__item-price">$18</span>
+              </div>
+              <p class="menu__item-desc">Heirloom tomatoes, aged balsamic, basil oil, grilled sourdough</p>
+            </div>
+          </div>
+          <div class="menu__item anim-fade">
+            <div class="menu__item-img" style="--hue:15"></div>
+            <div class="menu__item-body">
+              <div class="menu__item-header">
+                <h3 class="menu__item-name">Charred Octopus</h3>
+                <span class="menu__item-dots"></span>
+                <span class="menu__item-price">$22</span>
+              </div>
+              <p class="menu__item-desc">Romesco sauce, fingerling potatoes, smoked paprika, micro greens</p>
+            </div>
+          </div>
+          <div class="menu__item anim-fade">
+            <div class="menu__item-img" style="--hue:35"></div>
+            <div class="menu__item-body">
+              <div class="menu__item-header">
+                <h3 class="menu__item-name">Beef Tartare</h3>
+                <span class="menu__item-dots"></span>
+                <span class="menu__item-price">$19</span>
+              </div>
+              <p class="menu__item-desc">Hand-cut tenderloin, cured egg yolk, capers, dijon, crostini</p>
+            </div>
+          </div>
+          <div class="menu__item anim-fade">
+            <div class="menu__item-img" style="--hue:45"></div>
+            <div class="menu__item-body">
+              <div class="menu__item-header">
+                <h3 class="menu__item-name">Wild Mushroom Soup</h3>
+                <span class="menu__item-dots"></span>
+                <span class="menu__item-price">$14</span>
+              </div>
+              <p class="menu__item-desc">Porcini, chanterelle, truffle cream, chive oil, crusty bread</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mains -->
+      <div class="menu__panel" id="tab-mains">
+        <div class="menu__grid">
+          <div class="menu__item anim-fade">
+            <div class="menu__item-img" style="--hue:10"></div>
+            <div class="menu__item-body">
+              <div class="menu__item-header">
+                <h3 class="menu__item-name">Oak-Grilled Ribeye</h3>
+                <span class="menu__item-dots"></span>
+                <span class="menu__item-price">$48</span>
+              </div>
+              <p class="menu__item-desc">14oz prime cut, bone marrow butter, roasted garlic, charred broccolini</p>
+            </div>
+          </div>
+          <div class="menu__item anim-fade">
+            <div class="menu__item-img" style="--hue:20"></div>
+            <div class="menu__item-body">
+              <div class="menu__item-header">
+                <h3 class="menu__item-name">Pan-Seared Salmon</h3>
+                <span class="menu__item-dots"></span>
+                <span class="menu__item-price">$36</span>
+              </div>
+              <p class="menu__item-desc">Citrus glaze, wild rice, roasted fennel, dill cream sauce</p>
+            </div>
+          </div>
+          <div class="menu__item anim-fade">
+            <div class="menu__item-img" style="--hue:30"></div>
+            <div class="menu__item-body">
+              <div class="menu__item-header">
+                <h3 class="menu__item-name">Wood-Fired Chicken</h3>
+                <span class="menu__item-dots"></span>
+                <span class="menu__item-price">$32</span>
+              </div>
+              <p class="menu__item-desc">Half bird, herb-brined, smoked honey glaze, roasted root vegetables</p>
+            </div>
+          </div>
+          <div class="menu__item anim-fade">
+            <div class="menu__item-img" style="--hue:40"></div>
+            <div class="menu__item-body">
+              <div class="menu__item-header">
+                <h3 class="menu__item-name">Braised Short Rib</h3>
+                <span class="menu__item-dots"></span>
+                <span class="menu__item-price">$42</span>
+              </div>
+              <p class="menu__item-desc">Red wine reduction, creamy polenta, gremolata, seasonal greens</p>
+            </div>
+          </div>
+          <div class="menu__item anim-fade">
+            <div class="menu__item-img" style="--hue:50"></div>
+            <div class="menu__item-body">
+              <div class="menu__item-header">
+                <h3 class="menu__item-name">Ember-Roasted Cauliflower</h3>
+                <span class="menu__item-dots"></span>
+                <span class="menu__item-price">$26</span>
+              </div>
+              <p class="menu__item-desc">Tahini, pomegranate, dukkah spice, pickled shallots, herb yogurt</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desserts -->
+      <div class="menu__panel" id="tab-desserts">
+        <div class="menu__grid">
+          <div class="menu__item anim-fade">
+            <div class="menu__item-img" style="--hue:5"></div>
+            <div class="menu__item-body">
+              <div class="menu__item-header">
+                <h3 class="menu__item-name">Smoked Chocolate Torte</h3>
+                <span class="menu__item-dots"></span>
+                <span class="menu__item-price">$14</span>
+              </div>
+              <p class="menu__item-desc">Valrhona dark chocolate, sea salt caramel, vanilla bean cream</p>
+            </div>
+          </div>
+          <div class="menu__item anim-fade">
+            <div class="menu__item-img" style="--hue:28"></div>
+            <div class="menu__item-body">
+              <div class="menu__item-header">
+                <h3 class="menu__item-name">Burnt Honey Panna Cotta</h3>
+                <span class="menu__item-dots"></span>
+                <span class="menu__item-price">$12</span>
+              </div>
+              <p class="menu__item-desc">Lavender, toasted pistachios, seasonal berry compote</p>
+            </div>
+          </div>
+          <div class="menu__item anim-fade">
+            <div class="menu__item-img" style="--hue:18"></div>
+            <div class="menu__item-body">
+              <div class="menu__item-header">
+                <h3 class="menu__item-name">Cast Iron Apple Crumble</h3>
+                <span class="menu__item-dots"></span>
+                <span class="menu__item-price">$13</span>
+              </div>
+              <p class="menu__item-desc">Brown butter oat crumble, cinnamon, bourbon caramel, vanilla ice cream</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drinks -->
+      <div class="menu__panel" id="tab-drinks">
+        <div class="menu__grid">
+          <div class="menu__item anim-fade">
+            <div class="menu__item-img" style="--hue:0"></div>
+            <div class="menu__item-body">
+              <div class="menu__item-header">
+                <h3 class="menu__item-name">Ember Old Fashioned</h3>
+                <span class="menu__item-dots"></span>
+                <span class="menu__item-price">$16</span>
+              </div>
+              <p class="menu__item-desc">Smoked bourbon, demerara, Angostura, flamed orange peel</p>
+            </div>
+          </div>
+          <div class="menu__item anim-fade">
+            <div class="menu__item-img" style="--hue:8"></div>
+            <div class="menu__item-body">
+              <div class="menu__item-header">
+                <h3 class="menu__item-name">Oak Barrel Negroni</h3>
+                <span class="menu__item-dots"></span>
+                <span class="menu__item-price">$17</span>
+              </div>
+              <p class="menu__item-desc">Barrel-aged gin, Campari, sweet vermouth, charred rosemary</p>
+            </div>
+          </div>
+          <div class="menu__item anim-fade">
+            <div class="menu__item-img" style="--hue:38"></div>
+            <div class="menu__item-body">
+              <div class="menu__item-header">
+                <h3 class="menu__item-name">Garden Spritz</h3>
+                <span class="menu__item-dots"></span>
+                <span class="menu__item-price">$14</span>
+              </div>
+              <p class="menu__item-desc">Elderflower, prosecco, cucumber, mint, sparkling water</p>
+            </div>
+          </div>
+          <div class="menu__item anim-fade">
+            <div class="menu__item-img" style="--hue:22"></div>
+            <div class="menu__item-body">
+              <div class="menu__item-header">
+                <h3 class="menu__item-name">Sommelier's Pick</h3>
+                <span class="menu__item-dots"></span>
+                <span class="menu__item-price">$18</span>
+              </div>
+              <p class="menu__item-desc">Rotating selection of premium wines by the glass — ask your server</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="story" id="story">
+    <div class="container">
+      <div class="story__layout">
+        <div class="story__illustration anim-fade">
+          <div class="story__flame">
+            <div class="flame flame--1"></div>
+            <div class="flame flame--2"></div>
+            <div class="flame flame--3"></div>
+            <div class="flame-base"></div>
+          </div>
+          <div class="story__log"></div>
+          <div class="story__log story__log--2"></div>
+        </div>
+        <div class="story__text anim-fade">
+          <p class="section-header__label">Our Story</p>
+          <h2 class="section-header__title">Born from Flame</h2>
+          <div class="section-header__line"></div>
+          <p>What started as a backyard obsession with live-fire cooking became something bigger. In 2019, Chef Marcus Rivera and sommelier Elena Torres opened the doors to Ember &amp; Oak with a simple belief: the best meals happen around a fire.</p>
+          <p>Every dish on our menu is touched by flame — whether it's oak-smoked, charred, or slow-roasted over embers. We source seasonal ingredients from local farms within 50 miles, because great cooking starts with great ingredients.</p>
+          <p>The space itself is designed to feel like a gathering — warm woods, soft lighting, an open kitchen where you can watch the fire work. Whether you're here for a quiet dinner for two or a celebration with twenty, our goal is the same: make you feel at home, then blow you away with the food.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hours & Location -->
+  <section class="hours" id="hours">
+    <div class="container">
+      <div class="section-header anim-fade">
+        <p class="section-header__label">Visit Us</p>
+        <h2 class="section-header__title">Hours &amp; Location</h2>
+        <div class="section-header__line"></div>
+      </div>
+      <div class="hours__layout">
+        <div class="hours__schedule anim-fade">
+          <div class="hours__day">
+            <span>Monday</span>
+            <span class="hours__dots"></span>
+            <span>Closed</span>
+          </div>
+          <div class="hours__day">
+            <span>Tuesday &ndash; Thursday</span>
+            <span class="hours__dots"></span>
+            <span>5:00 PM &ndash; 10:00 PM</span>
+          </div>
+          <div class="hours__day">
+            <span>Friday &ndash; Saturday</span>
+            <span class="hours__dots"></span>
+            <span>5:00 PM &ndash; 11:00 PM</span>
+          </div>
+          <div class="hours__day">
+            <span>Sunday</span>
+            <span class="hours__dots"></span>
+            <span>4:00 PM &ndash; 9:00 PM</span>
+          </div>
+          <div class="hours__note">
+            <p>Happy Hour: Tue&ndash;Fri, 5:00&ndash;6:30 PM</p>
+            <p>Kitchen closes 30 minutes before closing</p>
+          </div>
+        </div>
+        <div class="hours__map anim-fade">
+          <div class="hours__map-placeholder">
+            <div class="map-pin"></div>
+            <p class="hours__address">
+              742 Hearthstone Lane<br>
+              Philadelphia, PA 19103
+            </p>
+            <a href="#" class="btn btn--outline btn--sm">Get Directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservations -->
+  <section class="reservations" id="reservations">
+    <div class="container">
+      <div class="section-header anim-fade">
+        <p class="section-header__label">Book a Table</p>
+        <h2 class="section-header__title">Reservations</h2>
+        <div class="section-header__line"></div>
+        <p class="section-header__sub">Join us for an unforgettable evening. For parties over 8, please call us directly.</p>
+      </div>
+      <form class="reservation-form anim-fade" id="reservationForm" novalidate>
+        <div class="reservation-form__row">
+          <div class="form-group">
+            <label for="resDate">Date</label>
+            <input type="date" id="resDate" name="date" required>
+          </div>
+          <div class="form-group">
+            <label for="resTime">Time</label>
+            <select id="resTime" name="time" required>
+              <option value="">Select time</option>
+              <option>5:00 PM</option>
+              <option>5:30 PM</option>
+              <option>6:00 PM</option>
+              <option>6:30 PM</option>
+              <option>7:00 PM</option>
+              <option>7:30 PM</option>
+              <option>8:00 PM</option>
+              <option>8:30 PM</option>
+              <option>9:00 PM</option>
+              <option>9:30 PM</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="resParty">Party Size</label>
+            <select id="resParty" name="party" required>
+              <option value="">Guests</option>
+              <option>1 Guest</option>
+              <option>2 Guests</option>
+              <option>3 Guests</option>
+              <option>4 Guests</option>
+              <option>5 Guests</option>
+              <option>6 Guests</option>
+              <option>7 Guests</option>
+              <option>8 Guests</option>
+            </select>
+          </div>
+        </div>
+        <div class="reservation-form__row">
+          <div class="form-group">
+            <label for="resName">Full Name</label>
+            <input type="text" id="resName" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="resPhone">Phone</label>
+            <input type="tel" id="resPhone" name="phone" placeholder="(555) 123-4567" required>
+          </div>
+        </div>
+        <div class="form-group form-group--full">
+          <label for="resRequests">Special Requests</label>
+          <textarea id="resRequests" name="requests" rows="3" placeholder="Allergies, celebrations, seating preferences..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--lg">Request Reservation</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Contact / Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer__layout">
+        <div class="footer__brand">
+          <h3 class="footer__logo">Ember <span>&amp;</span> Oak</h3>
+          <p class="footer__tagline">Wood-Fired Flavors, Warm Hospitality</p>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <p><a href="tel:+12155550142">(215) 555-0142</a></p>
+          <p><a href="mailto:hello@emberandoak.com">hello@emberandoak.com</a></p>
+        </div>
+        <div class="footer__col">
+          <h4>Address</h4>
+          <p>742 Hearthstone Lane<br>Philadelphia, PA 19103</p>
+        </div>
+        <div class="footer__col">
+          <h4>Follow Along</h4>
+          <div class="footer__socials">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="TikTok">TK</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Ember &amp; Oak. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
