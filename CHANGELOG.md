@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-03-30
+
+### Mobile-First Audit (Nigel)
+- Added AUDIT.md with full mobile-first site audit
+- Scores: Design 5 | Content 5 | UX 7 | Technical 7 | Conversion 4 | Simplicity 8 (Total: 36/60, 60%)
+- Design/Content capped: no real photography, placeholder contact details (555 phone, fake address)
+- Conversion capped: reservation form submits to nowhere, no backend or third-party integration
+- Key findings: solid skeleton architecture but missing all production essentials (images, real data, working booking)
+- Critical path: real photos, real contact info, functional reservations, Schema.org markup, accessibility fixes
+
 ## 2026-03-31
 
 ### Initial Setup
