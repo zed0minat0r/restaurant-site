@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  // --- DOM Elements ---
+  // --- DOM Elements (defensive null checks) ---
   const nav = document.getElementById('nav');
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
@@ -14,6 +14,8 @@
   const menuTabs = document.querySelectorAll('.menu__tab');
   const menuPanels = document.querySelectorAll('.menu__panel');
   const reservationForm = document.getElementById('reservationForm');
+
+  if (!nav || !hamburger || !navLinks || !themeToggle) return;
 
   // --- Mobile Nav ---
   hamburger.addEventListener('click', function () {
@@ -115,10 +117,8 @@
     }
 
     if (nextPanel) {
-      // Re-trigger animations for items in new panel
+      // Mark items as visible immediately — no re-trigger to avoid jitter
       nextPanel.querySelectorAll('.anim-fade').forEach(function (el) {
-        el.classList.remove('visible');
-        void el.offsetWidth; // force reflow
         el.classList.add('visible');
       });
     }
@@ -250,7 +250,9 @@
         var prevError = field.parentElement.querySelector('.form-error');
         if (prevError) prevError.remove();
 
-        if (!field.value.trim()) {
+        var isEmpty = !field.value.trim();
+        var isInvalidPhone = field.type === 'tel' && field.value.trim() && !/[\d]{7,}/.test(field.value.replace(/[\s\(\)\-\+\.]/g, ''));
+        if (isEmpty || isInvalidPhone) {
           valid = false;
           field.style.borderColor = '#8B2635';
           field.setAttribute('aria-invalid', 'true');
@@ -258,7 +260,7 @@
           var errorMsg = document.createElement('span');
           errorMsg.className = 'form-error';
           errorMsg.setAttribute('role', 'alert');
-          errorMsg.textContent = 'This field is required';
+          errorMsg.textContent = isInvalidPhone ? 'Please enter a valid phone number' : 'This field is required';
           field.parentElement.appendChild(errorMsg);
 
           setTimeout(function () {
@@ -271,6 +273,16 @@
       });
 
       if (!valid) return;
+
+      // Show submitting state on button
+      var submitBtn = document.getElementById('resSubmitBtn');
+      if (submitBtn) {
+        submitBtn.textContent = 'Submitting...';
+        submitBtn.classList.add('btn--submitting');
+      }
+
+      // Simulate brief network delay, then show success
+      setTimeout(function () {
 
       // Show rich success state
       var formContainer = reservationForm.parentElement;
@@ -338,6 +350,8 @@
 
       reservationForm.innerHTML = '';
       reservationForm.appendChild(successDiv);
+
+      }, 800); // end setTimeout for submit state
     });
   }
 
@@ -491,10 +505,19 @@
     urgencyText.textContent = 'Only ' + tablesLeft + ' tables left tonight \u2014 reserve yours now';
   } else if (today && time < today.open) {
     urgencyText.textContent = 'Tonight is filling up fast \u2014 ' + tablesLeft + ' tables remaining';
+  } else if (day === 1) {
+    // Monday — closed all day, show planning message
+    urgencyText.textContent = 'Planning ahead? We reopen Tuesday at 5 PM \u2014 secure your table now';
+    urgencyEl.style.background = 'rgba(201, 163, 78, 0.06)';
+    urgencyEl.style.borderColor = 'rgba(201, 163, 78, 0.12)';
+    urgencyEl.style.color = 'var(--text-secondary)';
   } else if (day === 5 || day === 6) {
     urgencyText.textContent = 'Weekend tables go fast \u2014 book ahead to secure your spot';
   } else {
-    urgencyText.textContent = 'Popular times fill up quickly \u2014 reserve early for best availability';
+    urgencyText.textContent = 'Planning your week? Reserve early for the best tables';
+    urgencyEl.style.background = 'rgba(201, 163, 78, 0.06)';
+    urgencyEl.style.borderColor = 'rgba(201, 163, 78, 0.12)';
+    urgencyEl.style.color = 'var(--text-secondary)';
   }
 })();
 
@@ -518,4 +541,182 @@
   if (todayRow !== undefined && dayRows[todayRow]) {
     dayRows[todayRow].classList.add('is-today');
   }
+})();
+
+/* ============================================
+   Back to Top Button
+   ============================================ */
+(function () {
+  'use strict';
+
+  var btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  function checkScroll() {
+    if (window.scrollY > 800) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  checkScroll();
+
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+/* ============================================
+   The Hearth — Live Kitchen Pulse
+   Time-aware rotating messages from the kitchen
+   ============================================ */
+(function () {
+  'use strict';
+
+  var msgEl = document.getElementById('hearthMessage');
+  if (!msgEl) return;
+
+  var now = new Date();
+  var hour = now.getHours();
+  var day = now.getDay();
+
+  // Schedule: Mon=closed, Tue-Thu 17-22, Fri-Sat 17-23, Sun 16-21
+  var schedule = {
+    0: { open: 16, close: 21 },
+    1: null,
+    2: { open: 17, close: 22 },
+    3: { open: 17, close: 22 },
+    4: { open: 17, close: 22 },
+    5: { open: 17, close: 23 },
+    6: { open: 17, close: 23 }
+  };
+
+  var today = schedule[day];
+  var time = hour + now.getMinutes() / 60;
+  var isOpen = today && time >= today.open && time < today.close;
+
+  // Context-specific message pools
+  var preServiceMessages = [
+    'Chef Marcus selecting tonight\u2019s cuts from the dry-age locker',
+    'Cherrywood logs loaded into the hearth \u2014 first flames catching',
+    'Prep team breaking down whole fish for tonight\u2019s feature',
+    'House-made pasta sheets drying on the rack',
+    'Tonight\u2019s specials board going up now',
+    'Truffle compound butter tempered and ready',
+    'Cocktail syrups strained, ice carved \u2014 bar is set',
+    'Oak embers building to 650\u00b0 for the evening sear'
+  ];
+
+  var activeServiceMessages = [
+    'Tomahawk ribeye resting on the board \u2014 table 7 is going to be happy',
+    'Two risottos fired, one wagyu tataki plating now',
+    'Sommelier Elena just opened a 2018 Barolo for the corner table',
+    'Cherrywood embers at perfect searing temperature',
+    'Dessert course firing for a party of six',
+    'Ember Old Fashioneds going out three at a time tonight',
+    'The open kitchen is putting on a show right now',
+    'Fresh bread just pulled from the wood oven'
+  ];
+
+  var closedMessages = [
+    'Kitchen resting. Embers banked. Back tomorrow with fresh fire.',
+    'Hearth cooling down. We\u2019ll have it roaring again tomorrow.',
+    'Last plates cleared. See you next service.',
+    'Kitchen dark. The oak is seasoning overnight.'
+  ];
+
+  var mondayMessages = [
+    'Monday \u2014 our day off. The hearth rests so we can bring the heat Tuesday.',
+    'Dark kitchen tonight. Chef Marcus is probably at a farm.',
+    'Closed Mondays. We\u2019ll be back with fresh fire tomorrow at 5 PM.'
+  ];
+
+  // Pick message pool based on context
+  var pool;
+  if (day === 1) {
+    pool = mondayMessages;
+  } else if (isOpen) {
+    pool = activeServiceMessages;
+  } else if (today && time < today.open && time >= today.open - 3) {
+    pool = preServiceMessages;
+  } else {
+    pool = closedMessages;
+  }
+
+  // Seeded shuffle for session consistency
+  var seed = now.getDate() + now.getMonth() * 31 + now.getHours();
+  function seededRandom() {
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed / 233280;
+  }
+
+  // Shuffle array
+  var shuffled = pool.slice();
+  for (var i = shuffled.length - 1; i > 0; i--) {
+    var j = Math.floor(seededRandom() * (i + 1));
+    var temp = shuffled[i];
+    shuffled[i] = shuffled[j];
+    shuffled[j] = temp;
+  }
+
+  var msgIndex = 0;
+  msgEl.textContent = shuffled[0];
+
+  // Rotate messages every 6 seconds
+  setInterval(function () {
+    msgEl.classList.add('fade-out');
+    setTimeout(function () {
+      msgIndex = (msgIndex + 1) % shuffled.length;
+      msgEl.textContent = shuffled[msgIndex];
+      msgEl.classList.remove('fade-out');
+    }, 400);
+  }, 6000);
+})();
+
+/* ============================================
+   Swipe Hint — dismiss after first swipe
+   and only show on touch devices
+   ============================================ */
+(function () {
+  'use strict';
+
+  var hint = document.getElementById('swipeHint');
+  if (!hint) return;
+
+  // Only show on touch devices
+  if (!('ontouchstart' in window)) {
+    hint.style.display = 'none';
+    return;
+  }
+
+  var menuSection = document.querySelector('.menu');
+  if (!menuSection) return;
+
+  menuSection.addEventListener('touchend', function dismissHint() {
+    hint.style.opacity = '0';
+    setTimeout(function () {
+      hint.style.display = 'none';
+    }, 300);
+    menuSection.removeEventListener('touchend', dismissHint);
+  }, { passive: true });
+})();
+
+/* ============================================
+   Newsletter Form — simple success state
+   ============================================ */
+(function () {
+  'use strict';
+
+  var form = document.getElementById('newsletterForm');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var emailInput = form.querySelector('input[type="email"]');
+    if (!emailInput || !emailInput.value.trim() || !emailInput.value.includes('@')) return;
+
+    form.innerHTML = '<p style="color: var(--gold); font-family: var(--font-heading); font-size: 1rem;">You\u2019re in. Watch your inbox.</p>';
+  });
 })();

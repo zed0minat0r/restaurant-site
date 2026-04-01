@@ -53,13 +53,14 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- Skip to Content (Accessibility) -->
-  <a href="#menu" class="skip-link">Skip to content</a>
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
@@ -89,11 +90,13 @@
   <section class="hero" id="hero">
     <div class="hero__overlay"></div>
     <div class="hero__content">
-      <p class="hero__tagline-top">Est. 2019</p>
+      <p class="hero__tagline-top">Philadelphia &middot; Est. 2019</p>
       <h1 class="hero__title">Ember <span>&amp;</span> Oak</h1>
-      <p class="hero__tagline">Wood-Fired Flavors, Warm Hospitality</p>
-      <div class="hero__divider"></div>
-      <p class="hero__subtitle">Seasonal ingredients, open flame, unforgettable evenings</p>
+      <p class="hero__tagline">Where every dish is touched by flame</p>
+      <div class="hero__divider" aria-hidden="true">
+        <svg class="hero__ember-icon" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2c0 0-8 10-8 18a8 8 0 0 0 16 0c0-8-8-18-8-18z" fill="currentColor" opacity="0.6"/></svg>
+      </div>
+      <p class="hero__subtitle">Oak smoke, open flame, and ingredients from farms you can drive to. This is dinner worth showing up for.</p>
       <a href="#reservations" class="btn btn--primary hero__cta">Reserve a Table</a>
     </div>
     <div class="hero__scroll-hint" aria-hidden="true">
@@ -111,14 +114,26 @@
     </div>
   </div>
 
+  <main id="main-content">
+
+  <!-- The Hearth — Live Kitchen Pulse -->
+  <div class="hearth-pulse" id="hearthPulse" aria-live="polite" aria-label="Live from the kitchen">
+    <div class="hearth-pulse__inner">
+      <span class="hearth-pulse__ember" aria-hidden="true"></span>
+      <span class="hearth-pulse__label">Live from the hearth</span>
+      <span class="hearth-pulse__divider" aria-hidden="true"></span>
+      <span class="hearth-pulse__message" id="hearthMessage">Cherrywood embers building to 650&deg;</span>
+    </div>
+  </div>
+
   <!-- Chef's Specials -->
   <section class="specials" id="specials">
     <div class="container">
       <div class="section-header anim-fade">
-        <p class="section-header__label">Tonight's Features</p>
-        <h2 class="section-header__title">Chef's Specials</h2>
+        <p class="section-header__label">Tonight</p>
+        <h2 class="section-header__title">What Marcus Is Cooking</h2>
         <div class="section-header__line"></div>
-        <p class="section-header__sub">Hand-selected by Chef Marcus. Available while they last.</p>
+        <p class="section-header__sub">Three dishes he couldn't stop thinking about this week. First come, first served.</p>
       </div>
       <div class="specials__grid">
         <div class="specials__card anim-fade">
@@ -165,8 +180,8 @@
   <section class="menu" id="menu">
     <div class="container">
       <div class="section-header anim-fade">
-        <p class="section-header__label">Our Menu</p>
-        <h2 class="section-header__title">Crafted with Fire &amp; Care</h2>
+        <p class="section-header__label">The Menu</p>
+        <h2 class="section-header__title">The Menu</h2>
         <div class="section-header__line"></div>
       </div>
 
@@ -176,7 +191,7 @@
         <button class="menu__tab" id="menu-tab-desserts" data-tab="desserts" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-desserts">Desserts</button>
         <button class="menu__tab" id="menu-tab-drinks" data-tab="drinks" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-drinks">Drinks</button>
       </div>
-      <p class="menu__swipe-hint">Swipe to browse categories</p>
+      <p class="menu__swipe-hint" id="swipeHint">Swipe to browse categories</p>
       <div class="menu__legend anim-fade" aria-label="Dietary key">
         <span class="menu__legend-item"><span class="menu__tag menu__tag--v">V</span> Vegetarian</span>
         <span class="menu__legend-item"><span class="menu__tag menu__tag--vg">VG</span> Vegan</span>
@@ -417,9 +432,9 @@
           <p class="section-header__label">Our Story</p>
           <h2 class="section-header__title">Born from Flame</h2>
           <div class="section-header__line"></div>
-          <p>What started as a backyard obsession with live-fire cooking became something bigger. In 2019, Chef Marcus Rivera and sommelier Elena Torres opened the doors to Ember &amp; Oak with a simple belief: the best meals happen around a fire.</p>
-          <p>Every dish on our menu is touched by flame — whether it's oak-smoked, charred, or slow-roasted over embers. We source seasonal ingredients from local farms within 50 miles, because great cooking starts with great ingredients.</p>
-          <p>The space itself is designed to feel like a gathering — warm woods, soft lighting, an open kitchen where you can watch the fire work. Whether you're here for a quiet dinner for two or a celebration with twenty, our goal is the same: make you feel at home, then blow you away with the food.</p>
+          <p>It started in a backyard in South Philly. Chef Marcus Rivera couldn't stop cooking over fire. Sommelier Elena Torres kept showing up with bottles that made the food sing. In 2019, they stopped pretending it was a hobby and opened a restaurant.</p>
+          <p>You'll smell the oak smoke before you see the kitchen. The hearth is the first thing you notice &mdash; a live fire that never goes out during service. Every cut is seared over cherrywood embers. Every vegetable is charred to the edge of caramelization. The farms are within 50 miles because Marcus picks up half the produce himself on Tuesday mornings.</p>
+          <p>The room is warm walnut and soft Edison light. There's vinyl on a turntable &mdash; usually jazz, sometimes Motown if the kitchen is in a mood. You can sit at the counter and watch the fire work, or settle into a corner booth and let the evening unfold. Either way, you'll leave planning your next visit.</p>
         </div>
       </div>
     </div>
@@ -437,6 +452,10 @@
         <p class="section-header__label">Visit Us</p>
         <h2 class="section-header__title">Hours &amp; Location</h2>
         <div class="section-header__line"></div>
+      </div>
+      <div class="happy-hour-callout anim-fade">
+        <span class="happy-hour-callout__badge">Happy Hour</span>
+        <span class="happy-hour-callout__text">Tue&ndash;Fri, 5&ndash;6:30 PM &mdash; $10 cocktails, $8 wines, half-off starters</span>
       </div>
       <div class="hours__status-wrapper anim-fade">
       <div class="hours__status" id="hoursStatus" aria-live="polite">
@@ -491,9 +510,9 @@
     <div class="container">
       <div class="section-header anim-fade">
         <p class="section-header__label">The Space</p>
-        <h2 class="section-header__title">Atmosphere &amp; Ambiance</h2>
+        <h2 class="section-header__title">Step Inside</h2>
         <div class="section-header__line"></div>
-        <p class="section-header__sub">Warm woods, open flame, and a space designed for gathering.</p>
+        <p class="section-header__sub">Walnut, flame, and just enough light to make everyone look good.</p>
       </div>
       <div class="gallery__grid">
         <div class="gallery__item gallery__item--wide anim-fade">
@@ -534,9 +553,10 @@
   <section class="testimonials" id="testimonials">
     <div class="container">
       <div class="section-header anim-fade">
-        <p class="section-header__label">Guest Reviews</p>
-        <h2 class="section-header__title">What People Are Saying</h2>
+        <p class="section-header__label">Word of Mouth</p>
+        <h2 class="section-header__title">Don't Take Our Word for It</h2>
         <div class="section-header__line"></div>
+        <p class="section-header__sub">500+ five-star reviews across Google, Yelp, and OpenTable. Rated #3 restaurant in Center City.</p>
       </div>
       <div class="testimonials__grid">
         <div class="testimonials__card anim-fade">
@@ -578,16 +598,19 @@
       <div class="events__layout">
         <div class="events__text anim-fade">
           <p class="section-header__label">Private Events</p>
-          <h2 class="section-header__title">Gather Around the Fire</h2>
+          <h2 class="section-header__title">Your Night, Our Fire</h2>
           <div class="section-header__line"></div>
-          <p>From intimate rehearsal dinners to corporate gatherings of up to 45 guests, our private dining room offers a dedicated space with its own hearth, curated menu options, and a personal event coordinator.</p>
+          <p>The private dining room has its own hearth, its own entrance, and seats up to 45. Rehearsal dinners, milestones, that team offsite that actually needs to be good &mdash; Elena will build a wine pairing and Marcus will design a menu around whatever's best that week.</p>
           <ul class="events__features">
-            <li>Private dining room seats 12&ndash;45 guests</li>
-            <li>Custom prix fixe &amp; family-style menus</li>
-            <li>Dedicated event coordinator</li>
-            <li>A/V setup for presentations &amp; toasts</li>
+            <li>Private room with its own fireplace, seats 12&ndash;45</li>
+            <li>Custom menus designed around seasonal availability</li>
+            <li>Dedicated event coordinator from first call to last toast</li>
+            <li>A/V for presentations, vinyl for everything else</li>
           </ul>
-          <a href="mailto:events@emberandoak.com?subject=Private%20Event%20Inquiry" class="btn btn--primary">Inquire About Events</a>
+          <div class="events__actions">
+            <a href="mailto:events@emberandoak.com?subject=Private%20Event%20Inquiry" class="btn btn--primary">Email About Events</a>
+            <a href="tel:+12155550142" class="btn btn--outline">Call to Discuss</a>
+          </div>
         </div>
         <div class="events__visual anim-fade">
           <div class="events__placeholder">
@@ -604,9 +627,9 @@
     <div class="container">
       <div class="section-header anim-fade">
         <p class="section-header__label">Book a Table</p>
-        <h2 class="section-header__title">Reservations</h2>
+        <h2 class="section-header__title">Save Your Seat</h2>
         <div class="section-header__line"></div>
-        <p class="section-header__sub">Join us for an unforgettable evening. For parties over 8, please call us directly.</p>
+        <p class="section-header__sub">Pick a night. We'll have the fire going. Parties over 8, give us a call &mdash; we'll sort it out.</p>
       </div>
       <div class="reservation-urgency anim-fade" id="reservationUrgency" aria-live="polite">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><circle cx="12" cy="16" r="0.5" fill="currentColor"/></svg>
@@ -656,17 +679,24 @@
           </div>
           <div class="form-group">
             <label for="resPhone">Phone</label>
-            <input type="tel" id="resPhone" name="phone" placeholder="(555) 123-4567" required>
+            <input type="tel" id="resPhone" name="phone" placeholder="(555) 123-4567" pattern="[\d\s\(\)\-\+\.]{7,}" required>
           </div>
         </div>
         <div class="form-group form-group--full">
           <label for="resRequests">Special Requests</label>
           <textarea id="resRequests" name="requests" rows="3" placeholder="Allergies, celebrations, seating preferences..."></textarea>
         </div>
-        <button type="submit" class="btn btn--primary btn--lg">Request Reservation</button>
+        <button type="submit" class="btn btn--primary btn--lg" id="resSubmitBtn">Request Reservation</button>
       </form>
     </div>
   </section>
+
+  </main>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
 
   <!-- Contact / Footer -->
   <footer class="footer" id="contact">
@@ -693,6 +723,14 @@
             <a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
           </div>
         </div>
+      </div>
+      <div class="footer__newsletter">
+        <p class="footer__newsletter-heading">Not ready to book? Stay in the loop.</p>
+        <p class="footer__newsletter-sub">Specials, seasonal menus, and the occasional invite-only event. No spam, ever.</p>
+        <form class="footer__newsletter-form" id="newsletterForm" novalidate>
+          <input type="email" placeholder="Your email" aria-label="Email for newsletter" required>
+          <button type="submit" class="btn btn--primary btn--sm">Sign Up</button>
+        </form>
       </div>
       <div class="footer__bottom">
         <p>&copy; 2026 Ember &amp; Oak. All rights reserved.</p>

@@ -186,3 +186,26 @@
 - Hero grain texture: subtle SVG noise overlay for cinematic depth without impacting performance
 - Events placeholder warmth: radial gold gradient glow and inner shadow replace flat card background
 - All enhancements are mobile-first, no hover effects, minimal animation footprint
+
+### Identity Overhaul — "Not Another Dark Template" (Round 5 response)
+- COPY: Rewrote every section headline and subtitle with personality — "What Marcus Is Cooking," "Don't Take Our Word for It," "Your Night, Our Fire," "Save Your Seat." Hero subtitle is now sensory and specific, not three buzzwords.
+- COPY: Story section rewritten with smell/sound/texture — vinyl on the turntable, oak smoke, Tuesday morning farm runs. Events copy now references Elena by name, mentions vinyl.
+- LAYOUT: Added "The Hearth" live kitchen pulse strip below hero — rotating time-aware messages from the kitchen. Pulsing ember dot, context pools for pre-service/active/closed/Monday. Unique identity feature no template has.
+- LAYOUT: Specials cards now use left gold border accent instead of arbitrary hue-based top strips. Section-header divider lines now gradient-fade instead of flat gold bar. Hero divider uses ember icon flanked by fading lines.
+- LAYOUT: Testimonials section gets surface background for visual rhythm break. Gallery stacks to single column on small mobile for better aspect ratios.
+- CONVERSION: Newsletter email capture added to footer — "Not ready to book? Stay in the loop." Secondary funnel for visitors not booking tonight.
+- CONVERSION: Happy Hour callout with badge added to Hours section — major conversion driver now has real estate.
+- CONVERSION: Events section now has dual CTAs (Email + Call) instead of mailto-only.
+- CONVERSION: Urgency messaging now shows non-urgent planning message when restaurant is closed instead of false scarcity.
+- CONVERSION: Social proof aggregate added to testimonials header — "500+ five-star reviews, Rated #3 in Center City."
+- UX: Back-to-top button with scroll threshold, glassmorphic style, works on all breakpoints.
+- UX: Phone input now validates pattern (7+ digits) — rejects non-numeric garbage.
+- UX: Form submit button shows "Submitting..." loading state with 800ms delay before success.
+- UX: Menu tab switch no longer re-triggers fade animations (removed forced reflow jitter).
+- UX: Swipe hint now only shows on touch devices and dismisses after first swipe.
+- TECHNICAL: Added <main id="main-content"> landmark wrapping all content sections. Skip link now targets #main-content.
+- TECHNICAL: Google Fonts loaded via preload/onload pattern instead of render-blocking stylesheet.
+- TECHNICAL: Defensive null checks on all DOM element references in main IIFE — prevents cascading failures if sections removed.
+- TECHNICAL: Fixed font-size violations: specials badge 0.7->0.75rem, specials tag 0.8->0.875rem, menu tag 0.65->0.7rem, menu legend 0.75->0.875rem, gallery label 0.7->0.875rem, success conf 0.8->0.875rem.
+- TECHNICAL: Consolidated duplicate .section-cta and .mobile-bar CSS selectors. Added justify-content to main .mobile-bar block.
+- TECHNICAL: Light-mode hero overlay now has 5-stop gradient with more depth and warmth — no longer flat.
