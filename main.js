@@ -380,3 +380,39 @@
   });
 
 })();
+
+/* ============================================
+   Mobile Sticky Bottom Bar — show after hero
+   ============================================ */
+(function () {
+  'use strict';
+
+  var mobileBar = document.getElementById('mobileBar');
+  var hero = document.getElementById('hero');
+  if (!mobileBar || !hero) return;
+
+  // Show bar once user scrolls past 60% of the hero
+  function checkMobileBar() {
+    var heroBottom = hero.offsetTop + hero.offsetHeight * 0.6;
+    if (window.scrollY > heroBottom) {
+      mobileBar.classList.add('visible');
+    } else {
+      mobileBar.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', checkMobileBar, { passive: true });
+  checkMobileBar();
+
+  // Smooth scroll for the Reserve button in the bar
+  mobileBar.querySelector('.mobile-bar__btn--reserve').addEventListener('click', function (e) {
+    var href = this.getAttribute('href');
+    var target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      var navHeight = document.getElementById('nav').offsetHeight || 70;
+      var targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight;
+      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+    }
+  });
+})();

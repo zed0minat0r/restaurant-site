@@ -109,3 +109,13 @@
 - 3 breakpoints: 480px, 768px, 1024px — mobile-first throughout
 - Style guide colors: #1a1a1a dark, #D4A853 gold, #F5F0E8 cream, #8B2635 wine
 - Typography: Playfair Display headings, Inter body via Google Fonts
+
+### Mobile Sticky Bottom Bar (Spark)
+- Added fixed bottom action bar on mobile/tablet with "Call Us" and "Reserve" CTAs
+- Phone icon + calendar icon via inline SVG, tap-friendly 48px min touch targets
+- Bar slides up smoothly after user scrolls past 60% of hero section
+- Glassmorphic dark background with backdrop-filter blur, gold accent border
+- Safe-area-inset-bottom support for notched iPhones
+- Smooth scroll integration for Reserve button
+- Hidden on desktop (1024px+), body padding adjusted so footer isn't obscured
+- No hover effects — tap/active states only, per mobile-first rules

@@ -1374,3 +1374,79 @@ img {
   .flame--2 { height: 65px; width: 28px; }
   .flame--3 { height: 40px; width: 16px; }
 }
+
+/* ============================================
+   MOBILE STICKY BOTTOM BAR
+   ============================================ */
+.mobile-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  background: rgba(22, 20, 20, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(201, 163, 78, 0.15);
+  padding: 0.5rem 1rem;
+  padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
+  gap: 0.75rem;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.mobile-bar.visible {
+  transform: translateY(0);
+}
+
+.mobile-bar__btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  min-height: 48px;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.mobile-bar__btn:active {
+  transform: scale(0.97);
+}
+
+.mobile-bar__btn--call {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid rgba(201, 163, 78, 0.3);
+}
+
+.mobile-bar__btn--reserve {
+  background: var(--gold);
+  color: var(--dark);
+  border: 1px solid var(--gold);
+}
+
+.mobile-bar__icon {
+  flex-shrink: 0;
+}
+
+/* Add bottom padding to body so footer isn't hidden behind bar */
+@media (max-width: 1023px) {
+  .footer {
+    padding-bottom: calc(3.5rem + 68px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Hide on desktop */
+@media (min-width: 1024px) {
+  .mobile-bar {
+    display: none;
+  }
+}
