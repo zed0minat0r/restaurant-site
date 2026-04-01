@@ -272,34 +272,69 @@
 
       if (!valid) return;
 
-      // Show success state
+      // Show rich success state
       var formContainer = reservationForm.parentElement;
       var name = document.getElementById('resName').value.split(' ')[0];
+      var dateVal = document.getElementById('resDate').value;
+      var timeSelect = document.getElementById('resTime');
+      var timeText = timeSelect.options[timeSelect.selectedIndex].text;
+      var partySelect = document.getElementById('resParty');
+      var partyText = partySelect.options[partySelect.selectedIndex].text;
+
       // Sanitize user input to prevent XSS
       var safeName = document.createElement('span');
       safeName.textContent = name;
+
+      // Generate mock confirmation number
+      var confNum = 'EO-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+
+      // Format date nicely
+      var dateParts = dateVal.split('-');
+      var dateObj = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
+      var formattedDate = dateObj.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
 
       var successDiv = document.createElement('div');
       successDiv.className = 'reservation-form--success';
       successDiv.setAttribute('role', 'status');
       successDiv.setAttribute('aria-live', 'polite');
 
+      var checkIcon = document.createElement('div');
+      checkIcon.className = 'success__icon';
+      checkIcon.innerHTML = '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>';
+      successDiv.appendChild(checkIcon);
+
       var heading = document.createElement('h3');
-      heading.textContent = 'Table Requested';
+      heading.textContent = 'Table Requested!';
       successDiv.appendChild(heading);
 
+      var confP = document.createElement('p');
+      confP.className = 'success__conf';
+      confP.textContent = 'Confirmation: ' + confNum;
+      successDiv.appendChild(confP);
+
+      var details = document.createElement('div');
+      details.className = 'success__details';
+      details.innerHTML = '<p><strong>' + formattedDate + '</strong> at <strong>' + timeText + '</strong></p><p>' + partyText + ' \u2022 ' + safeName.textContent + '</p>';
+      successDiv.appendChild(details);
+
       var msg = document.createElement('p');
-      msg.textContent = 'Thank you, ' + safeName.textContent + '. We\u2019ll confirm your reservation shortly via phone.';
+      msg.className = 'success__msg';
+      msg.textContent = 'We\u2019ll confirm your reservation via phone or email within the hour. A calendar invite will follow once confirmed.';
       successDiv.appendChild(msg);
 
-      var linkWrap = document.createElement('p');
-      linkWrap.style.marginTop = '1rem';
+      var actions = document.createElement('div');
+      actions.className = 'success__actions';
       var menuLink = document.createElement('a');
       menuLink.href = '#menu';
       menuLink.className = 'btn btn--outline btn--sm';
       menuLink.textContent = 'View Our Menu';
-      linkWrap.appendChild(menuLink);
-      successDiv.appendChild(linkWrap);
+      var callLink = document.createElement('a');
+      callLink.href = 'tel:+12155550142';
+      callLink.className = 'btn btn--outline btn--sm';
+      callLink.textContent = 'Call to Confirm';
+      actions.appendChild(menuLink);
+      actions.appendChild(callLink);
+      successDiv.appendChild(actions);
 
       reservationForm.innerHTML = '';
       reservationForm.appendChild(successDiv);

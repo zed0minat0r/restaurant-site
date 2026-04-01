@@ -73,6 +73,7 @@
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#story">Our Story</a></li>
         <li><a href="#hours">Hours</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#events">Events</a></li>
         <li><a href="#reservations">Reserve</a></li>
         <li>
@@ -97,6 +98,56 @@
     </div>
     <div class="hero__scroll-hint" aria-hidden="true">
       <span></span>
+    </div>
+  </section>
+
+  <!-- Chef's Specials -->
+  <section class="specials" id="specials">
+    <div class="container">
+      <div class="section-header anim-fade">
+        <p class="section-header__label">Tonight's Features</p>
+        <h2 class="section-header__title">Chef's Specials</h2>
+        <div class="section-header__line"></div>
+        <p class="section-header__sub">Hand-selected by Chef Marcus. Available while they last.</p>
+      </div>
+      <div class="specials__grid">
+        <div class="specials__card anim-fade">
+          <div class="specials__badge">Chef's Pick</div>
+          <div class="specials__accent" style="--hue:12"></div>
+          <div class="specials__body">
+            <h3 class="specials__name">Dry-Aged Tomahawk</h3>
+            <p class="specials__desc">45-day aged, bone-in ribeye with truffle compound butter, charred asparagus, and smoked potato gratin. Finished over cherrywood embers.</p>
+            <div class="specials__meta">
+              <span class="specials__price">$72</span>
+              <span class="specials__tag">Limited &mdash; 6 per evening</span>
+            </div>
+          </div>
+        </div>
+        <div class="specials__card anim-fade">
+          <div class="specials__badge">Seasonal</div>
+          <div class="specials__accent" style="--hue:28"></div>
+          <div class="specials__body">
+            <h3 class="specials__name">Spring Pea Risotto</h3>
+            <p class="specials__desc">Arborio rice, English peas, pecorino, preserved lemon, and shaved black truffle. Wood-fire finished with brown butter.</p>
+            <div class="specials__meta">
+              <span class="specials__price">$34</span>
+              <span class="specials__tag">New this week</span>
+            </div>
+          </div>
+        </div>
+        <div class="specials__card anim-fade">
+          <div class="specials__badge">Rare Find</div>
+          <div class="specials__accent" style="--hue:5"></div>
+          <div class="specials__body">
+            <h3 class="specials__name">A5 Wagyu Tataki</h3>
+            <p class="specials__desc">Japanese A5 wagyu, lightly seared, ponzu gel, toasted sesame, pickled daikon, shiso leaf. Served with warm rice.</p>
+            <div class="specials__meta">
+              <span class="specials__price">$58</span>
+              <span class="specials__tag">Limited &mdash; 4 per evening</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -319,6 +370,11 @@
     </div>
   </section>
 
+  <!-- Micro-CTA: Menu → Story -->
+  <div class="section-cta anim-fade" aria-hidden="true">
+    <a href="#story" class="section-cta__link">Discover our story <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></a>
+  </div>
+
   <!-- Our Story -->
   <section class="story" id="story">
     <div class="container">
@@ -344,6 +400,11 @@
       </div>
     </div>
   </section>
+
+  <!-- Micro-CTA: Story → Hours -->
+  <div class="section-cta anim-fade" aria-hidden="true">
+    <a href="#hours" class="section-cta__link">Plan your visit <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></a>
+  </div>
 
   <!-- Hours & Location -->
   <section class="hours" id="hours">
@@ -482,6 +543,11 @@
     </div>
   </section>
 
+  <!-- Micro-CTA: Testimonials → Reservations -->
+  <div class="section-cta anim-fade" aria-hidden="true">
+    <a href="#reservations" class="section-cta__link">Ready to dine? Book your table <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></a>
+  </div>
+
   <!-- Private Events -->
   <section class="events" id="events">
     <div class="container">
@@ -517,6 +583,10 @@
         <h2 class="section-header__title">Reservations</h2>
         <div class="section-header__line"></div>
         <p class="section-header__sub">Join us for an unforgettable evening. For parties over 8, please call us directly.</p>
+      </div>
+      <div class="reservation-urgency anim-fade" id="reservationUrgency" aria-live="polite">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><circle cx="12" cy="16" r="0.5" fill="currentColor"/></svg>
+        <span id="urgencyText">Only a few tables left for tonight &mdash; book now</span>
       </div>
       <form class="reservation-form anim-fade" id="reservationForm" novalidate>
         <div class="reservation-form__row">

@@ -163,3 +163,10 @@
 - `prefers-reduced-motion` media query: disables all animations, transitions, and scroll behavior for accessibility
 - `prefers-color-scheme` media query: respects OS light/dark preference on first visit when no saved preference
 - JS updated to detect OS color scheme when no localStorage preference exists
+
+### Conversion Flow Improvements (Builder)
+- Micro-CTAs between sections: subtle gold links with animated down-arrow guide users through Menu→Story, Story→Hours, Reviews→Reservations
+- Rich post-booking success state: check icon, mock confirmation number (EO-XXXXXX), formatted date/time/party summary card, calendar invite mention, dual action buttons (View Menu + Call to Confirm)
+- Success details card with warm gold-tinted background and border, matching brand aesthetic
+- All new elements respect `prefers-reduced-motion` and work in both light/dark themes
+- Mobile-first: micro-CTAs use tap-friendly targets, no hover effects

@@ -34,3 +34,5 @@
 - [x] `prefers-reduced-motion` media query (disables all animations)
 - [x] `prefers-color-scheme` media query (respects OS theme on first visit)
 - [x] Testimonials section with Reviews nav link
+- [x] Micro-CTAs between sections guiding scroll (Menu→Story, Story→Hours, Reviews→Reserve)
+- [x] Rich post-booking success state (confirmation #, date/time summary, calendar mention, dual actions)

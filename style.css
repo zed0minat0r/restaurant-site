@@ -1056,18 +1056,99 @@ img {
 /* Form success state */
 .reservation-form--success {
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 2.5rem 1rem;
 }
 
 .reservation-form--success h3 {
   font-family: var(--font-heading);
   font-size: 1.6rem;
   color: var(--gold);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .reservation-form--success p {
   color: var(--text-secondary);
+}
+
+.success__icon {
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.success__icon svg {
+  opacity: 0.9;
+}
+
+.success__conf {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  margin-bottom: 1.25rem;
+}
+
+.success__details {
+  background: rgba(212, 168, 83, 0.06);
+  border: 1px solid rgba(212, 168, 83, 0.15);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  display: inline-block;
+}
+
+.success__details p {
+  margin: 0.25rem 0;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.success__msg {
+  font-size: 0.9rem;
+  max-width: 380px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+}
+
+.success__actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   MICRO-CTA SECTION DIVIDERS
+   ============================================ */
+.section-cta {
+  text-align: center;
+  padding: 1.25rem 0;
+}
+
+.section-cta__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  opacity: 0.65;
+  transition: opacity 0.3s ease;
+}
+
+.section-cta__link:active {
+  opacity: 1;
+}
+
+.section-cta__link svg {
+  animation: cta-bounce 2s ease-in-out infinite;
+}
+
+@keyframes cta-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
 }
 
 /* ============================================
