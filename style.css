@@ -589,6 +589,11 @@ img {
   .menu__swipe-hint {
     display: block;
   }
+
+  .menu__tabs {
+    justify-content: flex-start;
+    padding: 0 1.25rem;
+  }
 }
 
 .menu__grid {
