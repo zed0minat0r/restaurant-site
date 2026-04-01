@@ -101,7 +101,7 @@ img {
 
 .section-header__label {
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 4px;
   text-transform: uppercase;
@@ -136,7 +136,7 @@ img {
 .btn {
   display: inline-block;
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -186,6 +186,7 @@ img {
 .btn--lg {
   padding: 1rem 2.8rem;
   font-size: 0.95rem;
+  min-height: 48px;
 }
 
 /* ============================================
@@ -384,7 +385,7 @@ img {
 
 .hero__tagline-top {
   font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-size: 0.875rem;
   letter-spacing: 5px;
   text-transform: uppercase;
   color: var(--gold);
@@ -506,7 +507,7 @@ img {
 
 .menu__tab {
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -787,6 +788,15 @@ img {
 }
 
 /* Live open/closed status badge */
+.hours .section-header {
+  margin-bottom: 1rem;
+}
+
+.hours__status-wrapper {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 .hours__status {
   display: inline-flex;
   align-items: center;
@@ -797,6 +807,7 @@ img {
   font-weight: 500;
   letter-spacing: 0.02em;
   margin-bottom: 1.5rem;
+  text-align: center;
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-secondary);
@@ -983,7 +994,7 @@ img {
 }
 
 .form-group label {
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -1119,7 +1130,7 @@ img {
   height: 44px;
   border: 1px solid rgba(201, 163, 78, 0.2);
   border-radius: 50%;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   color: var(--text-muted);
@@ -1182,44 +1193,7 @@ img {
   color: #e5737f;
 }
 
-/* ============================================
-   MENU PANEL TRANSITIONS
-   ============================================ */
-.menu__panel--exit-left {
-  animation: slideOutLeft 0.25s ease forwards;
-}
-
-.menu__panel--exit-right {
-  animation: slideOutRight 0.25s ease forwards;
-}
-
-.menu__panel--enter-left {
-  animation: slideInFromLeft 0.25s ease forwards;
-}
-
-.menu__panel--enter-right {
-  animation: slideInFromRight 0.25s ease forwards;
-}
-
-@keyframes slideOutLeft {
-  from { opacity: 1; transform: translateX(0); }
-  to { opacity: 0; transform: translateX(-30px); }
-}
-
-@keyframes slideOutRight {
-  from { opacity: 1; transform: translateX(0); }
-  to { opacity: 0; transform: translateX(30px); }
-}
-
-@keyframes slideInFromLeft {
-  from { opacity: 0; transform: translateX(-30px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideInFromRight {
-  from { opacity: 0; transform: translateX(30px); }
-  to { opacity: 1; transform: translateX(0); }
-}
+/* Menu panel transition animations consolidated above in MENU section */
 
 /* ============================================
    SCROLL ANIMATIONS

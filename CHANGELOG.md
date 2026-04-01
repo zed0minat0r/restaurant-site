@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-03-30 — QA + Pixel Review Round 2
+
+### QA (Functional):
+- Fixed ARIA tablist: added `id` attributes to tab buttons, `aria-labelledby` to tab panels, and roving `tabindex` for keyboard arrow navigation (ArrowLeft/Right, Home, End)
+- Removed duplicate CSS animation definitions: `slideOutLeft/Right` and `slideInFromLeft/Right` were defined twice with conflicting animation names overriding the menu panel transition block
+- Fixed hours status badge centering: wrapped in `.hours__status-wrapper` with `text-align: center`
+
+### Pixel (Mobile Design @ 375px):
+- Fixed 6 font-size violations still present below 14px minimum despite previous changelog claiming fix:
+  - `.section-header__label`: 0.8rem -> 0.875rem
+  - `.hero__tagline-top`: 0.7rem -> 0.875rem (was 11.2px, critically small)
+  - `.menu__tab`: 0.8rem -> 0.875rem
+  - `.form-group label`: 0.8rem -> 0.875rem
+  - `.btn` base: 0.85rem -> 0.875rem
+  - `.footer__socials a`: 0.8rem -> 0.875rem
+- Added `min-height: 48px` to `.btn--lg` (reservation submit) for reliable touch target
+
 ## 2026-03-30
 
 ### Enhancement — Live Open/Closed Status Badge (Spark)

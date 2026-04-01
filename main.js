@@ -77,6 +77,7 @@
     menuTabs.forEach(function (t) {
       t.classList.remove('active');
       t.setAttribute('aria-selected', 'false');
+      t.setAttribute('tabindex', '-1');
     });
 
     // Animate panel transition
@@ -87,6 +88,7 @@
     if (matchingTab) {
       matchingTab.classList.add('active');
       matchingTab.setAttribute('aria-selected', 'true');
+      matchingTab.setAttribute('tabindex', '0');
     }
 
     if (currentPanel && nextPanel && currentPanel !== nextPanel && direction) {
@@ -139,6 +141,32 @@
       var targetIndex = tabOrder.indexOf(target);
       var direction = targetIndex > currentIndex ? 'left' : (targetIndex < currentIndex ? 'right' : null);
       switchToTab(target, direction);
+    });
+
+    // Keyboard arrow navigation for ARIA tablist
+    tab.addEventListener('keydown', function (e) {
+      var currentIndex = getActiveTabIndex();
+      var newIndex = currentIndex;
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        newIndex = (currentIndex + 1) % tabOrder.length;
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        newIndex = (currentIndex - 1 + tabOrder.length) % tabOrder.length;
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        newIndex = 0;
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        newIndex = tabOrder.length - 1;
+      } else {
+        return;
+      }
+
+      var direction = newIndex > currentIndex ? 'left' : 'right';
+      switchToTab(tabOrder[newIndex], direction);
+      menuTabs[newIndex].focus();
     });
   });
 
