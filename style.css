@@ -1450,3 +1450,111 @@ img {
     display: none;
   }
 }
+
+/* ============================================
+   TESTIMONIALS
+   ============================================ */
+.testimonials {
+  padding: var(--section-pad);
+}
+
+.testimonials__grid {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.testimonials__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+
+.testimonials__stars {
+  color: var(--gold);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.75rem;
+}
+
+.testimonials__quote {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+
+.testimonials__author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.testimonials__name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.testimonials__source {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+  .testimonials__grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY — prefers-reduced-motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .anim-fade {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero__tagline-top,
+  .hero__title,
+  .hero__tagline,
+  .hero__divider,
+  .hero__subtitle,
+  .hero__cta {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY — prefers-color-scheme
+   ============================================ */
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]):not([data-theme="light"]) {
+    --bg: #FAF7F2;
+    --bg-card: #FFFFFF;
+    --bg-surface: #F0EBE3;
+    --text: #2C2C2C;
+    --text-secondary: #6b6560;
+    --border: rgba(139, 111, 71, 0.15);
+    --input-bg: #FFFFFF;
+    --nav-bg: rgba(250, 247, 242, 0.94);
+  }
+}

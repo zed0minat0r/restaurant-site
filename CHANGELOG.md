@@ -119,3 +119,13 @@
 - Smooth scroll integration for Reserve button
 - Hidden on desktop (1024px+), body padding adjusted so footer isn't obscured
 - No hover effects — tap/active states only, per mobile-first rules
+
+### Audit-Driven Improvements (Builder)
+- Added testimonials section: 3-card responsive grid with star ratings, guest quotes, author/source — Reviews nav link added
+- SVG social icons replacing IG/FB/TK text labels (Instagram, Facebook, TikTok feather-style icons)
+- Open Graph + Twitter Card meta tags with placeholder values for social sharing previews
+- SVG flame favicon — no more generic browser tab icon
+- Schema.org Restaurant JSON-LD structured data (name, address, hours, cuisine, price range)
+- `prefers-reduced-motion` media query: disables all animations, transitions, and scroll behavior for accessibility
+- `prefers-color-scheme` media query: respects OS light/dark preference on first visit when no saved preference
+- JS updated to detect OS color scheme when no localStorage preference exists

@@ -61,6 +61,8 @@
   var savedTheme = localStorage.getItem('eo-theme');
   if (savedTheme) {
     html.setAttribute('data-theme', savedTheme);
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    html.setAttribute('data-theme', 'light');
   }
 
   themeToggle.addEventListener('click', function () {
