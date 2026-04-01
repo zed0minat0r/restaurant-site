@@ -209,3 +209,14 @@
 - TECHNICAL: Fixed font-size violations: specials badge 0.7->0.75rem, specials tag 0.8->0.875rem, menu tag 0.65->0.7rem, menu legend 0.75->0.875rem, gallery label 0.7->0.875rem, success conf 0.8->0.875rem.
 - TECHNICAL: Consolidated duplicate .section-cta and .mobile-bar CSS selectors. Added justify-content to main .mobile-bar block.
 - TECHNICAL: Light-mode hero overlay now has 5-stop gradient with more depth and warmth — no longer flat.
+
+### Live Hearth Pulse — Unique Identity Feature (Spark)
+- Added "The Hearth" — a live kitchen pulse ticker below the hero section
+- Rotating, time-aware messages simulate what is happening in the kitchen right now
+- Context pools: pre-service prep, active service, closed/resting, Monday off
+- Pulsing ember dot (CSS-only animation) gives the strip a living heartbeat
+- Seeded shuffle ensures varied but consistent message order per session
+- 6-second rotation with minimal fade transition (0.4s opacity)
+- Mobile-first: stacks gracefully on small screens, no hover effects
+- NOT a new section — compact inline strip, keeps site within 10-12 section cap
+- Gives Ember & Oak a personality no other restaurant template has
