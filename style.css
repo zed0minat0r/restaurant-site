@@ -1264,6 +1264,25 @@ img {
   }
 }
 
+/* Center footer columns on tablet (480-767px) */
+@media (min-width: 480px) and (max-width: 767px) {
+  .footer__col {
+    text-align: center;
+  }
+
+  .footer__socials {
+    justify-content: center;
+  }
+
+  .footer__logo {
+    text-align: center;
+  }
+
+  .footer__tagline {
+    text-align: center;
+  }
+}
+
 /* ============================================
    RESPONSIVE — 768px
    ============================================ */
@@ -1435,6 +1454,34 @@ img {
 
 .mobile-bar__icon {
   flex-shrink: 0;
+}
+
+/* Center footer content on mobile */
+@media (max-width: 479px) {
+  .footer__layout {
+    text-align: center;
+  }
+
+  .footer__col {
+    text-align: center;
+  }
+
+  .footer__socials {
+    justify-content: center;
+  }
+
+  .footer__logo {
+    text-align: center;
+  }
+
+  .footer__tagline {
+    text-align: center;
+  }
+}
+
+/* Center mobile sticky bar content */
+.mobile-bar {
+  justify-content: center;
 }
 
 /* Add bottom padding to body so footer isn't hidden behind bar */
