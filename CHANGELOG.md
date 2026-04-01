@@ -2,6 +2,14 @@
 
 ## 2026-03-30
 
+### Enhancement — Live Open/Closed Status Badge (Spark)
+- Added real-time open/closed indicator to Hours & Location section
+- Green pulsing dot + "Open now — until X PM" when restaurant is open
+- Muted badge + "Closed — opens [day] at X PM" when closed
+- Auto-calculates based on restaurant's actual schedule (Mon closed, Tue-Thu 5-10, Fri-Sat 5-11, Sun 4-9)
+- Mobile-first pill badge: compact, accessible (aria-live), elegant
+- Minimal animation: gentle pulse on the status dot only when open
+
 ### Task 2 Complete — Visual Polish & Premium Feel (Builder)
 - Refined color palette: deeper darks (#161414), warmer muted gold (#C9A34E), subtler borders
 - Tighter letter-spacing on labels, tabs, buttons (4px/1.5px) for upscale feel

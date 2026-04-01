@@ -786,6 +786,46 @@ img {
   background: var(--bg-surface);
 }
 
+/* Live open/closed status badge */
+.hours__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.hours__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.hours__status.is-open .hours__status-dot {
+  background: #4a9e6e;
+  box-shadow: 0 0 0 3px rgba(74, 158, 110, 0.2);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+.hours__status.is-open {
+  border-color: rgba(74, 158, 110, 0.3);
+  color: var(--text);
+}
+
+@keyframes statusPulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(74, 158, 110, 0.2); }
+  50% { box-shadow: 0 0 0 5px rgba(74, 158, 110, 0.08); }
+}
+
 .hours__layout {
   display: grid;
   gap: 2rem;

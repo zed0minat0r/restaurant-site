@@ -276,6 +276,66 @@
     });
   }
 
+  // --- Live Open/Closed Status ---
+  (function updateHoursStatus() {
+    var statusEl = document.getElementById('hoursStatus');
+    var textEl = document.getElementById('hoursStatusText');
+    if (!statusEl || !textEl) return;
+
+    // Schedule: Mon=closed, Tue-Thu 17-22, Fri-Sat 17-23, Sun 16-21
+    // getDay(): 0=Sun,1=Mon,2=Tue...6=Sat
+    var now = new Date();
+    var day = now.getDay();
+    var hour = now.getHours();
+    var min = now.getMinutes();
+    var time = hour + min / 60; // decimal hours
+
+    var schedule = {
+      0: { open: 16, close: 21, label: 'Sunday' },       // Sun
+      1: null,                                              // Mon closed
+      2: { open: 17, close: 22, label: 'Tue–Thu' },
+      3: { open: 17, close: 22, label: 'Tue–Thu' },
+      4: { open: 17, close: 22, label: 'Tue–Thu' },
+      5: { open: 17, close: 23, label: 'Fri–Sat' },
+      6: { open: 17, close: 23, label: 'Fri–Sat' }
+    };
+
+    var today = schedule[day];
+    var isOpen = today && time >= today.open && time < today.close;
+
+    if (isOpen) {
+      statusEl.classList.add('is-open');
+      var closeHour = today.close > 12 ? (today.close - 12) : today.close;
+      textEl.textContent = 'Open now — until ' + closeHour + ':00 PM';
+    } else {
+      statusEl.classList.remove('is-open');
+      // Find next opening
+      var nextDay = day;
+      var nextInfo = null;
+      for (var i = 0; i < 7; i++) {
+        var checkDay = (day + i) % 7;
+        var s = schedule[checkDay];
+        if (s) {
+          if (i === 0 && time < s.open) {
+            // Opens later today
+            var openHour = s.open > 12 ? (s.open - 12) : s.open;
+            textEl.textContent = 'Closed — opens today at ' + openHour + ':00 PM';
+            return;
+          } else if (i > 0) {
+            nextInfo = s;
+            break;
+          }
+        }
+      }
+      if (nextInfo) {
+        var openH = nextInfo.open > 12 ? (nextInfo.open - 12) : nextInfo.open;
+        textEl.textContent = 'Closed — opens ' + nextInfo.label + ' at ' + openH + ':00 PM';
+      } else {
+        textEl.textContent = 'Currently closed';
+      }
+    }
+  })();
+
   // --- Smooth scroll for all anchor links (respects fixed nav height) ---
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
