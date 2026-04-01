@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-03-30
+
+### Mobile-First Audit Round 2 (Nigel)
+- Re-audited with correct template context: placeholder images, fake contact details, and mock forms are expected and not penalised
+- Scores: Design 7 (+2) | Content 7 (+2) | UX 8 (+1) | Technical 7 (=) | Conversion 7 (+3) | Simplicity 8 (=)
+- Total: 44/60 (73%), up from 36/60 (60%) in Round 1
+- Recognised QA Round 2 improvements: ARIA tablist keyboard navigation, duplicate CSS cleanup, font-size fixes, status badge centering
+- Remaining gaps: no P1 sections (testimonials, gallery, events), no prefers-reduced-motion, no OG/favicon/Schema.org, no sticky mobile CTA
+- Added score_history tracking to AUDIT.md JSON block
+
 ## 2026-03-30 — QA + Pixel Review Round 2
 
 ### QA (Functional):
