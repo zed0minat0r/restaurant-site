@@ -2,6 +2,22 @@
 
 ## 2026-03-30
 
+### Task 2 Complete — Visual Polish & Premium Feel (Builder)
+- Refined color palette: deeper darks (#161414), warmer muted gold (#C9A34E), subtler borders
+- Tighter letter-spacing on labels, tabs, buttons (4px/1.5px) for upscale feel
+- Softer section divider lines (48px, 1px, 0.7 opacity) — less template-y
+- Premium button treatment: gold box-shadow glow, active press state
+- Smoother scroll animations: cubic-bezier easing on fade-ups (0.7s)
+- Mobile micro-interactions: tap scale on cards (0.985), social icons, theme toggle
+- Input focus rings: subtle gold glow (3px, 0.08 opacity)
+- Thinner borders throughout (1.5px -> 1px) for cleaner lines
+- Nav scrolled state: single-line border instead of heavy box-shadow
+- Hero overlay: richer atmosphere with additional warm gradient layer
+- Scroll hint: subtler (1.5px border, 0.5 opacity)
+- Menu card accent bars: thinner (4px), lower opacity — accent not distraction
+- Footer: darker background, softer dividers
+- Flame illustration: updated all colors to match refined palette
+
 ### QA + Pixel Review — Bug Fixes & Mobile Design Audit
 **QA (Functional):**
 - Fixed XSS vulnerability: reservation form name field was injected via innerHTML, now uses DOM API with textContent

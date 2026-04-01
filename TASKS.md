@@ -14,12 +14,12 @@
 - [x] Menu tab navigation with animated transitions
 - [x] Form validation and success state
 
-## Task 2: Visual polish & premium feel
-- Add elegant typography (Playfair Display for headings)
-- Refine dark theme with warm gold accents
-- Add micro-interactions for mobile
-- Improve section transitions and scroll flow
-- Ensure premium feel — not template-y
+## Task 2: Visual polish & premium feel -- COMPLETE
+- [x] Add elegant typography (Playfair Display for headings)
+- [x] Refine dark theme with warm gold accents — deeper darks, warmer muted gold
+- [x] Add micro-interactions for mobile — tap feedback on cards, buttons, social icons, theme toggle
+- [x] Improve section transitions and scroll flow — smoother cubic-bezier easing on fade-ups
+- [x] Ensure premium feel — refined borders, subtler dividers, focus rings, input glow, tighter letter-spacing
 
 ## Task 3: Content & conversion
 - Add chef's specials / featured dishes section
