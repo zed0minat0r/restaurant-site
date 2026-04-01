@@ -377,6 +377,18 @@ img {
     linear-gradient(175deg, #F0EBE3 0%, #FAF7F2 100%);
 }
 
+/* Subtle film grain for premium texture */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .hero__content {
   position: relative;
   z-index: 1;
@@ -926,6 +938,24 @@ img {
 
 .hours__day:last-of-type {
   border-bottom: none;
+}
+
+.hours__day.is-today {
+  background: var(--gold-dim);
+  margin: 0 -1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border-bottom-color: transparent;
+}
+
+.hours__day.is-today span:first-child {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.hours__day.is-today span:last-child {
+  color: var(--text);
+  font-weight: 500;
 }
 
 .hours__day span:first-child {
@@ -1872,9 +1902,12 @@ img {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  background: var(--bg-card);
+  background:
+    radial-gradient(ellipse at 50% 80%, rgba(201, 163, 78, 0.08) 0%, transparent 60%),
+    var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  box-shadow: inset 0 -20px 40px rgba(201, 163, 78, 0.04);
 }
 
 .events__icon {

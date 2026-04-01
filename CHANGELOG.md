@@ -177,3 +177,12 @@
 - Added Reviews nav link pointing to #testimonials (was listed as complete but missing from nav HTML)
 - Task 3 marked COMPLETE — all content & conversion items now done
 - Total sections: 9 (hero, specials, menu, story, hours, gallery, testimonials, events, reservations) — within 10-12 cap
+
+### Mobile-First Section Enhancements (Spark)
+- Menu dietary tags: V (Vegetarian), VG (Vegan), GF (Gluten-Free) badges on applicable items with color-coded pill styling and legend below tabs
+- Hours today-highlight: JS auto-detects current day and highlights the matching hours row with gold background — instant scanning on mobile
+- Testimonials gold accent: 2px gold top-border on review cards for visual hierarchy and polish
+- Gallery depth: inner box-shadow on placeholder tiles for recessed, premium feel
+- Hero grain texture: subtle SVG noise overlay for cinematic depth without impacting performance
+- Events placeholder warmth: radial gold gradient glow and inner shadow replace flat card background
+- All enhancements are mobile-first, no hover effects, minimal animation footprint

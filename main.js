@@ -497,3 +497,25 @@
     urgencyText.textContent = 'Popular times fill up quickly \u2014 reserve early for best availability';
   }
 })();
+
+/* ============================================
+   Hours — highlight today's row
+   ============================================ */
+(function () {
+  'use strict';
+
+  var dayRows = document.querySelectorAll('.hours__day');
+  if (!dayRows.length) return;
+
+  var now = new Date();
+  var jsDay = now.getDay(); // 0=Sun, 1=Mon, ...
+
+  // Map JS day index to the row index in the hours schedule
+  // Row 0 = Monday, Row 1 = Tue-Thu, Row 2 = Fri-Sat, Row 3 = Sunday
+  var dayToRow = { 1: 0, 2: 1, 3: 1, 4: 1, 5: 2, 6: 2, 0: 3 };
+  var todayRow = dayToRow[jsDay];
+
+  if (todayRow !== undefined && dayRows[todayRow]) {
+    dayRows[todayRow].classList.add('is-today');
+  }
+})();
