@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-03-30 — QA + Pixel Review Round 3
+
+### QA (Functional):
+- Fixed invalid Open Graph type: `og:type` was "restaurant" (not a valid OG type), changed to "website"
+- Fixed `.menu__item-name` overflow: removed `white-space: nowrap` that could cause horizontal scroll on 375px with long dish names like "Ember-Roasted Cauliflower"
+- Fixed double margin on `.hours__status`: element had `margin-bottom: 1.5rem` redundant with wrapper's `margin-bottom: 2rem`
+
+### Pixel (Mobile Design @ 375px):
+- Fixed `.testimonials__source` font-size: 0.8rem (12.8px) violated 14px minimum, changed to 0.875rem
+- Fixed story section alignment inconsistency: title, label, and divider were left-aligned on mobile while every other section is centered; now centered on mobile, left-aligned on 768px+ when layout goes side-by-side
+- Fixed menu tabs left-aligned on mobile: `justify-content: flex-start` broke centered alignment pattern, changed to `center` with tighter padding to fit all 4 tabs at 375px without scrolling
+
 ## 2026-03-30
 
 ### Mobile-First Audit Round 2 (Nigel)

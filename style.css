@@ -591,8 +591,13 @@ img {
   }
 
   .menu__tabs {
-    justify-content: flex-start;
-    padding: 0 1.25rem;
+    justify-content: center;
+    padding: 0 0.5rem;
+    gap: 0.15rem;
+  }
+
+  .menu__tab {
+    padding: 0.7rem 0.9rem;
   }
 }
 
@@ -650,7 +655,6 @@ img {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text);
-  white-space: nowrap;
 }
 
 .menu__item-dots {
@@ -697,11 +701,15 @@ img {
 }
 
 .story__text .section-header__title {
-  text-align: left;
+  text-align: center;
+}
+
+.story__text .section-header__label {
+  text-align: center;
 }
 
 .story__text .section-header__line {
-  margin: 1.25rem 0;
+  margin: 1.25rem auto;
 }
 
 /* CSS Flame Illustration */
@@ -811,7 +819,6 @@ img {
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.02em;
-  margin-bottom: 1.5rem;
   text-align: center;
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -1313,6 +1320,18 @@ img {
     gap: 4rem;
   }
 
+  .story__text .section-header__title {
+    text-align: left;
+  }
+
+  .story__text .section-header__label {
+    text-align: left;
+  }
+
+  .story__text .section-header__line {
+    margin: 1.25rem 0;
+  }
+
   .story__illustration {
     flex-shrink: 0;
     width: 220px;
@@ -1553,7 +1572,7 @@ img {
 }
 
 .testimonials__source {
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   color: var(--text-secondary);
   padding-left: 0.75rem;
   border-left: 1px solid var(--border);
