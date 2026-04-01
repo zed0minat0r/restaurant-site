@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-03-30
+
+### Mobile-First Audit Round 3 (Nigel)
+- Re-audited after testimonials, sticky bar, SVG icons, SEO meta, and accessibility media query additions
+- Scores: Design 8 (+1) | Content 7 (=) | UX 8 (=) | Technical 8 (+1) | Conversion 8 (+1) | Simplicity 8 (=)
+- Total: 47/60 (78%), up from 44/60 (73%) in Round 2
+- Design: SVG social icons, flame favicon, testimonials cards, mobile sticky bar all elevate visual polish
+- Technical: OG/Twitter meta, Schema.org JSON-LD, prefers-reduced-motion, prefers-color-scheme all properly implemented
+- Conversion: Sticky Reserve/Call bar is genuine conversion improvement; testimonials add social proof before booking form
+- Remaining gaps: no photo gallery section, no private events section, render-blocking Google Fonts
+- Path to 52+/60: gallery placeholder, events section, richer post-booking success state, micro-CTAs between sections
+
 ## 2026-03-30 — QA + Pixel Review Round 3
 
 ### QA (Functional):
