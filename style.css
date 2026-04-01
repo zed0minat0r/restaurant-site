@@ -1382,8 +1382,8 @@ img {
   }
 
   .nav__links li a {
-    font-size: 0.85rem;
-    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.85rem;
     border-bottom: none;
     letter-spacing: 0.5px;
   }
@@ -1572,7 +1572,7 @@ img {
 }
 
 .testimonials__source {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
   padding-left: 0.75rem;
   border-left: 1px solid var(--border);
@@ -1582,6 +1582,211 @@ img {
   .testimonials__grid {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+/* ============================================
+   GALLERY / ATMOSPHERE
+   ============================================ */
+.gallery {
+  padding: var(--section-pad);
+  background: var(--bg-surface);
+}
+
+.gallery__grid {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.gallery__item {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.gallery__placeholder {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--hue, 25), var(--sat, 25%), 18%) 0%,
+    hsl(calc(var(--hue, 25) + 15), var(--sat, 25%), 14%) 100%
+  );
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  position: relative;
+}
+
+[data-theme="light"] .gallery__placeholder {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--hue, 25), var(--sat, 25%), 88%) 0%,
+    hsl(calc(var(--hue, 25) + 15), var(--sat, 25%), 92%) 100%
+  );
+}
+
+.gallery__icon {
+  color: var(--gold);
+  opacity: 0.5;
+}
+
+.gallery__label {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+@media (min-width: 480px) {
+  .gallery__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery__item--wide {
+    grid-column: span 2;
+  }
+
+  .gallery__item--wide .gallery__placeholder {
+    aspect-ratio: 21 / 9;
+  }
+}
+
+/* ============================================
+   PRIVATE EVENTS
+   ============================================ */
+.events {
+  padding: var(--section-pad);
+}
+
+.events__layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.events__text .section-header__title {
+  text-align: center;
+}
+
+.events__text .section-header__label {
+  text-align: center;
+}
+
+.events__text .section-header__line {
+  margin: 1.25rem auto;
+}
+
+.events__text p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+.events__features {
+  list-style: none;
+  margin-bottom: 1.75rem;
+}
+
+.events__features li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.events__features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.7;
+}
+
+.events__text .btn {
+  display: inline-block;
+}
+
+.events__visual {
+  width: 100%;
+}
+
+.events__placeholder {
+  aspect-ratio: 16 / 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.events__icon {
+  color: var(--gold);
+  opacity: 0.4;
+}
+
+.events__placeholder-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  letter-spacing: 0.5px;
+}
+
+@media (min-width: 768px) {
+  .events__layout {
+    flex-direction: row;
+    gap: 3.5rem;
+  }
+
+  .events__text {
+    flex: 1;
+  }
+
+  .events__text .section-header__title {
+    text-align: left;
+  }
+
+  .events__text .section-header__label {
+    text-align: left;
+  }
+
+  .events__text .section-header__line {
+    margin: 1.25rem 0;
+  }
+
+  .events__visual {
+    flex: 0 0 40%;
+  }
+}
+
+/* ============================================
+   TESTIMONIALS — half star
+   ============================================ */
+.testimonials__star--half {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 0.55em;
+  vertical-align: baseline;
 }
 
 /* ============================================

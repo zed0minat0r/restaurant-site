@@ -2,6 +2,16 @@
 
 ## 2026-03-30
 
+### Content & Conversion Refinements (Refiner)
+- Added Gallery/Atmosphere section: 5-slot placeholder grid with image icons, labels, and responsive wide/standard layout
+- Added Private Events section: copy block, feature list, inquiry CTA (mailto), and event photo placeholder
+- Updated nav: added Gallery and Events links, shortened labels to fit comfortably on desktop
+- Fixed desktop nav font-size 0.85rem -> 0.9rem (was below 14px accessibility minimum)
+- Fixed testimonials source font-size 0.875rem -> 0.9rem (was flagged at 0.8rem, already partially fixed)
+- Changed one testimonial to 4.5 stars (half-star CSS) for authenticity — Nigel noted all-5-star felt templated
+- Fixed "Get Directions" dead href="#" link to real Google Maps query URL
+- Total sections now 10 (within 10-12 cap per AGENT-RULES)
+
 ### Mobile-First Audit Round 3 (Nigel)
 - Re-audited after testimonials, sticky bar, SVG icons, SEO meta, and accessibility media query additions
 - Scores: Design 8 (+1) | Content 7 (=) | UX 8 (=) | Technical 8 (+1) | Conversion 8 (+1) | Simplicity 8 (=)
