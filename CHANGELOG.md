@@ -170,3 +170,10 @@
 - Success details card with warm gold-tinted background and border, matching brand aesthetic
 - All new elements respect `prefers-reduced-motion` and work in both light/dark themes
 - Mobile-first: micro-CTAs use tap-friendly targets, no hover effects
+
+### Chef's Specials + Reservation Urgency + Nav Fix (Builder)
+- Added Chef's Specials section between hero and menu: 3-card grid (Dry-Aged Tomahawk $72, Spring Pea Risotto $34, A5 Wagyu Tataki $58) with "Chef's Pick", "Seasonal", "Rare Find" badges and scarcity tags ("Limited — 6 per evening")
+- Added dynamic reservation urgency banner: context-aware messaging based on open/closed status, day of week, and time — "Only X tables left tonight" when open, "Weekend tables go fast" on Fri/Sat, generic early-booking prompt otherwise
+- Added Reviews nav link pointing to #testimonials (was listed as complete but missing from nav HTML)
+- Task 3 marked COMPLETE — all content & conversion items now done
+- Total sections: 9 (hero, specials, menu, story, hours, gallery, testimonials, events, reservations) — within 10-12 cap

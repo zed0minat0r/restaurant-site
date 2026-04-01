@@ -21,11 +21,11 @@
 - [x] Improve section transitions and scroll flow — smoother cubic-bezier easing on fade-ups
 - [x] Ensure premium feel — refined borders, subtler dividers, focus rings, input glow, tighter letter-spacing
 
-## Task 3: Content & conversion — IN PROGRESS
-- [ ] Add chef's specials / featured dishes section
+## Task 3: Content & conversion — COMPLETE
+- [x] Add chef's specials / featured dishes section (3-card grid: Tomahawk, Risotto, Wagyu w/ badges + scarcity tags)
 - [x] Add customer reviews / testimonials (3-card grid, stars, quotes, sources)
-- [ ] Add private events / catering info
-- [ ] Add reservation urgency ("Only 3 tables left tonight")
+- [x] Add private events / catering info (section w/ features list, email CTA, placeholder visual)
+- [x] Add reservation urgency — dynamic messaging based on time/day ("Only X tables left tonight")
 - [x] Strong CTAs throughout (sticky mobile bar: Call Us + Reserve)
 - [x] SVG social icons replacing text placeholders (IG/FB/TK)
 - [x] Open Graph + Twitter Card meta tags
@@ -33,6 +33,6 @@
 - [x] Schema.org Restaurant structured data (JSON-LD)
 - [x] `prefers-reduced-motion` media query (disables all animations)
 - [x] `prefers-color-scheme` media query (respects OS theme on first visit)
-- [x] Testimonials section with Reviews nav link
+- [x] Testimonials section with Reviews nav link in navigation
 - [x] Micro-CTAs between sections guiding scroll (Menu→Story, Story→Hours, Reviews→Reserve)
 - [x] Rich post-booking success state (confirmation #, date/time summary, calendar mention, dual actions)

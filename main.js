@@ -453,3 +453,47 @@
     }
   });
 })();
+
+/* ============================================
+   Reservation Urgency — dynamic messaging
+   ============================================ */
+(function () {
+  'use strict';
+
+  var urgencyEl = document.getElementById('reservationUrgency');
+  var urgencyText = document.getElementById('urgencyText');
+  if (!urgencyEl || !urgencyText) return;
+
+  var now = new Date();
+  var day = now.getDay();
+  var hour = now.getHours();
+  var time = hour + now.getMinutes() / 60;
+
+  // Schedule: Mon=closed, Tue-Thu 17-22, Fri-Sat 17-23, Sun 16-21
+  var schedule = {
+    0: { open: 16, close: 21 },
+    1: null,
+    2: { open: 17, close: 22 },
+    3: { open: 17, close: 22 },
+    4: { open: 17, close: 22 },
+    5: { open: 17, close: 23 },
+    6: { open: 17, close: 23 }
+  };
+
+  var today = schedule[day];
+  var isOpen = today && time >= today.open && time < today.close;
+
+  // Generate urgency based on context (seeded random for consistency within a session)
+  var seed = now.getDate() + now.getMonth() * 31;
+  var tablesLeft = (seed % 5) + 2; // 2-6 tables
+
+  if (isOpen) {
+    urgencyText.textContent = 'Only ' + tablesLeft + ' tables left tonight \u2014 reserve yours now';
+  } else if (today && time < today.open) {
+    urgencyText.textContent = 'Tonight is filling up fast \u2014 ' + tablesLeft + ' tables remaining';
+  } else if (day === 5 || day === 6) {
+    urgencyText.textContent = 'Weekend tables go fast \u2014 book ahead to secure your spot';
+  } else {
+    urgencyText.textContent = 'Popular times fill up quickly \u2014 reserve early for best availability';
+  }
+})();
