@@ -1,4 +1,4 @@
-# Ember & Oak -- Mobile-First Audit (Round 6)
+# Ember & Oak -- Mobile-First Audit (Round 7)
 
 **Auditor:** Nigel -- Senior Digital Auditor
 **Date:** 2026-04-01
@@ -12,15 +12,15 @@
 
 ```json
 {
-  "design": 6.9,
-  "content": 6.7,
-  "ux": 7.5,
-  "technical": 7.0,
-  "conversion": 7.3,
-  "simplicity": 7.2,
-  "total": 42.6,
+  "design": 7.3,
+  "content": 7.0,
+  "ux": 7.6,
+  "technical": 7.1,
+  "conversion": 7.6,
+  "simplicity": 7.1,
+  "total": 43.7,
   "max_possible": 60,
-  "percentage": "71.0%",
+  "percentage": "72.8%",
   "score_history": [
     {
       "date": "2026-03-30",
@@ -66,6 +66,14 @@
       "scores": { "design": 6.9, "content": 6.7, "ux": 7.5, "technical": 7.0, "conversion": 7.3, "simplicity": 7.2 },
       "total": 42.6,
       "percentage": "71.0%"
+    },
+    {
+      "date": "2026-04-01",
+      "round": 7,
+      "auditor_note": "Multi-agent sprint: Builder added newsletter rich success state, Spark replaced section dividers with ember diamond motif, Refiner shipped CSS cleanup (-108 lines) + gallery CTA + story rhythm break, Pixel did menu stacking/specials border/footer alignment/form fixes, QA ran full Playwright suite (11/12 passed). Design benefits most from diamond dividers + story textured background. Conversion benefits from newsletter success state upgrade + gallery CTA.",
+      "scores": { "design": 7.3, "content": 7.0, "ux": 7.6, "technical": 7.1, "conversion": 7.6, "simplicity": 7.1 },
+      "total": 43.7,
+      "percentage": "72.8%"
     }
   ]
 }
@@ -73,167 +81,159 @@
 
 ---
 
-## Design -- 6.9/10 (was 6.4, +0.5)
+## Design -- 7.3/10 (was 6.9, +0.4)
 
-The gallery redesign is the most visible change. Spark delivered genuine visual variety where there was previously the weakest section on the entire page.
+The ember diamond dividers and story section rhythm break are the two changes that move the needle here. Combined, they address the biggest Round 6 callout: "the only visual punctuation between sections is an 80px gold line."
 
 **What improved:**
-- Gallery is no longer five identical rectangles. Each tile now has a unique CSS texture overlay (diagonal lines, dot grid, horizontal lines, crosshatch, concentric arcs) applied via `::before` pseudo-elements at low opacity (0.08) with `mix-blend-mode: overlay`. On a 375px screen, the tiles now feel like five distinct photographs rather than five copies of the same placeholder.
-- Unique SVG icons per tile: flame (kitchen), table (dining room), cocktail glass, serving plate, bar glass. These replace the single repeated generic icon and give each tile a distinct identity.
-- Varied aspect ratios on mobile (4:3, 1:1, 3:4 for the middle tiles, 16:7 for the wide tiles). The vertical rhythm of the gallery section now has genuine visual interest instead of uniform stacking.
-- Staggered animation delays (0-0.32s) give tiles an organic cascade rather than a simultaneous pop-in.
-- The center-alignment pass ensures every section header, card, and CTA is consistently centred on mobile. No more left-drifting headers or off-centre cards. This is a polish detail that elevates the overall feel.
-- The Hearth pulse strip (now a single instance, properly placed) remains a differentiator.
+- Ember diamond section dividers replace the plain gold gradient bar. The `section-header__line` now uses `::before` for a fading gold line and `::after` for a rotated 5px diamond with a subtle `ember-glow` keyframe animation (opacity + box-shadow breathing at 3s). This is a genuinely distinctive motif -- it is not a standard template flourish. It reads as intentional brand identity, not decoration.
+- Story section has a textured background: dual radial gradients (gold-tinted, 3-4% opacity) create subtle warmth behind the copy. Top and bottom `::before`/`::after` pseudo-elements add 1px gold gradient lines with 0.2 opacity. This breaks the uniform dark-background cadence at exactly the right moment -- after three data-heavy sections (Specials, Menu, Micro-CTA), the Story section now feels like a pause, not just the next card.
+- Gallery CTA is visually clean -- "See yourself here?" in heading font followed by an outline button. Completes the gallery section visually rather than leaving it as a dead-end.
+- Specials cards on mobile now use a top gold border instead of left border, which is correct for center-aligned stacked cards at 375px. Small detail, but it shows consistency.
 
-**What still holds it back from 7.5+:**
-- The gallery is improved but still fundamentally placeholder boxes with SVG icons. When real photography goes in, this section could jump significantly. As placeholders, they are the best they can be -- but they are still placeholders.
-- The core visual identity remains dark-charcoal + warm-gold + serif headings. This is the dominant restaurant template aesthetic across every marketplace. The gallery textures and hearth strip are distinctive touches, but the overall palette and layout cadence have not changed.
-- Section rhythm is still predominantly centred-header-into-card-grid. Story and Events break this pattern with side-by-side layouts on desktop, but on mobile everything stacks identically.
-- Light mode is still "dark mode, lighter." 17 light-theme overrides exist, but the hero gradient and section backgrounds do not have distinct warmth or personality in light mode.
-- No custom section dividers, illustrated borders, or textured backgrounds beyond the gallery tiles. The 80px gold line remains the only visual punctuation between sections.
-
-**What would push it to 7.5+:**
-A considered light mode palette (not just variable swaps). A textured or photographic background on the Story section. Custom section dividers that are not just gold lines. The gallery textures prove the team can create visual variety -- apply that thinking to the section transitions.
+**What still holds it back from 8.0:**
+- The palette remains dark-charcoal + warm-gold + serif headings. The diamond dividers and story background add brand personality, but the fundamental colour story has not evolved. A client comparing this to five other restaurant templates on ThemeForest would still see a familiar structure.
+- Light mode is still a variable-swap of dark mode. The hero gradient, story background, and section warmth do not have distinct light-mode personality. `[data-theme="light"]` overrides exist (~20) but they are mostly colour flips, not mood shifts.
+- The testimonials section on mobile is three stacked cards of identical structure -- no visual variety, no pull-quote treatment, no photographic element. It is the least visually interesting section on the page now that gallery and story have been upgraded.
+- No photographic or illustrative backgrounds anywhere. The site is entirely CSS-generated visuals. This is appropriate for a template, but it means the design is doing all its work with typography, colour, and subtle gradients -- a high ceiling, but one that is approaching its limit.
 
 ---
 
-## Content -- 6.7/10 (was 6.6, +0.1)
+## Content -- 7.0/10 (was 6.7, +0.3)
 
-No major copy changes this round. The specials CTA copy is new and well-written. Content score holds steady with a minor bump.
+The newsletter success state copy is the big content win this round. It crosses the 7.0 threshold because the copy now has genuine voice and sets expectations at every conversion touchpoint.
 
-**What works:**
-- Section headers remain strong: "What Marcus Is Cooking," "Born from Flame," "Don't Take Our Word for It," "Your Night, Our Fire," "Save Your Seat."
-- The Story copy is still the standout paragraph on the entire site. Sensory, specific, human.
-- The specials CTA -- "These won't last -- reserve your table" -- is concise, urgent, and correctly placed. Good conversion copy.
-- The Monday reservation blocking error message ("We're closed Mondays. Please choose another day.") is clear and direct.
-- Happy Hour callout, testimonials aggregate proof, and events copy with named people (Elena, Marcus) all carry from Round 5.
+**What improved:**
+- Newsletter success state now has real copy: "You're in. Welcome to the inner circle." followed by "We send one email per menu change -- never more." This directly addresses the Round 6 callout ("single gold line with no expectation-setting"). The expectation-setting line is excellent -- it pre-empts the unsubscribe instinct and feels like a promise, not a disclaimer.
+- The secondary CTA "Browse the Menu" after newsletter signup is smart content strategy -- it keeps the user engaged rather than leaving them at a dead-end confirmation.
+- Gallery CTA copy "See yourself here? / Reserve Your Evening" is evocative and action-oriented. It works because it speaks to aspiration, not transaction.
 
-**What still holds it back from 7+:**
-- Specials descriptions remain ingredient lists without story. Why did Marcus pick the wagyu this week? Where do the truffles come from? One sentence of provenance per dish would push specials from "menu card" to "editorial content."
-- Gallery tiles have labels ("Open Kitchen & Live Fire," "Main Dining Room") but no supporting copy. A single evocative line per tile -- "Where the magic happens at 800 degrees" -- would add personality.
-- Menu item descriptions are still standard ingredient lists. Signature dishes deserve a line of preparation narrative.
-- No new copy in the newsletter success state. It remains a single line ("You're in. Watch your inbox.") with no expectation-setting.
+**What carries from previous rounds:**
+- Section headers remain strong and distinctive.
+- Story copy is still the best paragraph on the site.
+- Specials CTA urgency copy is well-placed.
+- Happy Hour callout, testimonials with sources, events copy with named people.
+
+**What still holds it back from 7.5:**
+- Specials descriptions are still ingredient lists. The Dry-Aged Tomahawk description is 25 words of preparation narrative, which is better than a simple list, but the Spring Pea Risotto and Wagyu Tataki read more like menu line items. One sentence of provenance per dish -- where the wagyu is sourced, why Marcus picked peas this week -- would elevate these from menu to editorial.
+- Menu item descriptions across all four tabs remain standard ingredient lists with no narrative. For a template, this is acceptable, but signature dishes deserve a line of personality.
+- Gallery tile labels are single descriptive phrases with no supporting copy. "Open Kitchen & Live Fire" tells you what it is but not what it feels like. One evocative line per tile would match the voice established in Story.
 
 ---
 
-## UX -- 7.5/10 (was 7.2, +0.3)
+## UX -- 7.6/10 (was 7.5, +0.1)
 
-Three specific Round 5 bugs have been fixed: hours text clipping, missing nav scrim, and unscoped hover effects. Plus the Monday reservation blocking adds real form intelligence.
+Small bump. The Pixel fixes (menu stacking, specials border swap, footer alignment, form centering) are all polish corrections that prevent minor friction. QA passing 11/12 Playwright tests confirms the interactive elements are functionally sound.
 
 **What improved:**
-- Hours text clipping fixed. The `white-space: nowrap` on `.hours__day span:last-child` has been replaced with `min-width: 0`, allowing time text to shrink within the flex container. Closing times are now fully visible on 375px screens.
-- Nav overlay/scrim added. `div.nav__overlay` with `rgba(0,0,0,0.55)` background, `backdrop-filter: blur(2px)`, covers the full viewport when the mobile nav is open. This provides clear visual separation between the drawer and the page content. The `.active` class toggles display. Properly implemented.
-- Monday reservation blocking prevents users from submitting reservations for closed days. Inline error on date change AND on form submit. Accessible with `role="alert"` and `aria-invalid`. The date input validates immediately on change, not just on submit.
-- Hover effects are now properly scoped. The six main hover rules (links, buttons, menu tabs, footer links, social icons) are wrapped in `@media (hover: hover)`. Desktop-breakpoint hovers (nav links, menu items, section CTAs) are inside `@media (min-width: 1024px)` which prevents them from firing on mobile.
-- Gallery staggered animations create a smooth cascade on scroll rather than all tiles appearing simultaneously.
-- Center-alignment is consistent across all sections at 375px. No drifting headers or off-centre elements.
+- Menu items on narrow mobile (sub-480px) now properly stack and center: name, price, description, and tags are all centered with `flex-wrap: wrap` and `justify-content: center`. The dot-leader between name and price is hidden on narrow screens (correct -- it only works with horizontal layout).
+- Specials cards switch from left-border to top-border on mobile, matching the center-aligned layout.
+- Form inputs and selects have `font-size: 16px` to prevent iOS zoom on focus -- a critical mobile UX detail.
+- Footer newsletter form collapses to column layout below 400px.
+- Newsletter success state has `role="status"` and `aria-live="polite"` for screen reader announcement.
+- 11/12 Playwright tests passing means the core interactive flows (nav, menu tabs, reservation form, theme toggle, scroll animations) are working.
 
-**What still holds it back from 8+:**
-- The desktop-breakpoint hovers (lines 1630, 1644) are inside `@media (min-width: 1024px)` but not `@media (hover: hover)`. On desktop touch devices (Surface Pro, iPad with keyboard), these would trigger sticky hover states. A minor edge case, but not technically correct.
-- Newsletter form remains buried deep in the footer on mobile. A visitor scrolling past Reservations into the footer is unlikely to be looking for a signup form. No separate discovery mechanism (e.g., a slide-up after X seconds, or a CTA elsewhere on the page).
-- The gallery has no swipe gesture or carousel behaviour on mobile. Five tiles stacking vertically is fine, but a horizontal swipe between tiles (like the menu tabs) would improve the experience for a section designed to showcase atmosphere.
-- No visible loading/skeleton states for images when real photography is added. The placeholder textures are nice, but they do not demonstrate how the page will behave during image load.
+**What still holds it back from 8.0:**
+- The 1 failing Playwright test needs investigation. If it is a real regression, it is a real UX issue.
+- Gallery still has no swipe/carousel behavior on mobile. Five vertically stacked tiles with varied aspect ratios are better than five identical rectangles, but a horizontal swipe would match user expectations for an image gallery on a phone.
+- Newsletter form is still only discoverable in the footer. A user who scrolls past reservations is unlikely to be newsletter-hunting. The rich success state is great -- but only if the user finds the form.
+- Desktop-breakpoint hovers (inside `@media (min-width: 1024px)` blocks) are still not wrapped in `@media (hover: hover)`. On desktop touch devices, these could produce sticky hover states. Minor edge case.
 
 ---
 
-## Technical -- 7.0/10 (was 6.2, +0.8)
+## Technical -- 7.1/10 (was 7.0, +0.1)
 
-The largest category jump. Multiple Round 5 bugs have been fixed, and the codebase is structurally cleaner.
+Refiner's CSS cleanup removed ~108 lines, which partially addresses the accretion problem. But new CSS was added (newsletter success, diamond dividers, story background, Pixel mobile fixes), so net CSS went from 2,881 to 2,866 -- only a 15-line net reduction. The accretion pattern continues.
 
 **What improved:**
-- Duplicate Hearth element removed. Only one `id="hearthPulse"` and one `id="hearthMessage"` exist in the HTML. No duplicate IDs anywhere in the document (verified via grep).
-- All font sizes are now >= 0.875rem (14px). The sub-14px violations flagged in Round 5 (0.7rem hearth label, 0.75rem specials badge, 0.7rem happy hour badge, 0.7rem menu tag) have all been corrected. The accessibility floor is respected throughout.
-- Schedule extracted to shared `EMBER_SCHEDULE` object at line 8 of main.js. All three IIFEs (open/closed status, urgency messaging, hearth pulse) now reference this single object. A client changing hours updates one place.
-- Hover effects scoped behind `@media (hover: hover)` for the six primary interactive elements.
-- Nav overlay element in HTML with proper JS toggling and CSS transitions.
-- Monday validation logic is well-structured: checks on date `change` event, checks on form `submit`, prevents submission, provides accessible error feedback.
+- Duplicate `.success__icon` and `.success__conf` definitions from Round 6 have been resolved -- only one instance of each remains (lines 1255, 1264).
+- The dead `.specials__accent` full definition (previously lines 2139-2149) has been replaced with a comment noting removal (`/* .specials__accent -- removed */` at line 2222). However, `display: none` on `.specials__accent` still exists at line 2680. The HTML still has `.specials__accent` elements (lines 132, 144, 156) with inline `--hue` styles. So the element exists in HTML, is hidden by CSS, and the full styling is commented out. This is half-cleaned -- the HTML elements should be removed too.
+- Ember diamond divider CSS is well-structured: 40 lines of clean, purposeful CSS with a single keyframe animation. No specificity issues.
+- Story rhythm break CSS is clean: 30 lines using pseudo-elements for textured background and gold border lines.
+- Newsletter success state CSS is properly scoped under `.newsletter-success` with BEM naming.
 
-**What still holds it back from 7.5+:**
-- CSS is now 2,881 lines. Dead CSS remains: `.specials__accent` is defined at lines 2139-2149 (with full styling and light-mode variant), then overridden at line 2624 with `display: none`. The full definition is dead weight. Duplicate `.success__icon` definitions at lines 1222 and 2293, and duplicate `.success__conf` definitions at lines 1231 and 2298. These are likely from separate rounds of work that were not consolidated.
-- `overflow-x: hidden` on `body` (line 70) still masks horizontal overflow rather than fixing root causes.
-- The center-alignment pass added ~100 lines at the bottom of style.css (lines 2740-2881) as a separate audit block rather than merging rules into their original selectors. This is an accretion pattern -- each round adds rules at the end rather than editing in place. The CSS is becoming a geological record of audit rounds.
-- The gallery texture CSS (lines 2652-2738) is well-written but adds significant specificity weight with `:nth-child()` selectors on each tile. When real images replace placeholders, all of this CSS becomes dead.
-- No CSS minification or critical CSS extraction. 2,881 lines of CSS loads synchronously.
+**What still holds it back from 7.5:**
+- CSS is still 2,866 lines. The mobile center-alignment audit block (lines 2799-2867) remains appended at the end of the file rather than merged into original selectors. This block alone is ~70 lines of rules that duplicate selector patterns from earlier in the file.
+- `overflow-x: hidden` on `body` (line 70) is still masking horizontal overflow rather than fixing root causes.
+- `.specials__accent` elements remain in HTML (3 instances) with inline styles, hidden by `display: none` at line 2680. Dead HTML + dead CSS.
+- Gallery texture CSS (lines ~2720-2793) is ~70 lines of placeholder-specific styles with `:nth-child()` selectors. All of this becomes dead when real images replace placeholders.
+- No CSS minification. 2,866 lines load synchronously. For a template demo this is acceptable, but for production it would need a build step.
+- Open Graph URLs still point to `https://your-domain.com` (lines 13-14 of index.html). Template placeholder, but noted.
 
 ---
 
-## Conversion -- 7.3/10 (was 7.0, +0.3)
+## Conversion -- 7.6/10 (was 7.3, +0.3)
 
-The specials CTA and Monday blocking close two specific Round 5 gaps.
+Three improvements compound here: newsletter rich success state, gallery CTA, and the Pixel mobile form fixes. The conversion funnel is now complete from hero to footer with no dead-end sections.
 
 **What improved:**
-- Specials CTA added: "These won't last -- reserve your table" with a down-arrow SVG, linking to `#reservations`. Positioned immediately below the specials grid. This captures intent at the moment of desire -- a user seeing three limited dishes with scarcity tags now has a one-tap path to booking. This was the top conversion recommendation in Round 5.
-- Monday reservation blocking prevents wasted conversions. A user cannot submit a reservation for a day the restaurant is closed. The error is immediate (on date change), clear, and accessible. No silent failures.
+- Newsletter success state is now a genuine conversion moment: heading ("You're in. Welcome to the inner circle."), expectation-setting ("We send one email per menu change -- never more."), and a secondary CTA ("Browse the Menu") that keeps the user in the funnel. This was the #1 conversion recommendation in Round 6, and it has been properly executed.
+- Gallery CTA ("See yourself here? / Reserve Your Evening") closes the gallery as a conversion dead-end. Every section on the page now either has a CTA or leads naturally into the next section.
+- Mobile form inputs at 16px prevent iOS zoom, which is a conversion micro-fix -- any form friction on mobile costs conversions.
+- Specials top-border on mobile keeps the card hierarchy visually clear when center-aligned.
 
-**What carries from Round 5:**
-- Newsletter capture in footer with appropriate copy.
-- Happy Hour callout with badge and details.
-- Contextual urgency messaging (Monday/weekend/weekday variants).
-- Events section dual CTAs (email + call).
+**What carries from previous rounds:**
+- Specials CTA with urgency copy.
+- Monday reservation blocking with accessible error.
 - Mobile sticky bar with Call + Reserve.
-- Testimonials aggregate proof as section subhead.
+- Happy Hour callout and contextual urgency messaging.
 - Rich post-booking success state with confirmation details.
 - Micro-CTAs between sections guiding toward reservations.
+- Testimonials aggregate proof as social validation.
 
-**What still holds it back from 8+:**
-- Newsletter success state remains a single gold line. No expectation-setting ("We send one email per menu change -- never more"), no secondary CTA ("Browse the menu while you wait"), no visual treatment matching the rich post-booking success state.
-- Gallery section remains a conversion dead-end. Five atmosphere tiles with no CTA, no "Book a table" link, no "Follow us on Instagram" hook. A user inspired by the atmosphere imagery has no next action.
-- The newsletter form has no discovery mechanism outside the footer. A persistent or timed prompt elsewhere on the page would capture more signups from users not ready to book.
-- No phone number click-to-call tracking or event attribution. On mobile, tapping "Call" in the sticky bar is the highest-intent conversion action, but there is no way to measure it.
+**What still holds it back from 8.0:**
+- Newsletter form has no discovery mechanism outside the footer. A slide-up after 30 seconds of scrolling, or a "Stay in the loop" CTA in the testimonials section, would capture users not ready to book. The success state is excellent -- the form just needs more eyeballs.
+- No click-to-call tracking or event attribution on the mobile sticky bar. The "Call Us" button is the highest-intent conversion action on mobile, but there is no way to measure it.
+- Events section dual CTAs (email + call) are correct, but there is no form or calendar for event inquiries. A simple "Tell us about your event" form would capture leads more effectively than an email link.
+- The 1 failing Playwright test could indicate a broken conversion flow -- needs investigation.
 
 ---
 
-## Simplicity -- 7.2/10 (was 7.3, -0.1)
+## Simplicity -- 7.1/10 (was 7.2, -0.1)
 
-Slight dip. The codebase improvements (shared schedule, no duplicate elements) are offset by growing CSS with accretion patterns.
+Another slight dip. Refiner's cleanup removed duplication, but new features (diamond dividers, newsletter success, story background, Pixel mobile block) added CSS. The accretion pattern -- each round appending rules at the end -- continues to erode maintainability.
 
 **What earns the score:**
 - Single HTML file, single CSS file, single JS file. No build tooling.
-- BEM-ish naming is consistent. A developer can navigate by convention.
+- BEM-ish naming is consistent throughout, including new additions (`.newsletter-success__heading`, `.gallery__cta-text`).
 - CSS custom properties make re-theming straightforward.
-- JS IIFEs are clearly labelled and self-contained.
-- The shared `EMBER_SCHEDULE` object is a genuine simplification -- one source of truth for hours.
+- JS IIFEs are clearly labelled and self-contained. Newsletter success handler is clean (17 lines).
+- Shared `EMBER_SCHEDULE` object remains a single source of truth.
 - 9 sections, well within the 10-12 cap.
+- Ember diamond CSS is clean and self-contained (~40 lines).
 
 **What docks points:**
-- CSS at 2,881 lines with dead rules (`.specials__accent` defined then hidden, duplicate `.success__icon` and `.success__conf`). The mobile center-alignment audit block (lines 2740-2881) adds rules at the end of the file rather than merging into original selectors, creating a layered accretion pattern.
-- Gallery texture CSS (lines 2652-2738) is well-crafted but inherently temporary -- it will all be replaced when real images go in. ~90 lines of placeholder-specific CSS.
-- The center-alignment block repeats selector patterns that already exist earlier in the file. For example, `.events__text` has `text-align` set both in its original definition and in the alignment audit block.
+- CSS at 2,866 lines with the tail-end audit block (lines 2799-2867) still appended rather than merged. Selectors like `.events__text`, `.story__text`, `.testimonials__card` have `text-align` set both in their original definitions and in this block.
+- `.specials__accent` is a three-layer mess: HTML elements exist (3 divs with inline `--hue` styles), the full CSS definition was removed (replaced with a comment at line 2222), but `display: none` remains at line 2680. Either remove the HTML elements or remove the CSS entirely.
+- Gallery placeholder CSS (~70 lines of `:nth-child()` texture selectors) is inherently temporary and will be replaced wholesale when real images go in. This is not a simplicity problem per se, but it is code that has a known expiration date.
+- 50 instances of `text-align: center` across the CSS. Some of these are genuinely needed (section headers, mobile stacking), but the count suggests over-specification. A few inherited `text-align: center` rules at the section level would replace many per-element declarations.
 
 ---
 
 ## Summary
 
-**Round 5 to Round 6 delta: +1.9 points overall (40.7 -> 42.6). Gains across all categories except Simplicity (-0.1).**
+**Round 6 to Round 7 delta: +1.1 points overall (42.6 -> 43.7). Gains in Design (+0.4), Content (+0.3), UX (+0.1), Technical (+0.1), Conversion (+0.3). Simplicity dips (-0.1).**
 
-This is the most productive round since the strict recalibration. The team addressed the top bugs and recommendations from Round 5 systematically:
+This was a productive multi-agent sprint. The team addressed three of the top four Round 6 recommendations:
 
-| Issue from Round 5 | Status |
+| Recommendation from Round 6 | Status |
 |---|---|
-| Duplicate Hearth element + duplicate IDs | Fixed |
-| Hours text clipping on 375px | Fixed |
-| Font sizes below 14px | Fixed (all >= 0.875rem) |
-| Schedule duplicated across 3 IIFEs | Fixed (shared EMBER_SCHEDULE) |
-| Hover effects on mobile (sticky hover) | Fixed (@media hover:hover) |
-| Nav missing scrim/overlay | Fixed |
-| Gallery visual monotony | Fixed (textures, icons, aspect ratios) |
-| No CTA in Specials section | Fixed |
-| Monday reservation allowed on closed day | Fixed (validation on change + submit) |
-| Center-alignment inconsistencies | Fixed (full audit pass) |
-
-Technical had the biggest jump (+0.8) because it was dragged down in Round 5 by specific bugs that have now been resolved. Design gained +0.5 almost entirely from the gallery redesign. UX gained +0.3 from the hours fix, nav scrim, and Monday blocking. Conversion gained +0.3 from the specials CTA and Monday blocking.
+| Clean up dead and duplicate CSS | Partially done. Duplicate `.success__icon`/`.success__conf` fixed. `.specials__accent` half-cleaned (CSS commented out, but HTML elements + `display: none` remain). Audit block not merged. Net CSS reduction only 15 lines. |
+| Gallery section conversion path | Done. Gallery CTA with "See yourself here? / Reserve Your Evening" added. Gallery is no longer a dead-end. |
+| Break the section rhythm | Done. Ember diamond dividers replace plain gold lines. Story section has textured background with gold border lines. Two distinct visual breaks now exist in the page flow. |
+| Newsletter success state (from earlier rounds) | Done. Rich success with heading, expectation-setting, and secondary CTA. |
 
 ### Top 3 Priority Recommendations
 
-**1. Clean up dead and duplicate CSS (Technical + Simplicity impact)**
-Remove the dead `.specials__accent` full definition (lines 2139-2149), merge duplicate `.success__icon` and `.success__conf` selectors, and fold the center-alignment audit block (lines 2740-2881) into the original selectors. This consolidation could cut 150+ lines and improve maintainability. The CSS is approaching 3,000 lines and the accretion pattern will only get worse with each round.
+**1. Finish the CSS cleanup (Technical + Simplicity impact, est. +0.3 each)**
+Three specific tasks: (a) Remove the 3 `.specials__accent` div elements from index.html and the `display: none` rule at line 2680 of style.css. (b) Merge the mobile center-alignment audit block (lines 2799-2867) into original selectors and delete the block. (c) Audit `text-align: center` instances -- many per-element declarations could be replaced by inherited section-level rules. Target: CSS under 2,700 lines.
 
-**2. Gallery section conversion path (Conversion + Content impact)**
-Add a CTA at the bottom of the Gallery section -- "See yourself here? Reserve your evening." or a "Follow us on Instagram" link. Add one evocative line of copy per tile label. The gallery was visually transformed this round; now give it purpose in the conversion funnel. This section is currently the longest dead-end on the page.
+**2. Upgrade the testimonials section visually (Design + Content impact, est. +0.3 Design)**
+Testimonials is now the weakest visual section. Three identical stacked cards with no variety. Options: (a) Make the middle card a pull-quote with larger type and gold accent border. (b) Add a subtle background treatment (similar to story section). (c) Add one line of context per quote ("Sarah has been a regular since 2020"). The gallery and story upgrades prove the team can break visual monotony -- apply the same thinking here.
 
-**3. Design: break the section rhythm (Design impact)**
-The gallery textures prove the team can create visual variety. Apply that thinking to section transitions. A textured background on the Story section, a custom divider element between Specials and Menu, or an asymmetric layout for Testimonials would break the centred-header-into-card-grid pattern that still dominates. One non-grid section layout would push Design past 7.0.
+**3. Newsletter form discovery (Conversion impact, est. +0.2)**
+The newsletter success state is excellent, but the form is buried in the footer. Add a secondary entry point: a "Stay in the loop" inline CTA after the testimonials section, or a subtle slide-up after 20s of scrolling. The form only converts if people find it.
 
 ### Would this impress a potential client?
 
-Getting closer. A restaurant owner scrolling on their phone would now see a page that feels intentional at every point. The gallery has personality. The booking flow is smart (blocks closed days, shows urgency). The copy has a real voice. The sticky bar makes it effortless to act. The score has crossed 70% for the first time under strict calibration. The gap is narrowing between "this is a very good template" and "this is the one I want."
+Getting closer, and the progress is visible. A restaurant owner scrolling on their phone would see: distinctive diamond dividers (not generic), a warm story section with visual presence, a smart booking flow, and a page that feels intentionally center-aligned at every point. The score has reached 72.8% under strict calibration -- the highest since the recalibration. The gap between "very good template" and "this is what I want" is narrowing. The next big jump requires either (a) visual variety in the testimonials and events sections, or (b) real photography replacing placeholders, which would unlock multiple categories simultaneously.
