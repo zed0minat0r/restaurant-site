@@ -14,6 +14,15 @@
 - Confirmed no horizontal overflow — body has overflow-x: hidden, all containers use box-sizing
 - All changes scoped behind mobile media queries; desktop layout untouched
 
+### Mobile Center-Alignment Audit Round 2 (Pixel)
+- Menu items: centered name, price, description, and dietary tags on narrow mobile (<480px); hid dot leaders for clean stacking
+- Specials cards: swapped left-border accent to top-border on mobile for center symmetry
+- Story section: ensured section-header divider line uses `margin: auto` on mobile
+- Footer brand: added explicit `text-align: center` on narrow mobile (<480px)
+- Newsletter input: set 16px font-size and center alignment on narrow mobile to prevent iOS zoom
+- Reservation submit button: adjusted font-size/padding for comfortable 375px tap target
+- All fixes scoped behind mobile media queries; desktop layout untouched. No new sections.
+
 ## 2026-03-30
 
 ### Audit Round 4 Fixes — Technical & UX (Refiner)

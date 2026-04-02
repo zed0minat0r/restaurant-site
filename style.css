@@ -2726,7 +2726,7 @@ img {
 .gallery__item:nth-child(5) { animation-delay: 0.32s; }
 
 /* ============================================
-   MOBILE CENTER-ALIGNMENT + UX (consolidated)
+   MOBILE CENTER-ALIGNMENT + UX — Pixel Round 2
    ============================================ */
 @media (max-width: 767px) {
   /* Events */
@@ -2735,24 +2735,42 @@ img {
   .events__features { display: inline-block; text-align: left; }
   .events__actions { justify-content: center; align-items: center; }
   .events__actions .btn { width: 100%; text-align: center; }
-  /* Story */
+
+  /* Story — ensure divider line is centered */
   .story__text { text-align: center; }
   .story__text p:not(.section-header__label) { text-align: center; }
-  /* Specials */
+  .story__text .section-header__line { margin: 1.25rem auto; }
+
+  /* Specials — swap left-border to top-border for center symmetry */
+  .specials__card { border-left: none; border-top: 3px solid var(--gold); }
   .specials__body { text-align: center; }
   .specials__name { text-align: center; }
   .specials__desc { text-align: center; }
   .specials__meta { justify-content: center; }
+
   /* Testimonials */
   .testimonials__card { text-align: center; }
   .testimonials__stars { text-align: center; }
   .testimonials__quote { text-align: center; }
   .testimonials__author { justify-content: center; }
+
   /* Hours */
   .hours__note { text-align: center; }
   .hours__note p { text-align: center; }
 }
 
+/* Menu items: center on narrow mobile (375px) */
+@media (max-width: 479px) {
+  .menu__item-body { text-align: center; }
+  .menu__item-header { flex-wrap: wrap; justify-content: center; }
+  .menu__item-dots { display: none; }
+  .menu__item-name { width: 100%; text-align: center; }
+  .menu__item-price { width: 100%; text-align: center; margin-bottom: 0.25rem; }
+  .menu__item-desc { text-align: center; }
+  .menu__item-tags { justify-content: center; }
+}
+
+/* Reservation form: center labels + inputs on mobile */
 @media (max-width: 479px) {
   .form-group { align-items: center; text-align: center; }
   .form-group label { text-align: center; width: 100%; }
@@ -2761,6 +2779,13 @@ img {
   .form-group textarea { text-align: center; font-size: 16px; }
   .form-group textarea { text-align: left; }
   .form-group select { text-align: left; background-position: right 1rem center; }
+  .reservation-form .btn--lg { font-size: 0.9rem; padding: 1rem 1.5rem; }
+}
+
+/* Footer: explicit centering on narrow mobile */
+@media (max-width: 479px) {
+  .footer__brand { text-align: center; }
+  .footer__newsletter-form input { font-size: 16px; text-align: center; }
 }
 
 /* Tap targets + iOS zoom prevention */
