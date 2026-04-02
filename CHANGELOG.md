@@ -1,6 +1,25 @@
 # Changelog
 
+## 2026-04-01
+
+### Mobile Center-Alignment Audit & Visual Fixes (Pixel)
+- Events section: centered text, feature list, and action buttons on mobile (<768px)
+- Story section: centered body paragraphs on mobile
+- Specials cards: centered card names, descriptions, and meta on mobile
+- Testimonials: centered stars, quotes, and author info on mobile
+- Reservation form: centered labels and inputs on mobile (<480px)
+- Hours section: centered note text on mobile
+- Ensured all form inputs use min 16px font-size (prevents iOS auto-zoom)
+- Verified all tap targets meet 44px minimum (buttons, tabs, nav hamburger, social links)
+- Confirmed no horizontal overflow — body has overflow-x: hidden, all containers use box-sizing
+- All changes scoped behind mobile media queries; desktop layout untouched
+
 ## 2026-03-30
+
+### Audit Round 4 Fixes — Technical & UX (Refiner)
+- Fixed all font-size violations below 14px (0.875rem): menu legend tags, specials badge, specials desc, hearth-pulse label/message, happy-hour badge — 7 selectors corrected
+- Consolidated 3 duplicate restaurant schedule definitions in JS into single shared `EMBER_SCHEDULE` constant — one place to update hours
+- Swipe hint now dismisses after first successful swipe gesture (was always visible on mobile)
 
 ### Content & Conversion Refinements (Refiner)
 - Added Gallery/Atmosphere section: 5-slot placeholder grid with image icons, labels, and responsive wide/standard layout
