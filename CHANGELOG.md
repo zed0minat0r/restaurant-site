@@ -303,3 +303,12 @@
 - FIXED: Hearth pulse text downsized to 0.8rem on narrow screens to prevent overflow.
 - FIXED: Footer columns consistently center-aligned across all mobile breakpoints (up to 767px), not just 479px.
 - No new sections added. Mobile-first. Center-aligned.
+
+### Refiner Round 8 — CSS Cleanup, Testimonials Upgrade, Newsletter Discovery
+
+- CLEANED: Removed 3 dead `.specials__accent` div elements from HTML and `display: none` CSS rule.
+- CLEANED: Consolidated 4 separate `@media` audit blocks into 2, reducing duplicate `text-align: center` declarations.
+- UPGRADED: Testimonials section — middle card now a featured pull-quote with larger type and gold accent border (breaks visual monotony).
+- ADDED: Context lines under each testimonial author ("Regular since 2021", "Anniversary dinner", "Weekly regular").
+- ADDED: Inline newsletter CTA between testimonials and events sections — "Stay in the loop" link scrolls to footer form. Improves newsletter form discovery without adding a new section.
+- No new sections added. Mobile-first. Center-aligned.
