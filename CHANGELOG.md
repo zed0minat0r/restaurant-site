@@ -276,3 +276,11 @@
 - ADDED: Story section visual rhythm break — subtle radial gold gradients and gold separator lines via ::before/::after pseudo-elements. Breaks the uniform section pattern without adding a new section.
 - Net reduction: 108 lines of CSS removed while adding new features. File went from 2881 to 2773 lines.
 - No new sections added. Mobile-first. Center-aligned.
+
+### Round 8 — Builder: Enhanced Newsletter Success State
+- UPGRADED: Newsletter form success state from single gold line to rich confirmation matching the reservation success pattern.
+- ADDED: Checkmark icon, welcome heading ("You're in. Welcome to the inner circle."), expectation-setting copy ("We send one email per menu change — never more"), and secondary CTA ("Browse the Menu") linking to #menu.
+- ADDED: `.newsletter-success` CSS block with icon, heading, expectation, and CTA styling. Center-aligned, mobile-first.
+- Addresses repeated audit callout: "Newsletter success state remains a single gold line" across multiple rounds.
+- No new sections added. Mobile-first. Center-aligned.
+- No new sections added. Mobile-first. Center-aligned.

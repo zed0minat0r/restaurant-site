@@ -741,7 +741,7 @@ var EMBER_SCHEDULE = {
 })();
 
 /* ============================================
-   Newsletter Form — simple success state
+   Newsletter Form — rich success state
    ============================================ */
 (function () {
   'use strict';
@@ -754,6 +754,24 @@ var EMBER_SCHEDULE = {
     var emailInput = form.querySelector('input[type="email"]');
     if (!emailInput || !emailInput.value.trim() || !emailInput.value.includes('@')) return;
 
-    form.innerHTML = '<p style="color: var(--gold); font-family: var(--font-heading); font-size: 1rem;">You\u2019re in. Watch your inbox.</p>';
+    var parent = form.closest('.footer__newsletter');
+    if (!parent) return;
+
+    var successEl = document.createElement('div');
+    successEl.className = 'newsletter-success';
+    successEl.setAttribute('role', 'status');
+    successEl.setAttribute('aria-live', 'polite');
+
+    successEl.innerHTML =
+      '<div class="newsletter-success__icon">' +
+        '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>' +
+      '</div>' +
+      '<p class="newsletter-success__heading">You\u2019re in. Welcome to the inner circle.</p>' +
+      '<p class="newsletter-success__expect">We send one email per menu change\u2014never more.</p>' +
+      '<a href="#menu" class="btn btn--outline btn--sm newsletter-success__cta">Browse the Menu</a>';
+
+    // Replace heading, sub, and form with success state
+    parent.innerHTML = '';
+    parent.appendChild(successEl);
   });
 })();
