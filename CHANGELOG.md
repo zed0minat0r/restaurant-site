@@ -246,3 +246,8 @@
 - FIXED: Scoped all base-level hover effects behind @media (hover: hover) -- prevents sticky hover states on touch devices (buttons, links, menu tabs, footer links, social icons)
 - Desktop nav overlay auto-hidden via !important override in desktop breakpoint
 - Refactored mobile nav JS into shared closeNav() helper for cleaner open/close logic
+
+### Round 6 — Specials CTA + Monday Validation (Builder)
+- ADDED: Conversion CTA below Specials grid — "These won't last — reserve your table" links to #reservations. Uses existing section-cta pattern. Center-aligned, mobile-first. Captures intent at moment of desire (top audit conversion gap).
+- ADDED: Monday reservation blocking — date input now validates against closed day (Monday). Shows inline error "We're closed Mondays. Please choose another day." on date change AND on form submit. Prevents invalid bookings. Accessible with aria-invalid and role="alert".
+- No new sections added (CTA is inline within existing Specials section).

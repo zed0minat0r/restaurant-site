@@ -262,8 +262,52 @@ var EMBER_SCHEDULE = {
       dateInput.value = today;
     }
 
+    // Monday (closed day) validation on date change
+    if (dateInput) {
+      dateInput.addEventListener('change', function () {
+        var selected = new Date(this.value + 'T12:00:00');
+        var prevWarning = this.parentElement.querySelector('.form-error--monday');
+        if (prevWarning) prevWarning.remove();
+        if (selected.getDay() === 1) {
+          this.setAttribute('aria-invalid', 'true');
+          this.style.borderColor = '#8B2635';
+          var warn = document.createElement('span');
+          warn.className = 'form-error form-error--monday';
+          warn.setAttribute('role', 'alert');
+          warn.textContent = 'We\u2019re closed Mondays. Please choose another day.';
+          this.parentElement.appendChild(warn);
+        } else {
+          this.removeAttribute('aria-invalid');
+          this.style.borderColor = '';
+        }
+      });
+      // Check initial value (today) for Monday
+      var initialDate = new Date(dateInput.value + 'T12:00:00');
+      if (initialDate.getDay() === 1) {
+        dateInput.dispatchEvent(new Event('change'));
+      }
+    }
+
     reservationForm.addEventListener('submit', function (e) {
       e.preventDefault();
+
+      // Block Monday reservations (restaurant closed)
+      var selectedDate = new Date(document.getElementById('resDate').value + 'T12:00:00');
+      if (selectedDate.getDay() === 1) {
+        var dateField = document.getElementById('resDate');
+        dateField.setAttribute('aria-invalid', 'true');
+        dateField.style.borderColor = '#8B2635';
+        var prevMondayErr = dateField.parentElement.querySelector('.form-error--monday');
+        if (!prevMondayErr) {
+          var mondayErr = document.createElement('span');
+          mondayErr.className = 'form-error form-error--monday';
+          mondayErr.setAttribute('role', 'alert');
+          mondayErr.textContent = 'We\u2019re closed Mondays. Please choose another day.';
+          dateField.parentElement.appendChild(mondayErr);
+        }
+        dateField.focus();
+        return;
+      }
 
       // Basic validation with accessible error feedback
       var fields = reservationForm.querySelectorAll('[required]');
