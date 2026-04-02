@@ -283,4 +283,10 @@
 - ADDED: `.newsletter-success` CSS block with icon, heading, expectation, and CTA styling. Center-aligned, mobile-first.
 - Addresses repeated audit callout: "Newsletter success state remains a single gold line" across multiple rounds.
 - No new sections added. Mobile-first. Center-aligned.
+
+### Round 9 — Spark: Ember Diamond Section Dividers
+- UPGRADED: `.section-header__line` from plain 80px gold gradient bar to a decorative ember motif — fading gold lines flanking a small rotated diamond with a soft glow pulse animation.
+- CSS-only. Uses `::before` for the full fading line and `::after` for the center diamond spark with `transform: rotate(45deg)` and a subtle `ember-glow` keyframe animation (opacity + box-shadow breathing at 3s).
+- Directly addresses audit callout: "No custom section dividers... The 80px gold line remains the only visual punctuation between sections."
+- No new sections added. Mobile-first. Center-aligned.
 - No new sections added. Mobile-first. Center-aligned.
