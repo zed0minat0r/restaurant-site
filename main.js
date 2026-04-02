@@ -2,6 +2,19 @@
    Ember & Oak — Main JavaScript
    ============================================ */
 
+/* Shared restaurant schedule — single source of truth
+   Mon=closed, Tue-Thu 17-22, Fri-Sat 17-23, Sun 16-21
+   getDay(): 0=Sun, 1=Mon, 2=Tue ... 6=Sat            */
+var EMBER_SCHEDULE = {
+  0: { open: 16, close: 21, label: 'Sunday' },
+  1: null,
+  2: { open: 17, close: 22, label: 'Tue\u2013Thu' },
+  3: { open: 17, close: 22, label: 'Tue\u2013Thu' },
+  4: { open: 17, close: 22, label: 'Tue\u2013Thu' },
+  5: { open: 17, close: 23, label: 'Fri\u2013Sat' },
+  6: { open: 17, close: 23, label: 'Fri\u2013Sat' }
+};
+
 (function () {
   'use strict';
 
@@ -10,6 +23,7 @@
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
   const themeToggle = document.getElementById('themeToggle');
+  const navOverlay = document.getElementById('navOverlay');
   const html = document.documentElement;
   const menuTabs = document.querySelectorAll('.menu__tab');
   const menuPanels = document.querySelectorAll('.menu__panel');
@@ -17,22 +31,31 @@
 
   if (!nav || !hamburger || !navLinks || !themeToggle) return;
 
+  function closeNav() {
+    navLinks.classList.remove('open');
+    hamburger.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    if (navOverlay) navOverlay.classList.remove('active');
+  }
+
   // --- Mobile Nav ---
   hamburger.addEventListener('click', function () {
     const isOpen = navLinks.classList.toggle('open');
     hamburger.classList.toggle('active');
     hamburger.setAttribute('aria-expanded', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (navOverlay) navOverlay.classList.toggle('active', isOpen);
   });
+
+  // Close nav on overlay tap
+  if (navOverlay) {
+    navOverlay.addEventListener('click', closeNav);
+  }
 
   // Close nav on link click
   navLinks.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      navLinks.classList.remove('open');
-      hamburger.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', closeNav);
   });
 
   // Close nav on outside tap
@@ -40,10 +63,7 @@
     if (navLinks.classList.contains('open') &&
         !navLinks.contains(e.target) &&
         !hamburger.contains(e.target)) {
-      navLinks.classList.remove('open');
-      hamburger.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      closeNav();
     }
   });
 
@@ -196,6 +216,10 @@
 
       // Only trigger if horizontal swipe is dominant and threshold met
       if (Math.abs(diffX) < 50 || Math.abs(diffY) > Math.abs(diffX) * 0.7) return;
+
+      // Dismiss swipe hint after first successful swipe
+      var swipeHint = document.getElementById('swipeHint');
+      if (swipeHint) swipeHint.style.display = 'none';
 
       var currentIndex = getActiveTabIndex();
 
@@ -361,24 +385,13 @@
     var textEl = document.getElementById('hoursStatusText');
     if (!statusEl || !textEl) return;
 
-    // Schedule: Mon=closed, Tue-Thu 17-22, Fri-Sat 17-23, Sun 16-21
-    // getDay(): 0=Sun,1=Mon,2=Tue...6=Sat
     var now = new Date();
     var day = now.getDay();
     var hour = now.getHours();
     var min = now.getMinutes();
     var time = hour + min / 60; // decimal hours
 
-    var schedule = {
-      0: { open: 16, close: 21, label: 'Sunday' },       // Sun
-      1: null,                                              // Mon closed
-      2: { open: 17, close: 22, label: 'Tue–Thu' },
-      3: { open: 17, close: 22, label: 'Tue–Thu' },
-      4: { open: 17, close: 22, label: 'Tue–Thu' },
-      5: { open: 17, close: 23, label: 'Fri–Sat' },
-      6: { open: 17, close: 23, label: 'Fri–Sat' }
-    };
-
+    var schedule = EMBER_SCHEDULE;
     var today = schedule[day];
     var isOpen = today && time >= today.open && time < today.close;
 
@@ -483,17 +496,7 @@
   var hour = now.getHours();
   var time = hour + now.getMinutes() / 60;
 
-  // Schedule: Mon=closed, Tue-Thu 17-22, Fri-Sat 17-23, Sun 16-21
-  var schedule = {
-    0: { open: 16, close: 21 },
-    1: null,
-    2: { open: 17, close: 22 },
-    3: { open: 17, close: 22 },
-    4: { open: 17, close: 22 },
-    5: { open: 17, close: 23 },
-    6: { open: 17, close: 23 }
-  };
-
+  var schedule = EMBER_SCHEDULE;
   var today = schedule[day];
   var isOpen = today && time >= today.open && time < today.close;
 
@@ -582,17 +585,7 @@
   var hour = now.getHours();
   var day = now.getDay();
 
-  // Schedule: Mon=closed, Tue-Thu 17-22, Fri-Sat 17-23, Sun 16-21
-  var schedule = {
-    0: { open: 16, close: 21 },
-    1: null,
-    2: { open: 17, close: 22 },
-    3: { open: 17, close: 22 },
-    4: { open: 17, close: 22 },
-    5: { open: 17, close: 23 },
-    6: { open: 17, close: 23 }
-  };
-
+  var schedule = EMBER_SCHEDULE;
   var today = schedule[day];
   var time = hour + now.getMinutes() / 60;
   var isOpen = today && time >= today.open && time < today.close;

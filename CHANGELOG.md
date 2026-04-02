@@ -239,3 +239,10 @@
 - Mobile-first: stacks gracefully on small screens, no hover effects
 - NOT a new section — compact inline strip, keeps site within 10-12 section cap
 - Gives Ember & Oak a personality no other restaurant template has
+
+### Round 5 Audit Fixes (Refiner)
+- FIXED: Hours text clipping on mobile (375px) -- removed white-space: nowrap on time spans so schedule times no longer get cut off at viewport edge
+- ADDED: Nav drawer backdrop/scrim -- semi-transparent overlay with blur behind mobile navigation drawer, closes on tap, improves focus and usability
+- FIXED: Scoped all base-level hover effects behind @media (hover: hover) -- prevents sticky hover states on touch devices (buttons, links, menu tabs, footer links, social icons)
+- Desktop nav overlay auto-hidden via !important override in desktop breakpoint
+- Refactored mobile nav JS into shared closeNav() helper for cleaner open/close logic

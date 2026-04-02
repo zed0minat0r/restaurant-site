@@ -77,8 +77,10 @@ a {
   transition: color var(--transition);
 }
 
-a:hover {
-  color: var(--gold-hover);
+@media (hover: hover) {
+  a:hover {
+    color: var(--gold-hover);
+  }
 }
 
 img {
@@ -154,11 +156,13 @@ img {
   box-shadow: 0 2px 16px rgba(201, 163, 78, 0.15);
 }
 
-.btn--primary:hover {
-  background: var(--gold-hover);
-  color: var(--dark);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(201, 163, 78, 0.25);
+@media (hover: hover) {
+  .btn--primary:hover {
+    background: var(--gold-hover);
+    color: var(--dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(201, 163, 78, 0.25);
+  }
 }
 
 .btn--primary:active {
@@ -172,9 +176,11 @@ img {
   border: 1px solid var(--gold);
 }
 
-.btn--outline:hover {
-  background: var(--gold);
-  color: var(--dark);
+@media (hover: hover) {
+  .btn--outline:hover {
+    background: var(--gold);
+    color: var(--dark);
+  }
 }
 
 .btn--sm {
@@ -289,6 +295,21 @@ img {
 
 .nav__links.open {
   right: 0;
+}
+
+.nav__overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 999;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  transition: opacity 0.3s ease;
+}
+
+.nav__overlay.active {
+  display: block;
 }
 
 .nav__links li a {
@@ -574,8 +595,10 @@ img {
   transition: all var(--transition);
 }
 
-.menu__tab:hover {
-  color: var(--gold);
+@media (hover: hover) {
+  .menu__tab:hover {
+    color: var(--gold);
+  }
 }
 
 .menu__tab.active {
@@ -1007,8 +1030,8 @@ img {
 
 .hours__day span:last-child {
   color: var(--text-secondary);
-  white-space: nowrap;
   text-align: right;
+  min-width: 0;
 }
 
 .hours__dots {
@@ -1300,8 +1323,10 @@ img {
   color: var(--text-muted);
 }
 
-.footer__col a:hover {
-  color: var(--gold);
+@media (hover: hover) {
+  .footer__col a:hover {
+    color: var(--gold);
+  }
 }
 
 .footer__socials {
@@ -1324,9 +1349,11 @@ img {
   transition: all var(--transition);
 }
 
-.footer__socials a:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+@media (hover: hover) {
+  .footer__socials a:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
 }
 
 .footer__socials a:active {
@@ -1574,6 +1601,10 @@ img {
   /* Desktop nav */
   .nav__hamburger {
     display: none;
+  }
+
+  .nav__overlay {
+    display: none !important;
   }
 
   .nav__links {
