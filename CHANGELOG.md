@@ -290,3 +290,16 @@
 - Directly addresses audit callout: "No custom section dividers... The 80px gold line remains the only visual punctuation between sections."
 - No new sections added. Mobile-first. Center-aligned.
 - No new sections added. Mobile-first. Center-aligned.
+
+### Round 10 — Pixel: 375px Mobile Viewport Audit
+- FIXED: Gallery grid now single-column below 480px instead of cramped 2-column layout.
+- FIXED: Testimonials author info stacks vertically on mobile with centered text, removing left-border separator.
+- FIXED: Hours day rows stack and center on narrow screens (dots hidden, day/time on separate centered lines) to prevent overflow.
+- FIXED: Specials meta (price + tag) centers vertically on mobile instead of awkward space-between.
+- FIXED: Menu legend gap tightened on narrow mobile to prevent wrapping issues.
+- FIXED: Happy hour callout border-radius softened from pill to standard radius when stacked vertically.
+- FIXED: Reservation urgency banner gets flex-wrap and smaller font on narrow screens.
+- FIXED: Section CTA links now have 44px min-height tap target.
+- FIXED: Hearth pulse text downsized to 0.8rem on narrow screens to prevent overflow.
+- FIXED: Footer columns consistently center-aligned across all mobile breakpoints (up to 767px), not just 479px.
+- No new sections added. Mobile-first. Center-aligned.

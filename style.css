@@ -1851,9 +1851,49 @@ img {
   border-left: 1px solid var(--border);
 }
 
+/* Featured testimonial — pull-quote style */
+.testimonials__card--featured {
+  background: var(--bg-surface);
+  border-top: 3px solid var(--gold);
+  border-left: 3px solid var(--gold);
+}
+.testimonials__card--featured .testimonials__quote {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* Context line under author */
+.testimonials__context {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Newsletter inline CTA between sections */
+.newsletter-cta {
+  text-align: center;
+  padding: 1.25rem 1rem;
+}
+.newsletter-cta__text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+.newsletter-cta__link {
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 @media (min-width: 768px) {
   .testimonials__grid {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .testimonials__card--featured .testimonials__quote {
+    font-size: 1.15rem;
   }
 }
 
@@ -2219,7 +2259,7 @@ img {
   z-index: 1;
 }
 
-/* .specials__accent — removed (dead code, hidden via display:none below) */
+/* .specials__accent — fully removed (HTML elements + CSS cleaned) */
 
 .specials__body {
   padding: 1.25rem;
@@ -2670,15 +2710,10 @@ img {
 }
 
 /* ============================================
-   SPECIALS — remove arbitrary accent strip,
-   use left-border accent instead
+   SPECIALS — left-border accent
    ============================================ */
 .specials__card {
   border-left: 3px solid var(--gold);
-}
-
-.specials__accent {
-  display: none;
 }
 
 /* ============================================
@@ -2794,65 +2829,55 @@ img {
 .gallery__item:nth-child(5) { animation-delay: 0.32s; }
 
 /* ============================================
-   MOBILE CENTER-ALIGNMENT + UX — Pixel Round 2
+   MOBILE CENTER-ALIGNMENT — consolidated
    ============================================ */
 @media (max-width: 767px) {
-  /* Events */
-  .events__text { text-align: center; }
-  .events__text p { text-align: center; }
+  .events__text,
+  .events__text p,
+  .story__text,
+  .story__text p:not(.section-header__label),
+  .specials__body,
+  .specials__name,
+  .specials__desc,
+  .testimonials__card,
+  .testimonials__stars,
+  .testimonials__quote,
+  .hours__note,
+  .hours__note p { text-align: center; }
+
   .events__features { display: inline-block; text-align: left; }
   .events__actions { justify-content: center; align-items: center; }
   .events__actions .btn { width: 100%; text-align: center; }
-
-  /* Story — ensure divider line is centered */
-  .story__text { text-align: center; }
-  .story__text p:not(.section-header__label) { text-align: center; }
   .story__text .section-header__line { margin: 1.25rem auto; }
-
-  /* Specials — swap left-border to top-border for center symmetry */
   .specials__card { border-left: none; border-top: 3px solid var(--gold); }
-  .specials__body { text-align: center; }
-  .specials__name { text-align: center; }
-  .specials__desc { text-align: center; }
-  .specials__meta { justify-content: center; }
-
-  /* Testimonials */
-  .testimonials__card { text-align: center; }
-  .testimonials__stars { text-align: center; }
-  .testimonials__quote { text-align: center; }
+  .specials__meta,
   .testimonials__author { justify-content: center; }
-
-  /* Hours */
-  .hours__note { text-align: center; }
-  .hours__note p { text-align: center; }
 }
 
-/* Menu items: center on narrow mobile (375px) */
+/* Narrow mobile (479px): menu, form, footer centering */
 @media (max-width: 479px) {
-  .menu__item-body { text-align: center; }
+  .menu__item-body,
+  .menu__item-name,
+  .menu__item-price,
+  .menu__item-desc,
+  .form-group,
+  .form-group label,
+  .footer__brand { text-align: center; }
+
   .menu__item-header { flex-wrap: wrap; justify-content: center; }
   .menu__item-dots { display: none; }
-  .menu__item-name { width: 100%; text-align: center; }
-  .menu__item-price { width: 100%; text-align: center; margin-bottom: 0.25rem; }
-  .menu__item-desc { text-align: center; }
+  .menu__item-name,
+  .menu__item-price { width: 100%; }
+  .menu__item-price { margin-bottom: 0.25rem; }
   .menu__item-tags { justify-content: center; }
-}
-
-/* Reservation form: center labels + inputs on mobile */
-@media (max-width: 479px) {
-  .form-group { align-items: center; text-align: center; }
-  .form-group label { text-align: center; width: 100%; }
+  .form-group { align-items: center; }
+  .form-group label { width: 100%; }
   .form-group input,
   .form-group select,
   .form-group textarea { text-align: center; font-size: 16px; }
   .form-group textarea { text-align: left; }
   .form-group select { text-align: left; background-position: right 1rem center; }
   .reservation-form .btn--lg { font-size: 0.9rem; padding: 1rem 1.5rem; }
-}
-
-/* Footer: explicit centering on narrow mobile */
-@media (max-width: 479px) {
-  .footer__brand { text-align: center; }
   .footer__newsletter-form input { font-size: 16px; text-align: center; }
 }
 
@@ -2864,3 +2889,123 @@ img {
 .form-group select,
 .form-group textarea,
 .footer__newsletter-form input { font-size: max(16px, 1rem); }
+
+/* ============================================
+   MOBILE POLISH — Pixel Round 10 (375px audit)
+   ============================================ */
+
+/* Gallery: single-column on narrow mobile for proper stacking */
+@media (max-width: 479px) {
+  .gallery__grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery__item--wide {
+    grid-column: span 1;
+  }
+  .gallery__item--wide .gallery__placeholder {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Testimonials author: stack vertically on mobile, remove left-border separator */
+@media (max-width: 767px) {
+  .testimonials__author {
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+  }
+  .testimonials__source {
+    border-left: none;
+    padding-left: 0;
+  }
+}
+
+/* Hours: stack day rows on narrow screens to prevent overflow */
+@media (max-width: 479px) {
+  .hours__day {
+    flex-wrap: wrap;
+    gap: 0.15rem;
+  }
+  .hours__dots {
+    display: none;
+  }
+  .hours__day span:first-child,
+  .hours__day span:last-child {
+    text-align: center;
+    width: 100%;
+  }
+  .hours__day span:last-child {
+    color: var(--gold);
+    font-size: 0.9rem;
+  }
+  .hours__schedule {
+    text-align: center;
+  }
+}
+
+/* Specials meta: center on mobile instead of space-between */
+@media (max-width: 767px) {
+  .specials__meta {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+  }
+}
+
+/* Menu legend: tighter gap on narrow mobile */
+@media (max-width: 479px) {
+  .menu__legend {
+    gap: 0.5rem 0.75rem;
+  }
+}
+
+/* Happy hour callout: soften radius when stacked */
+@media (max-width: 480px) {
+  .happy-hour-callout {
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Reservation urgency: ensure wrapping is centered */
+@media (max-width: 479px) {
+  .reservation-urgency {
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    padding: 0.65rem 1rem;
+  }
+}
+
+/* Section CTA: ensure sufficient tap target */
+.section-cta__link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Hearth pulse: readable sizing on narrow screens */
+@media (max-width: 479px) {
+  .hearth-pulse__label {
+    font-size: 0.8rem;
+  }
+  .hearth-pulse__message {
+    font-size: 0.8rem;
+  }
+}
+
+/* Footer cols: consistent center alignment on all mobile */
+@media (max-width: 767px) {
+  .footer__layout {
+    text-align: center;
+  }
+  .footer__col {
+    text-align: center;
+  }
+  .footer__socials {
+    justify-content: center;
+  }
+  .footer__brand {
+    text-align: center;
+  }
+}
