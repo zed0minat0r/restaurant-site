@@ -251,3 +251,10 @@
 - ADDED: Conversion CTA below Specials grid — "These won't last — reserve your table" links to #reservations. Uses existing section-cta pattern. Center-aligned, mobile-first. Captures intent at moment of desire (top audit conversion gap).
 - ADDED: Monday reservation blocking — date input now validates against closed day (Monday). Shows inline error "We're closed Mondays. Please choose another day." on date change AND on form submit. Prevents invalid bookings. Accessible with aria-invalid and role="alert".
 - No new sections added (CTA is inline within existing Specials section).
+
+### Round 6 — Gallery Visual Variety (Spark)
+- ENHANCED: Gallery placeholders now each have a unique CSS texture overlay (diagonal lines, dot grid, horizontal lines, crosshatch, concentric arcs) via ::before pseudo-elements to break visual monotony
+- ENHANCED: Replaced five identical image-placeholder SVG icons with unique contextual icons -- flame (kitchen), table (dining), cocktail glass, serving plate, bar glass
+- ENHANCED: Varied aspect ratios on mobile for non-wide gallery items (4:3, 1:1, 3:4) so tiles no longer stack as identical rectangles
+- ADDED: Staggered animation-delay per gallery tile for organic fade-in sequencing
+- CSS-only, mobile-first. No new sections. Addresses audit Design score (6.4) and "weakest visual section" callout.
