@@ -1230,11 +1230,12 @@ img {
 
 .success__conf {
   font-family: var(--font-heading);
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
-  color: var(--text-secondary);
-  opacity: 0.7;
-  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
 }
 
 .success__details {
@@ -1918,6 +1919,55 @@ img {
 }
 
 /* ============================================
+   GALLERY CTA
+   ============================================ */
+.gallery__cta {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+
+.gallery__cta-text {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* ============================================
+   STORY — textured background for rhythm break
+   ============================================ */
+.story {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(212, 168, 83, 0.04) 0%, transparent 70%),
+    radial-gradient(ellipse at 80% 50%, rgba(212, 168, 83, 0.03) 0%, transparent 70%);
+}
+
+.story::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.2;
+}
+
+.story::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.2;
+}
+
+/* ============================================
    PRIVATE EVENTS
    ============================================ */
 .events {
@@ -2136,26 +2186,7 @@ img {
   z-index: 1;
 }
 
-.specials__accent {
-  height: 5px;
-  background: linear-gradient(
-    90deg,
-    hsl(calc(var(--hue) + 0), 35%, 25%),
-    hsl(calc(var(--hue) + 25), 30%, 30%),
-    hsl(calc(var(--hue) + 50), 25%, 20%)
-  );
-  opacity: 0.7;
-}
-
-[data-theme="light"] .specials__accent {
-  background: linear-gradient(
-    90deg,
-    hsl(calc(var(--hue) + 0), 35%, 68%),
-    hsl(calc(var(--hue) + 25), 30%, 72%),
-    hsl(calc(var(--hue) + 50), 25%, 66%)
-  );
-  opacity: 0.8;
-}
+/* .specials__accent — removed (dead code, hidden via display:none below) */
 
 .specials__body {
   padding: 1.25rem;
@@ -2287,50 +2318,7 @@ img {
   }
 }
 
-/* ============================================
-   RESERVATION SUCCESS — Enhanced
-   ============================================ */
-.success__icon {
-  color: var(--gold);
-  margin-bottom: 1rem;
-}
-
-.success__conf {
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1rem;
-}
-
-.success__details {
-  background: var(--bg-surface);
-  border-radius: var(--radius);
-  padding: 1rem 1.25rem;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--text);
-}
-
-.success__details strong {
-  color: var(--text);
-}
-
-.success__msg {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.success__actions {
-  display: flex;
-  gap: 0.75rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+/* RESERVATION SUCCESS — Enhanced (merged into original block above) */
 
 /* ============================================
    The Hearth — Live Kitchen Pulse
@@ -2738,144 +2726,48 @@ img {
 .gallery__item:nth-child(5) { animation-delay: 0.32s; }
 
 /* ============================================
-   MOBILE CENTER-ALIGNMENT AUDIT — 375px
-   Pixel (2026-04-01)
+   MOBILE CENTER-ALIGNMENT + UX (consolidated)
    ============================================ */
-
-/* --- Events section: center text, list, and buttons on mobile --- */
 @media (max-width: 767px) {
-  .events__text {
-    text-align: center;
-  }
-
-  .events__text p {
-    text-align: center;
-  }
-
-  .events__features {
-    display: inline-block;
-    text-align: left;
-  }
-
-  .events__actions {
-    justify-content: center;
-    align-items: center;
-  }
-
-  .events__actions .btn {
-    width: 100%;
-    text-align: center;
-  }
+  /* Events */
+  .events__text { text-align: center; }
+  .events__text p { text-align: center; }
+  .events__features { display: inline-block; text-align: left; }
+  .events__actions { justify-content: center; align-items: center; }
+  .events__actions .btn { width: 100%; text-align: center; }
+  /* Story */
+  .story__text { text-align: center; }
+  .story__text p:not(.section-header__label) { text-align: center; }
+  /* Specials */
+  .specials__body { text-align: center; }
+  .specials__name { text-align: center; }
+  .specials__desc { text-align: center; }
+  .specials__meta { justify-content: center; }
+  /* Testimonials */
+  .testimonials__card { text-align: center; }
+  .testimonials__stars { text-align: center; }
+  .testimonials__quote { text-align: center; }
+  .testimonials__author { justify-content: center; }
+  /* Hours */
+  .hours__note { text-align: center; }
+  .hours__note p { text-align: center; }
 }
 
-/* --- Story section: center body paragraphs on mobile --- */
-@media (max-width: 767px) {
-  .story__text {
-    text-align: center;
-  }
-
-  .story__text p:not(.section-header__label) {
-    text-align: center;
-  }
-}
-
-/* --- Specials cards: center card content on mobile --- */
-@media (max-width: 767px) {
-  .specials__body {
-    text-align: center;
-  }
-
-  .specials__name {
-    text-align: center;
-  }
-
-  .specials__desc {
-    text-align: center;
-  }
-
-  .specials__meta {
-    justify-content: center;
-  }
-}
-
-/* --- Testimonials: center card content on mobile --- */
-@media (max-width: 767px) {
-  .testimonials__card {
-    text-align: center;
-  }
-
-  .testimonials__stars {
-    text-align: center;
-  }
-
-  .testimonials__quote {
-    text-align: center;
-  }
-
-  .testimonials__author {
-    justify-content: center;
-  }
-}
-
-/* --- Reservation form: center labels on mobile --- */
 @media (max-width: 479px) {
-  .form-group {
-    align-items: center;
-    text-align: center;
-  }
-
-  .form-group label {
-    text-align: center;
-    width: 100%;
-  }
-
+  .form-group { align-items: center; text-align: center; }
+  .form-group label { text-align: center; width: 100%; }
   .form-group input,
   .form-group select,
-  .form-group textarea {
-    text-align: center;
-    font-size: 16px;
-  }
-
-  .form-group textarea {
-    text-align: left;
-  }
-
-  .form-group select {
-    text-align: left;
-    background-position: right 1rem center;
-  }
+  .form-group textarea { text-align: center; font-size: 16px; }
+  .form-group textarea { text-align: left; }
+  .form-group select { text-align: left; background-position: right 1rem center; }
 }
 
-/* --- Hours section: center the note text on mobile --- */
-@media (max-width: 767px) {
-  .hours__note {
-    text-align: center;
-  }
-
-  .hours__note p {
-    text-align: center;
-  }
-}
-
-/* --- Menu items: ensure tap targets and font sizes --- */
-.menu__tab {
-  min-height: 44px;
-  min-width: 44px;
-}
-
-/* --- Ensure all buttons meet 44px tap target --- */
-.btn {
-  min-height: 44px;
-}
-
-.btn--sm {
-  min-height: 44px;
-}
-
-/* --- Prevent iOS zoom: ensure 16px minimum on all inputs --- */
+/* Tap targets + iOS zoom prevention */
+.menu__tab { min-height: 44px; min-width: 44px; }
+.btn { min-height: 44px; }
+.btn--sm { min-height: 44px; }
 .form-group input,
 .form-group select,
 .form-group textarea,
-.footer__newsletter-form input {
-  font-size: max(16px, 1rem);
-}
+.footer__newsletter-form input { font-size: max(16px, 1rem); }

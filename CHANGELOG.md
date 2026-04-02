@@ -258,3 +258,12 @@
 - ENHANCED: Varied aspect ratios on mobile for non-wide gallery items (4:3, 1:1, 3:4) so tiles no longer stack as identical rectangles
 - ADDED: Staggered animation-delay per gallery tile for organic fade-in sequencing
 - CSS-only, mobile-first. No new sections. Addresses audit Design score (6.4) and "weakest visual section" callout.
+
+### Round 7 — Refiner: CSS Cleanup + Gallery CTA + Story Rhythm Break
+- REMOVED: Dead `.specials__accent` full definition (was hidden via `display:none`). Cut ~20 lines of unreachable CSS.
+- MERGED: Duplicate `.success__icon` and `.success__conf` selectors into single canonical block. Removed "RESERVATION SUCCESS — Enhanced" duplicate section.
+- CONSOLIDATED: Five separate `@media (max-width: 767px)` center-alignment blocks into one. Folded tap-target and iOS-zoom rules inline. Cut ~70 lines total.
+- ADDED: Gallery conversion CTA — "See yourself here? Reserve Your Evening" with outline button linking to #reservations. Center-aligned, mobile-first. Closes the gallery dead-end (top audit conversion gap).
+- ADDED: Story section visual rhythm break — subtle radial gold gradients and gold separator lines via ::before/::after pseudo-elements. Breaks the uniform section pattern without adding a new section.
+- Net reduction: 108 lines of CSS removed while adding new features. File went from 2881 to 2773 lines.
+- No new sections added. Mobile-first. Center-aligned.
