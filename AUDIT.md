@@ -1,10 +1,10 @@
-# Ember & Oak -- Mobile-First Audit (Round 4)
+# Ember & Oak -- Mobile-First Audit (Round 6)
 
 **Auditor:** Nigel -- Senior Digital Auditor
-**Date:** 2026-03-30
-**Perspective:** Mobile-primary (375px baseline, tested mentally across breakpoints)
+**Date:** 2026-04-01
+**Perspective:** Mobile-primary (375px baseline)
 **Context:** Template site for a web design business. Placeholder images, mock contact details, and simulated booking forms are expected and not penalised.
-**Scoring note:** Recalibrated to strict baseline. 5 = average template. 7+ requires standing out from what is commercially available. If it still reads as "nice template," it stays in the 6s.
+**Scoring note:** STRICT calibration. 5.0 = average template you can buy today. 6.0 = generic but competent. 7.0 = better than most commercially available templates. 8.0 = a client would choose this over competitors without hesitation. 9.0 = award-worthy. If it reads as "nice template," Design stays capped at 6.5.
 
 ---
 
@@ -12,15 +12,15 @@
 
 ```json
 {
-  "design": 6.3,
-  "content": 6.0,
-  "ux": 6.8,
-  "technical": 6.5,
-  "conversion": 6.5,
-  "simplicity": 7.5,
-  "total": 39.6,
+  "design": 6.9,
+  "content": 6.7,
+  "ux": 7.5,
+  "technical": 7.0,
+  "conversion": 7.3,
+  "simplicity": 7.2,
+  "total": 42.6,
   "max_possible": 60,
-  "percentage": "66%",
+  "percentage": "71.0%",
   "score_history": [
     {
       "date": "2026-03-30",
@@ -46,10 +46,26 @@
     {
       "date": "2026-03-30",
       "round": 4,
-      "auditor_note": "Strict recalibration. Previous rounds inflated scores by treating incremental improvements as category-level jumps. This round applies the baseline honestly: 5 = average template, 7+ = noticeably better than most templates on the market.",
+      "auditor_note": "Strict recalibration. Previous rounds inflated scores by treating incremental improvements as category-level jumps.",
       "scores": { "design": 6.3, "content": 6.0, "ux": 6.8, "technical": 6.5, "conversion": 6.5, "simplicity": 7.5 },
       "total": 39.6,
       "percentage": "66%"
+    },
+    {
+      "date": "2026-03-30",
+      "round": 5,
+      "auditor_note": "Re-audit against latest source and screenshots. New bugs (duplicate hearth element, duplicate IDs) offset gains in Content, UX, Conversion.",
+      "scores": { "design": 6.4, "content": 6.6, "ux": 7.2, "technical": 6.2, "conversion": 7.0, "simplicity": 7.3 },
+      "total": 40.7,
+      "percentage": "67.8%"
+    },
+    {
+      "date": "2026-04-01",
+      "round": 6,
+      "auditor_note": "Significant fixes landed: duplicate hearth element removed, font sizes all >= 0.875rem, schedule extracted to shared JS object, hours clipping fixed, nav scrim added, hover effects scoped, gallery redesigned with varied textures/icons/aspect-ratios, specials CTA added, Monday reservation blocking added, full center-alignment pass completed. Technical jumps the most (+0.8). Design moves up on gallery visual variety alone.",
+      "scores": { "design": 6.9, "content": 6.7, "ux": 7.5, "technical": 7.0, "conversion": 7.3, "simplicity": 7.2 },
+      "total": 42.6,
+      "percentage": "71.0%"
     }
   ]
 }
@@ -57,176 +73,167 @@
 
 ---
 
-## Design -- 6.3/10
+## Design -- 6.9/10 (was 6.4, +0.5)
 
-I need to be honest: this site is a well-executed dark restaurant template. It is not a standout. Here is why.
+The gallery redesign is the most visible change. Spark delivered genuine visual variety where there was previously the weakest section on the entire page.
+
+**What improved:**
+- Gallery is no longer five identical rectangles. Each tile now has a unique CSS texture overlay (diagonal lines, dot grid, horizontal lines, crosshatch, concentric arcs) applied via `::before` pseudo-elements at low opacity (0.08) with `mix-blend-mode: overlay`. On a 375px screen, the tiles now feel like five distinct photographs rather than five copies of the same placeholder.
+- Unique SVG icons per tile: flame (kitchen), table (dining room), cocktail glass, serving plate, bar glass. These replace the single repeated generic icon and give each tile a distinct identity.
+- Varied aspect ratios on mobile (4:3, 1:1, 3:4 for the middle tiles, 16:7 for the wide tiles). The vertical rhythm of the gallery section now has genuine visual interest instead of uniform stacking.
+- Staggered animation delays (0-0.32s) give tiles an organic cascade rather than a simultaneous pop-in.
+- The center-alignment pass ensures every section header, card, and CTA is consistently centred on mobile. No more left-drifting headers or off-centre cards. This is a polish detail that elevates the overall feel.
+- The Hearth pulse strip (now a single instance, properly placed) remains a differentiator.
+
+**What still holds it back from 7.5+:**
+- The gallery is improved but still fundamentally placeholder boxes with SVG icons. When real photography goes in, this section could jump significantly. As placeholders, they are the best they can be -- but they are still placeholders.
+- The core visual identity remains dark-charcoal + warm-gold + serif headings. This is the dominant restaurant template aesthetic across every marketplace. The gallery textures and hearth strip are distinctive touches, but the overall palette and layout cadence have not changed.
+- Section rhythm is still predominantly centred-header-into-card-grid. Story and Events break this pattern with side-by-side layouts on desktop, but on mobile everything stacks identically.
+- Light mode is still "dark mode, lighter." 17 light-theme overrides exist, but the hero gradient and section backgrounds do not have distinct warmth or personality in light mode.
+- No custom section dividers, illustrated borders, or textured backgrounds beyond the gallery tiles. The 80px gold line remains the only visual punctuation between sections.
+
+**What would push it to 7.5+:**
+A considered light mode palette (not just variable swaps). A textured or photographic background on the Story section. Custom section dividers that are not just gold lines. The gallery textures prove the team can create visual variety -- apply that thinking to the section transitions.
+
+---
+
+## Content -- 6.7/10 (was 6.6, +0.1)
+
+No major copy changes this round. The specials CTA copy is new and well-written. Content score holds steady with a minor bump.
 
 **What works:**
-- The dark charcoal + warm gold palette is tasteful. It avoids the "black and neon" trap that cheap templates fall into. The muted wine accent is used sparingly. The custom properties are well-organised.
-- The hero layered radial gradients with SVG noise grain create genuine atmosphere. This is the most premium-feeling section of the entire site.
-- SVG icons (social, favicon, gallery placeholders) are consistent in stroke weight and style. The favicon reads at small sizes. Details like this matter.
-- The mobile sticky bar has real visual polish -- glassmorphic backdrop-filter, safe-area support, clear button hierarchy (outlined Call vs filled Reserve).
-- Typography pairing (Playfair Display + Inter) is the right call for the brand. Section headers with label/title/line/subtitle pattern are clean.
+- Section headers remain strong: "What Marcus Is Cooking," "Born from Flame," "Don't Take Our Word for It," "Your Night, Our Fire," "Save Your Seat."
+- The Story copy is still the standout paragraph on the entire site. Sensory, specific, human.
+- The specials CTA -- "These won't last -- reserve your table" -- is concise, urgent, and correctly placed. Good conversion copy.
+- The Monday reservation blocking error message ("We're closed Mondays. Please choose another day.") is clear and direct.
+- Happy Hour callout, testimonials aggregate proof, and events copy with named people (Elena, Marcus) all carry from Round 5.
 
-**What holds it back from 7+:**
-- The colour palette and layout patterns are indistinguishable from dozens of dark restaurant templates available on ThemeForest, Squarespace, or Framer. Gold-on-dark with serif headings is the single most common restaurant template aesthetic. Nothing here says "you cannot get this elsewhere."
-- Every section follows the same visual rhythm: centred header (label, title, line, subtitle) into a grid of cards. Specials, Menu, Gallery, Testimonials, Events -- same pattern five times. There is no visual surprise, no break in cadence.
-- The gallery section is five identical placeholder boxes with the same SVG icon repeated. On a real template marketplace, this would look unfinished. The placeholder design (hsl gradients with image icons) is functional but does not demonstrate any visual ambition.
-- Light mode hero is flat. The dark hero has multiple layered gradients creating depth; the light hero is a barely-visible warm gradient over cream. This asymmetry suggests the light mode was an afterthought.
-- No visual texture, illustration, or decorative element beyond the CSS flame in the story section. Premium templates differentiate with custom dividers, textured backgrounds, illustrated borders, or unique section transitions. This site uses a 48px gold line repeatedly.
-- The specials cards have a 5px coloured accent strip at the top that reads as arbitrary. The hue values (12, 28, 5) do not correspond to anything meaningful -- they are decoration for decoration's sake.
-
-**Verdict:** Competent and clean, but generic. A client browsing templates would not stop scrolling for this one. It needs a visual identity beyond "dark and gold."
+**What still holds it back from 7+:**
+- Specials descriptions remain ingredient lists without story. Why did Marcus pick the wagyu this week? Where do the truffles come from? One sentence of provenance per dish would push specials from "menu card" to "editorial content."
+- Gallery tiles have labels ("Open Kitchen & Live Fire," "Main Dining Room") but no supporting copy. A single evocative line per tile -- "Where the magic happens at 800 degrees" -- would add personality.
+- Menu item descriptions are still standard ingredient lists. Signature dishes deserve a line of preparation narrative.
+- No new copy in the newsletter success state. It remains a single line ("You're in. Watch your inbox.") with no expectation-setting.
 
 ---
 
-## Content -- 6.0/10
+## UX -- 7.5/10 (was 7.2, +0.3)
 
-The copy quality is above average for a template. The content architecture is not.
+Three specific Round 5 bugs have been fixed: hours text clipping, missing nav scrim, and unscoped hover effects. Plus the Monday reservation blocking adds real form intelligence.
 
-**What works:**
-- Menu item descriptions are specific and appetising: "Heirloom tomatoes, aged balsamic, basil oil, grilled sourdough." These read like a real menu, not Lorem Ipsum with food words. A client can see their own dishes in these slots.
-- The Story section has a genuine narrative voice. "What started as a backyard obsession" is the kind of founder story that gives a template personality. Chef Marcus and sommelier Elena feel like real people.
-- Testimonials reference specific menu items (oak-grilled ribeye, smoked chocolate torte, Ember Old Fashioned). This cross-referencing is smart -- it validates the menu from the customer's perspective.
-- Dietary tags (V, VG, GF) with a legend are practical and modern. A real gap in most templates.
+**What improved:**
+- Hours text clipping fixed. The `white-space: nowrap` on `.hours__day span:last-child` has been replaced with `min-width: 0`, allowing time text to shrink within the flex container. Closing times are now fully visible on 375px screens.
+- Nav overlay/scrim added. `div.nav__overlay` with `rgba(0,0,0,0.55)` background, `backdrop-filter: blur(2px)`, covers the full viewport when the mobile nav is open. This provides clear visual separation between the drawer and the page content. The `.active` class toggles display. Properly implemented.
+- Monday reservation blocking prevents users from submitting reservations for closed days. Inline error on date change AND on form submit. Accessible with `role="alert"` and `aria-invalid`. The date input validates immediately on change, not just on submit.
+- Hover effects are now properly scoped. The six main hover rules (links, buttons, menu tabs, footer links, social icons) are wrapped in `@media (hover: hover)`. Desktop-breakpoint hovers (nav links, menu items, section CTAs) are inside `@media (min-width: 1024px)` which prevents them from firing on mobile.
+- Gallery staggered animations create a smooth cascade on scroll rather than all tiles appearing simultaneously.
+- Center-alignment is consistent across all sections at 375px. No drifting headers or off-centre elements.
 
-**What holds it back from 7+:**
-- The section headers collectively read like a template copywriting checklist: "Tonight's Features," "Crafted with Fire & Care," "What People Are Saying," "Gather Around the Fire," "Book a Table." These are competent filler headlines. Not a single one would make someone pause.
-- "Seasonal ingredients, open flame, unforgettable evenings" -- the hero subtitle is three comma-separated buzzwords. This is the restaurant equivalent of "innovative, scalable, disruptive" in tech. It says nothing specific.
-- The events section copy is functional but generic: "From intimate rehearsal dinners to corporate gatherings..." This could be on any restaurant's events page. Where is the personality? What makes an event at Ember & Oak different from the steakhouse next door?
-- No personality differentiators in the copy. What kind of music plays? What does the space smell like? Is there an open kitchen you can watch? (The gallery labels mention it, but the copy never brings it to life.) Good restaurant copy makes you feel the experience before you arrive. This copy describes features.
-- Happy hour is mentioned exactly once, as a note under the hours section. For many restaurants, happy hour is their second-highest conversion driver after dinner. It deserves more than a footnote.
-
-**Verdict:** The copy is correct and professional. It is not memorable. Template copy done well is still template copy.
-
----
-
-## UX -- 6.8/10
-
-The mobile UX has genuinely thoughtful moments. It also has persistent gaps that an actual user would hit.
-
-**What works well:**
-- Mobile sticky bar is the strongest UX feature. Appears at the right scroll point (60% of hero), two clear actions (Call + Reserve), 48px touch targets, safe-area-inset support, hidden on desktop. This is correctly implemented.
-- Menu swipe gestures with directional slide animations. The horizontal swipe detection checks that horizontal movement dominates vertical (`Math.abs(diffY) > Math.abs(diffX) * 0.7`), which prevents accidental tab switches while scrolling. Good.
-- ARIA tablist on menu tabs with arrow key navigation, Home/End support, and roving tabindex. This is real accessibility work, not checkbox compliance.
-- Live open/closed status badge calculates from actual schedule data and shows contextual messages ("Open now -- until 10 PM" vs "Closed -- opens Tuesday at 5 PM"). Actually useful for mobile users.
-- Hours today-highlight via JS auto-detecting the current day. Reduces cognitive load when scanning the schedule.
-- Smooth scroll with nav height offset. Anchor links account for the fixed navigation height, so content does not hide behind the nav bar. Basic, but many templates get this wrong.
-
-**What holds it back from 7+:**
-- No back-to-top button. The page is now 9 sections deep. On mobile, a user who scrolled to the footer and wants to return to the menu has to thumb-scroll through the entire page. This is a standard UX pattern missing from the site.
-- Phone input has `type="tel"` but no pattern validation. I can type "asdfgh" and submit the form. The validation only checks `!field.value.trim()`, so any non-empty string passes. For a template demonstrating form UX, this is a gap.
-- No loading/submitting state on the reservation button. When the form submits, the button does not change to "Submitting..." or show a spinner. The success state appears instantly, which on a real backend would feel broken if there was any network latency. The template should demonstrate the full state machine: idle -> submitting -> success/error.
-- Menu tab switch re-triggers `anim-fade` animations on every switch by removing and re-adding the `visible` class with a forced reflow (`void el.offsetWidth`). This causes a flash-of-invisible on every tab change. The items blink out and fade back in. On repeated switching, it feels jittery.
-- The skip-link goes to `#menu`, not `#main` or the first content section. A screen reader user hitting the skip link lands on the second section (menu), skipping the hero, specials, and the chef's specials section entirely. Skip links should target the main content landmark.
-- Swipe hint text ("Swipe to browse categories") is always visible. It should appear once and dismiss, or only appear on touch devices. On desktop, it is confusing.
-
-**Verdict:** Better than the average template's UX. The sticky bar and swipe gestures show real mobile thinking. But the gaps (no back-to-top, weak form validation, tab switch jitter) keep it from being something a client would point to as "better than what I have now."
+**What still holds it back from 8+:**
+- The desktop-breakpoint hovers (lines 1630, 1644) are inside `@media (min-width: 1024px)` but not `@media (hover: hover)`. On desktop touch devices (Surface Pro, iPad with keyboard), these would trigger sticky hover states. A minor edge case, but not technically correct.
+- Newsletter form remains buried deep in the footer on mobile. A visitor scrolling past Reservations into the footer is unlikely to be looking for a signup form. No separate discovery mechanism (e.g., a slide-up after X seconds, or a CTA elsewhere on the page).
+- The gallery has no swipe gesture or carousel behaviour on mobile. Five tiles stacking vertically is fine, but a horizontal swipe between tiles (like the menu tabs) would improve the experience for a section designed to showcase atmosphere.
+- No visible loading/skeleton states for images when real photography is added. The placeholder textures are nice, but they do not demonstrate how the page will behave during image load.
 
 ---
 
-## Technical -- 6.5/10
+## Technical -- 7.0/10 (was 6.2, +0.8)
 
-Solid fundamentals with some real wins, but persistent issues that a technical reviewer would flag.
+The largest category jump. Multiple Round 5 bugs have been fixed, and the codebase is structurally cleaner.
 
-**What works:**
-- Schema.org JSON-LD structured data is correctly formatted with proper opening hours specifications per day-of-week. Google can parse this on deploy.
-- Open Graph and Twitter Card meta tags with sensible placeholder values. Social share previews will work out of the box.
-- SVG favicon via data URI -- zero HTTP requests, scales perfectly, works everywhere.
-- `prefers-reduced-motion` media query with comprehensive coverage: universal selector for animation/transition duration, plus specific resets for hero elements and scroll animations.
-- `prefers-color-scheme` media query with correct cascade: saved preference > OS preference > dark default. The JS and CSS work together correctly.
-- Passive event listeners on scroll and touch events. Correct.
-- Touch target sizes are consistently 44px+ minimum. Form elements, buttons, nav items all meet the target.
+**What improved:**
+- Duplicate Hearth element removed. Only one `id="hearthPulse"` and one `id="hearthMessage"` exist in the HTML. No duplicate IDs anywhere in the document (verified via grep).
+- All font sizes are now >= 0.875rem (14px). The sub-14px violations flagged in Round 5 (0.7rem hearth label, 0.75rem specials badge, 0.7rem happy hour badge, 0.7rem menu tag) have all been corrected. The accessibility floor is respected throughout.
+- Schedule extracted to shared `EMBER_SCHEDULE` object at line 8 of main.js. All three IIFEs (open/closed status, urgency messaging, hearth pulse) now reference this single object. A client changing hours updates one place.
+- Hover effects scoped behind `@media (hover: hover)` for the six primary interactive elements.
+- Nav overlay element in HTML with proper JS toggling and CSS transitions.
+- Monday validation logic is well-structured: checks on date `change` event, checks on form `submit`, prevents submission, provides accessible error feedback.
 
-**What holds it back from 7+:**
-- Google Fonts loaded render-blocking. Two external CSS requests (`fonts.googleapis.com`) load in the critical path before first paint. There is a `<link rel="preconnect">` for the domain, but the actual font stylesheet is not preloaded or deferred. `font-display: swap` is set via the API URL, which helps, but the CSS file itself still blocks. For a template selling performance-consciousness, `<link rel="preload" as="style">` with an `onload` handler would be the correct pattern.
-- `overflow-x: hidden` on body (line 70) and `.menu` section (line 501). The body one is masking a horizontal overflow issue rather than fixing it. If something causes horizontal overflow, this hides the symptom instead of addressing the root cause.
-- Zero error handling in the JS. Every `document.getElementById` and `querySelector` call assumes the element exists. If a client removes or renames one section, the entire script crashes. A defensive `if (!el) return` at the top of each IIFE would cost nothing and prevent cascading failures.
-- CSS is 2,242 lines with duplicate selectors. `.mobile-bar` is defined at line 1590, then a second `.mobile-bar { justify-content: center; }` appears at line 1673. The footer centering has overlapping media query blocks. This is not unwieldy yet, but it is trending that direction and suggests no consolidation pass has been done.
-- Font-size violations below 14px accessibility minimum: `.specials__badge` at 0.7rem (11.2px, line 2037), `.menu__legend` items at 0.75rem (12px, line 744), `.success__conf` at 0.8rem (12.8px, line 2208), `.specials__tag` at 0.8rem (12.8px, line 2104). Previous audits flagged font sizes below 14px; new code reintroduced the same issue.
-- Desktop nav links are 0.9rem (14.4px, line 1551). This passes the 14px floor but only barely. Previous audit flagged 0.85rem; it was bumped to 0.9rem. Acceptable but tight.
-- No `<main>` landmark element. The page goes from `<nav>` to `<section>` elements with no wrapping `<main>`. Screen readers rely on landmarks for page structure. The skip link points to `#menu` rather than a main content area.
-
-**Verdict:** The structured data and accessibility queries are genuine technical wins that many templates lack. But the font-size violations, missing error handling, and render-blocking fonts are the kinds of issues a technical reviewer would circle in red.
+**What still holds it back from 7.5+:**
+- CSS is now 2,881 lines. Dead CSS remains: `.specials__accent` is defined at lines 2139-2149 (with full styling and light-mode variant), then overridden at line 2624 with `display: none`. The full definition is dead weight. Duplicate `.success__icon` definitions at lines 1222 and 2293, and duplicate `.success__conf` definitions at lines 1231 and 2298. These are likely from separate rounds of work that were not consolidated.
+- `overflow-x: hidden` on `body` (line 70) still masks horizontal overflow rather than fixing root causes.
+- The center-alignment pass added ~100 lines at the bottom of style.css (lines 2740-2881) as a separate audit block rather than merging rules into their original selectors. This is an accretion pattern -- each round adds rules at the end rather than editing in place. The CSS is becoming a geological record of audit rounds.
+- The gallery texture CSS (lines 2652-2738) is well-written but adds significant specificity weight with `:nth-child()` selectors on each tile. When real images replace placeholders, all of this CSS becomes dead.
+- No CSS minification or critical CSS extraction. 2,881 lines of CSS loads synchronously.
 
 ---
 
-## Conversion -- 6.5/10
+## Conversion -- 7.3/10 (was 7.0, +0.3)
 
-The conversion architecture has the right instincts but executes them at template-baseline level.
+The specials CTA and Monday blocking close two specific Round 5 gaps.
 
-**What works:**
-- Mobile sticky bar with Call + Reserve is the strongest conversion element. Persistent, clear, appropriately prominent. This alone puts it above templates that bury the CTA at the bottom.
-- Reservation urgency messaging ("Only X tables left tonight") is contextual and time-aware. It adapts to open/closed status and weekend timing. Smart.
-- "Get Directions" now links to Google Maps with the full address. This was a dead `href="#"` link before. Fixed.
-- Post-booking success state includes confirmation number, date/time summary, calendar mention, and dual CTAs (View Menu / Call to Confirm). This demonstrates a real booking flow, not just a form.
-- Micro-CTAs between sections ("Discover our story," "Plan your visit," "Ready to dine?") guide the scroll path toward the reservation form.
-- Testimonials placed before the reservation section provide social proof at the right moment in the conversion funnel.
+**What improved:**
+- Specials CTA added: "These won't last -- reserve your table" with a down-arrow SVG, linking to `#reservations`. Positioned immediately below the specials grid. This captures intent at the moment of desire -- a user seeing three limited dishes with scarcity tags now has a one-tap path to booking. This was the top conversion recommendation in Round 5.
+- Monday reservation blocking prevents wasted conversions. A user cannot submit a reservation for a day the restaurant is closed. The error is immediate (on date change), clear, and accessible. No silent failures.
 
-**What holds it back from 7+:**
-- The reservation form is the only conversion mechanism for online visitors. There is no email capture, no newsletter signup, no "Get notified about specials" input in the footer. A first-time visitor who is not ready to book tonight has zero ways to stay in the funnel. Every premium restaurant template includes a secondary capture mechanism.
-- Events section CTA is a mailto link. On mobile, this opens the default mail app, which for many users means a half-configured Mail.app they never use. A simple contact form or even a "Call to discuss your event" button alongside the email link would improve mobile conversion for this high-value segment.
-- The urgency messaging uses a pseudo-random number seeded by date. A client deploying this template will see "Only 4 tables left tonight" on a Monday when the restaurant is closed. The urgency display should be hidden when the restaurant is closed, or change to a non-urgency message ("Planning ahead? Reserve your table for this week").
-- No social proof numbers. "500+ 5-star reviews" or "Rated #3 in Philadelphia" in the hero or near the reservation form would strengthen the trust signal. Three testimonial cards are good; aggregate proof is better.
-- Happy hour gets a one-line mention. For a template trying to demonstrate conversion awareness, a "Happy Hour" badge or callout somewhere above the fold would capture a different user intent (casual drink vs. dinner reservation).
+**What carries from Round 5:**
+- Newsletter capture in footer with appropriate copy.
+- Happy Hour callout with badge and details.
+- Contextual urgency messaging (Monday/weekend/weekday variants).
+- Events section dual CTAs (email + call).
+- Mobile sticky bar with Call + Reserve.
+- Testimonials aggregate proof as section subhead.
+- Rich post-booking success state with confirmation details.
+- Micro-CTAs between sections guiding toward reservations.
 
-**Verdict:** The bones are right. Sticky bar, urgency, social proof, micro-CTAs -- these are the correct conversion patterns. But the execution stays at template-standard level. A truly conversion-optimised template would have the secondary capture, the conditional urgency, and the multi-path funnel.
+**What still holds it back from 8+:**
+- Newsletter success state remains a single gold line. No expectation-setting ("We send one email per menu change -- never more"), no secondary CTA ("Browse the menu while you wait"), no visual treatment matching the rich post-booking success state.
+- Gallery section remains a conversion dead-end. Five atmosphere tiles with no CTA, no "Book a table" link, no "Follow us on Instagram" hook. A user inspired by the atmosphere imagery has no next action.
+- The newsletter form has no discovery mechanism outside the footer. A persistent or timed prompt elsewhere on the page would capture more signups from users not ready to book.
+- No phone number click-to-call tracking or event attribution. On mobile, tapping "Call" in the sticky bar is the highest-intent conversion action, but there is no way to measure it.
 
 ---
 
-## Simplicity -- 7.5/10
+## Simplicity -- 7.2/10 (was 7.3, -0.1)
 
-This is still the strongest dimension. The site is three files. No build step, no framework, no dependencies beyond Google Fonts. Drag and deploy.
+Slight dip. The codebase improvements (shared schedule, no duplicate elements) are offset by growing CSS with accretion patterns.
 
 **What earns the score:**
-- Single HTML file, single CSS file, single JS file. A client or developer can open this in any text editor and understand the structure immediately.
-- No JavaScript framework, no bundler, no package.json. The site loads two external resources (Google Fonts) and everything else is self-contained.
-- BEM-ish naming conventions are consistent throughout. `.menu__item-header`, `.testimonials__card`, `.mobile-bar__btn--reserve`. A developer inheriting this code can navigate by convention.
-- CSS custom properties for theming mean a client can change the colour palette by editing 10 lines at the top of the stylesheet. This is the correct abstraction for a template.
-- The JS is organised into clearly labelled IIFEs: Mobile Nav, Sticky Nav, Theme Toggle, Menu Tabs, Swipe Gestures, Scroll Animations, Reservation Form, Open/Closed Status, Mobile Bar, Urgency Messaging, Today Highlight. Each is self-contained.
+- Single HTML file, single CSS file, single JS file. No build tooling.
+- BEM-ish naming is consistent. A developer can navigate by convention.
+- CSS custom properties make re-theming straightforward.
+- JS IIFEs are clearly labelled and self-contained.
+- The shared `EMBER_SCHEDULE` object is a genuine simplification -- one source of truth for hours.
+- 9 sections, well within the 10-12 cap.
 
-**What docks the remaining points:**
-- CSS at 2,242 lines is getting long for a single file. Not unmanageable yet, but some sections could be consolidated. The duplicate `.mobile-bar` selector and the scattered footer centering media queries suggest it has been appended to rather than refactored.
-- Nine sections plus footer plus mobile bar is getting close to the 10-12 cap. Any further additions will require removing something or risk bloat.
-- The JS contains two separate copies of the restaurant schedule (one in the open/closed status IIFE, one in the urgency IIFE). This is a maintenance risk -- if a client changes hours, they need to update two places.
-
-**Verdict:** The simplicity is genuine and valuable. A 7.5 reflects that this is noticeably simpler than most templates on the market (which typically require Node, npm install, and a build step). The duplicated schedule and growing CSS file are the only concerns.
+**What docks points:**
+- CSS at 2,881 lines with dead rules (`.specials__accent` defined then hidden, duplicate `.success__icon` and `.success__conf`). The mobile center-alignment audit block (lines 2740-2881) adds rules at the end of the file rather than merging into original selectors, creating a layered accretion pattern.
+- Gallery texture CSS (lines 2652-2738) is well-crafted but inherently temporary -- it will all be replaced when real images go in. ~90 lines of placeholder-specific CSS.
+- The center-alignment block repeats selector patterns that already exist earlier in the file. For example, `.events__text` has `text-align` set both in its original definition and in the alignment audit block.
 
 ---
 
 ## Summary
 
-**Round 3 to Round 4 delta: Recalibrated. The site has not changed; the scoring has.**
+**Round 5 to Round 6 delta: +1.9 points overall (40.7 -> 42.6). Gains across all categories except Simplicity (-0.1).**
 
-Previous rounds inflated scores by grading improvements relative to the prior version rather than against the competitive landscape. An 8 in Design means "a client would choose this over competitors without hesitation." That is not true here. A client would see a polished, competent dark restaurant template -- one of many available.
+This is the most productive round since the strict recalibration. The team addressed the top bugs and recommendations from Round 5 systematically:
 
-The site is genuinely good at the template level. The code is clean. The mobile UX is thoughtful. The conversion flow makes sense. The content is above-average filler. But "good template" is a 6-6.5 on this scale, and that is where this site sits.
+| Issue from Round 5 | Status |
+|---|---|
+| Duplicate Hearth element + duplicate IDs | Fixed |
+| Hours text clipping on 375px | Fixed |
+| Font sizes below 14px | Fixed (all >= 0.875rem) |
+| Schedule duplicated across 3 IIFEs | Fixed (shared EMBER_SCHEDULE) |
+| Hover effects on mobile (sticky hover) | Fixed (@media hover:hover) |
+| Nav missing scrim/overlay | Fixed |
+| Gallery visual monotony | Fixed (textures, icons, aspect ratios) |
+| No CTA in Specials section | Fixed |
+| Monday reservation allowed on closed day | Fixed (validation on change + submit) |
+| Center-alignment inconsistencies | Fixed (full audit pass) |
 
-### What would push specific scores to 7+
+Technical had the biggest jump (+0.8) because it was dragged down in Round 5 by specific bugs that have now been resolved. Design gained +0.5 almost entirely from the gallery redesign. UX gained +0.3 from the hours fix, nav scrim, and Monday blocking. Conversion gained +0.3 from the specials CTA and Monday blocking.
 
-**Design to 7+ (needs to not feel generic):**
-1. Visual identity beyond "dark + gold + serif." A custom illustrated divider, a unique section transition, a textured background that is not just radial gradients. Something a client screenshots and shares.
-2. Break the visual monotony. Not every section needs the centred header + card grid pattern. The story section already does this with its side-by-side layout -- more of that variety.
-3. Light mode needs equal attention. Currently it feels like dark mode with the saturation turned down.
+### Top 3 Priority Recommendations
 
-**Content to 7+ (needs to not read like filler):**
-1. Section headlines that have personality. "Crafted with Fire & Care" is placeholder energy. Something like "The Menu" is actually better -- honest and confident.
-2. Sensory copy. What does the space feel like? Sound like? Smell like? The Story section hints at this ("warm woods, soft lighting, an open kitchen") but never commits to it.
-3. Happy hour deserves real estate. It is a major conversion driver and gets a single footnote.
+**1. Clean up dead and duplicate CSS (Technical + Simplicity impact)**
+Remove the dead `.specials__accent` full definition (lines 2139-2149), merge duplicate `.success__icon` and `.success__conf` selectors, and fold the center-alignment audit block (lines 2740-2881) into the original selectors. This consolidation could cut 150+ lines and improve maintainability. The CSS is approaching 3,000 lines and the accretion pattern will only get worse with each round.
 
-**UX to 7+:**
-1. Back-to-top button.
-2. Form validation that actually validates (phone pattern, loading state).
-3. Fix the menu tab switch animation jitter.
-4. Conditional swipe hint (touch devices only, dismiss after first swipe).
+**2. Gallery section conversion path (Conversion + Content impact)**
+Add a CTA at the bottom of the Gallery section -- "See yourself here? Reserve your evening." or a "Follow us on Instagram" link. Add one evocative line of copy per tile label. The gallery was visually transformed this round; now give it purpose in the conversion funnel. This section is currently the longest dead-end on the page.
 
-**Technical to 7+:**
-1. Fix all font-size violations below 14px.
-2. Add a `<main>` landmark and fix the skip link target.
-3. Defer or preload Google Fonts.
-4. Add defensive null checks in JS.
-5. Consolidate duplicate CSS selectors.
+**3. Design: break the section rhythm (Design impact)**
+The gallery textures prove the team can create visual variety. Apply that thinking to section transitions. A textured background on the Story section, a custom divider element between Specials and Menu, or an asymmetric layout for Testimonials would break the centred-header-into-card-grid pattern that still dominates. One non-grid section layout would push Design past 7.0.
 
 ### Would this impress a potential client?
 
-**It would not turn them away.** A restaurant owner looking at this on their phone would think "this looks professional." They would not think "this is special." The difference between those reactions is the difference between a 6 and an 8. This site needs to earn the 8.
+Getting closer. A restaurant owner scrolling on their phone would now see a page that feels intentional at every point. The gallery has personality. The booking flow is smart (blocks closed days, shows urgency). The copy has a real voice. The sticky bar makes it effortless to act. The score has crossed 70% for the first time under strict calibration. The gap is narrowing between "this is a very good template" and "this is the one I want."
