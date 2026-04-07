@@ -369,3 +369,36 @@
 - FIXED: Open Graph and Twitter Card URLs updated from placeholder "your-domain.com" to actual GitHub Pages URL.
 - FIXED: Schema.org Restaurant URL updated to actual site URL.
 - No new sections added. Mobile-first. Center-aligned.
+
+## Round 10 — Spark (2026-04-06)
+- REMOVED: Gallery section entirely (5 placeholder rectangles adding scroll length without visual payoff)
+- REMOVED: Gallery nav link, replaced with simplified nav (Menu, Our Story, Hours, Reviews, Events, Reserve)
+- REMOVED: ~294 lines of gallery CSS (textures, grid, overlays, staggered delays, mobile variants)
+- FIXED: "500+ five-star reviews" unverifiable claim replaced with "Consistently top-rated" wording
+- IMPROVED: Section padding increased (3.5rem -> 4.5rem) for more premium breathing room
+- IMPROVED: Section header title sizing (1.75rem -> 1.85rem) with tighter line-height and letter-spacing
+- IMPROVED: Section header sub-text spacing and line-height for better readability
+- IMPROVED: Hero subtitle sizing (0.95rem -> 1rem) with wider max-width and better margin
+- IMPROVED: Specials card body padding increased for premium feel
+- IMPROVED: Testimonials card padding increased (1.5rem -> 1.75rem)
+- IMPROVED: Menu item body padding refined
+- IMPROVED: Footer padding increased for breathing room
+- CSS trimmed: 2890 -> 2596 lines (-294 lines, -10.2%)
+- Site now has 9 sections (was 10). Shorter scroll, tighter experience.
+- No new sections added. No animations added. Mobile-first. Center-aligned.
+
+## Round 10 — QA+Pixel+Refiner (2026-04-06)
+- FIXED: Specials badge font-size bumped from 0.75rem (12px) to 0.8125rem (13px) — safely above 12px minimum
+- FIXED: Specials badge padding increased (0.25rem 0.6rem -> 0.3rem 0.7rem) for better tap/read target
+- FIXED: Redundant textarea text-align center->left override consolidated into clean separate rules
+- MERGED: Duplicate .specials__card border-left accent into base rule (was separate block at end of file)
+- CLEANED: Removed double blank lines in footer centering media queries (2 occurrences)
+- VERIFIED: All tap targets >= 44px on 375px mobile (buttons, tabs, form inputs, nav)
+- VERIFIED: All font sizes >= 12px on mobile (0.8rem hearth label/message on <479px = 12.8px, passes)
+- VERIFIED: Center-alignment on headings/labels and left-alignment on body text across all sections
+- VERIFIED: No horizontal overflow at 375px viewport
+- VERIFIED: IntersectionObserver + visibilitychange already implemented for hearth setInterval (Nigel #4)
+- VERIFIED: Gallery already removed by Spark (Nigel #2)
+- VERIFIED: Google Maps embed already added by Builder/Spark (Nigel #3)
+- CSS: 2596 lines (no net change — cleanup offset by no new additions)
+- No animations added. Mobile-first. Center-aligned.

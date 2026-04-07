@@ -158,9 +158,9 @@ img {
 .section-header__sub {
   color: var(--text-secondary);
   max-width: 500px;
-  margin: 0.25rem auto 0;
+  margin: 0.5rem auto 0;
   font-size: 0.9rem;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 /* --- Buttons --- */
@@ -534,11 +534,11 @@ img {
 }
 
 .hero__subtitle {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  max-width: 440px;
-  margin: 0 auto 1.75rem;
-  line-height: 1.6;
+  max-width: 460px;
+  margin: 0 auto 2rem;
+  line-height: 1.65;
   opacity: 0;
   animation: fadeUp 0.8s 0.8s forwards;
 }
@@ -1210,7 +1210,7 @@ img {
    FOOTER
    ============================================ */
 .footer {
-  padding: 2.5rem 0 1.25rem;
+  padding: 3rem 0 1.5rem;
   background: #131111;
   border-top: 1px solid rgba(201, 163, 78, 0.08);
 }
@@ -1380,8 +1380,6 @@ img {
   .footer__col {
     text-align: center;
   }
-
-
 
   .footer__logo {
     text-align: center;
@@ -1605,8 +1603,6 @@ img {
   .footer__col {
     text-align: center;
   }
-
-
 
   .footer__logo {
     text-align: center;
