@@ -411,11 +411,7 @@ img {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 50% 50%, rgba(22, 20, 20, 0.55) 0%, transparent 70%),
-    radial-gradient(ellipse at 50% 100%, rgba(201, 163, 78, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 30% 70%, rgba(139, 38, 53, 0.14) 0%, transparent 50%),
-    linear-gradient(175deg, rgba(13,11,10,0.78) 0%, rgba(23,18,15,0.72) 50%, rgba(22,20,20,0.80) 100%);
+  background: linear-gradient(180deg, rgba(13,11,10,0.85) 0%, rgba(23,18,15,0.75) 40%, rgba(13,11,10,0.88) 100%);
   z-index: 1;
 }
 
@@ -427,11 +423,7 @@ img {
 }
 
 [data-theme="light"] .hero__overlay {
-  background:
-    radial-gradient(ellipse at 50% 50%, rgba(250, 247, 242, 0.35) 0%, transparent 65%),
-    radial-gradient(ellipse at 50% 100%, rgba(201, 163, 78, 0.14) 0%, transparent 50%),
-    radial-gradient(ellipse at 25% 75%, rgba(139, 38, 53, 0.08) 0%, transparent 45%),
-    linear-gradient(175deg, rgba(228,218,206,0.78) 0%, rgba(237,229,216,0.74) 35%, rgba(245,240,232,0.80) 65%, rgba(250,247,242,0.84) 100%);
+  background: linear-gradient(180deg, rgba(250,247,242,0.88) 0%, rgba(245,240,232,0.78) 40%, rgba(250,247,242,0.90) 100%);
 }
 
 /* Subtle film grain for premium texture */
@@ -1071,6 +1063,7 @@ img {
    ============================================ */
 .reservations {
   padding: var(--section-pad);
+  background: var(--bg-surface);
 }
 
 .reservation-form {
@@ -1327,6 +1320,7 @@ img {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  animation: forceReveal 0s 2s forwards; /* Fallback: reveal if JS hasn't fired after 2s */
 }
 
 .anim-fade.visible {
@@ -1334,12 +1328,8 @@ img {
   transform: translateY(0);
 }
 
-/* Fallback: if JS hasn't fired after 2s, reveal all content */
 @keyframes forceReveal {
   to { opacity: 1; transform: translateY(0); }
-}
-.anim-fade {
-  animation: forceReveal 0s 2s forwards;
 }
 
 /* ============================================
@@ -2328,13 +2318,7 @@ img {
   font-weight: 500;
 }
 
-@media (max-width: 480px) {
-  .happy-hour-callout {
-    flex-direction: column;
-    gap: 0.35rem;
-    text-align: center;
-  }
-}
+/* happy-hour-callout narrow rules merged into 479px block below */
 
 /* ============================================
    FOOTER NEWSLETTER
@@ -2559,6 +2543,9 @@ img {
 
   /* Happy hour callout */
   .happy-hour-callout {
+    flex-direction: column;
+    gap: 0.35rem;
+    text-align: center;
     border-radius: var(--radius);
     padding: 0.75rem 1rem;
   }
