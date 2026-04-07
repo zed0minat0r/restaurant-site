@@ -312,3 +312,19 @@
 - ADDED: Context lines under each testimonial author ("Regular since 2021", "Anniversary dinner", "Weekly regular").
 - ADDED: Inline newsletter CTA between testimonials and events sections — "Stay in the loop" link scrolls to footer form. Improves newsletter form discovery without adding a new section.
 - No new sections added. Mobile-first. Center-aligned.
+
+### Builder Round 9 — CSS Audit Block Merge, Testimonials Enhancement, Technical Cleanup
+
+- MERGED: Entire "MOBILE CENTER-ALIGNMENT — consolidated" audit block (~25 lines) into original selectors. text-align: center now lives in .story__text, .events__text, .testimonials__card, .specials__body, .specials__name, .hours__note base rules. Removed ~25 lines of duplicate media-query code.
+- MERGED: Footer center-alignment mobile block into base .footer__layout and .footer__socials rules. Removed 14 lines.
+- REMOVED: Redundant .story__text .section-header__title and .story__text .section-header__label rules (inherited from parent text-align: center). Removed 8 lines.
+- REMOVED: Dead ".specials__accent — fully removed" comment.
+- MERGED: .events__actions justify-content/align-items into base rule. .events__features display:inline-block into base.
+- MERGED: .specials__card border-top: 3px solid var(--gold) into base rule (was mobile-only).
+- CLEANED: Specials meta mobile block — removed redundant justify-content/align-items (now in base). Kept flex-direction: column.
+- ENHANCED: Testimonials section gets subtle radial gradient warmth background (matches story section treatment).
+- ENHANCED: Featured testimonial card gets decorative pull-quote mark (large faded open-quote character), extra padding, and emphasized stars.
+- ENHANCED: Newsletter inline CTA gets border separators, wider padding, and better line-height for visual prominence.
+- FIXED: Open Graph and Twitter Card URLs updated from placeholder "your-domain.com" to actual GitHub Pages URL.
+- FIXED: Schema.org Restaurant URL updated to actual site URL.
+- No new sections added. Mobile-first. Center-aligned.

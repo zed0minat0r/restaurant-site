@@ -859,19 +859,15 @@ img {
   align-items: center;
 }
 
+.story__text {
+  text-align: center;
+}
+
 .story__text p:not(.section-header__label) {
   margin-bottom: 1rem;
   color: var(--text-secondary);
   font-size: 0.9rem;
   line-height: 1.65;
-}
-
-.story__text .section-header__title {
-  text-align: center;
-}
-
-.story__text .section-header__label {
-  text-align: center;
 }
 
 .story__text .section-header__line {
@@ -1082,12 +1078,14 @@ img {
   margin-top: 0.75rem;
   padding-top: 0.75rem;
   border-top: 1px solid var(--border);
+  text-align: center;
 }
 
 .hours__note p {
   font-size: 0.875rem;
   color: var(--text-muted);
   margin-bottom: 0.25rem;
+  text-align: center;
 }
 
 /* Map placeholder */
@@ -1321,6 +1319,7 @@ img {
 .footer__layout {
   display: grid;
   gap: 1.5rem;
+  text-align: center;
 }
 
 .footer__logo {
@@ -1368,6 +1367,7 @@ img {
 .footer__socials {
   display: flex;
   gap: 0.75rem;
+  justify-content: center;
 }
 
 .footer__socials a {
@@ -1801,6 +1801,18 @@ img {
 .testimonials {
   padding: var(--section-pad);
   background: var(--bg-surface);
+  position: relative;
+}
+
+/* Subtle warmth gradient background — matches story section treatment */
+.testimonials::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(201, 163, 78, 0.03), transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(139, 111, 71, 0.04), transparent 60%);
+  pointer-events: none;
 }
 
 .testimonials__grid {
@@ -1816,6 +1828,7 @@ img {
   border-radius: var(--radius);
   padding: 1.5rem;
   border-top: 2px solid var(--gold);
+  text-align: center;
 }
 
 .testimonials__stars {
@@ -1837,6 +1850,7 @@ img {
 .testimonials__author {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
 }
 
@@ -1858,10 +1872,32 @@ img {
   background: var(--bg-surface);
   border-top: 3px solid var(--gold);
   border-left: 3px solid var(--gold);
+  padding: 1.75rem;
+  position: relative;
 }
+
+.testimonials__card--featured::before {
+  content: '\201C';
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: var(--gold);
+  opacity: 0.15;
+  line-height: 1;
+  pointer-events: none;
+}
+
 .testimonials__card--featured .testimonials__quote {
   font-size: 1.1rem;
   line-height: 1.7;
+}
+
+.testimonials__card--featured .testimonials__stars {
+  color: var(--gold);
+  font-size: 1.1rem;
+  letter-spacing: 3px;
 }
 
 /* Context line under author */
@@ -1876,18 +1912,23 @@ img {
 /* Newsletter inline CTA between sections */
 .newsletter-cta {
   text-align: center;
-  padding: 1.5rem 1rem;
+  padding: 1.75rem 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 .newsletter-cta__text {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
   margin: 0;
+  line-height: 1.6;
 }
 .newsletter-cta__link {
   color: var(--gold);
   font-weight: 600;
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
 }
 
 @media (min-width: 768px) {
@@ -2058,11 +2099,7 @@ img {
   margin: 0 auto;
 }
 
-.events__text .section-header__title {
-  text-align: center;
-}
-
-.events__text .section-header__label {
+.events__text {
   text-align: center;
 }
 
@@ -2080,6 +2117,8 @@ img {
 .events__features {
   list-style: none;
   margin-bottom: 1.25rem;
+  display: inline-block;
+  text-align: left;
 }
 
 .events__features li {
@@ -2240,6 +2279,7 @@ img {
 .specials__card {
   background: var(--bg-card);
   border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
   border-radius: var(--radius);
   overflow: hidden;
   position: relative;
@@ -2261,10 +2301,9 @@ img {
   z-index: 1;
 }
 
-/* .specials__accent — fully removed (HTML elements + CSS cleaned) */
-
 .specials__body {
   padding: 1.25rem 1.375rem;
+  text-align: center;
 }
 
 .specials__name {
@@ -2273,6 +2312,7 @@ img {
   font-weight: 600;
   color: var(--text);
   margin-bottom: 0.6rem;
+  text-align: center;
 }
 
 .specials__desc {
@@ -2285,7 +2325,7 @@ img {
 .specials__meta {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
 }
@@ -2682,6 +2722,8 @@ img {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 480px) {
@@ -2689,6 +2731,7 @@ img {
     flex-direction: column;
   }
   .events__actions .btn {
+    width: 100%;
     text-align: center;
   }
 }
@@ -2830,32 +2873,6 @@ img {
 .gallery__item:nth-child(4) { animation-delay: 0.24s; }
 .gallery__item:nth-child(5) { animation-delay: 0.32s; }
 
-/* ============================================
-   MOBILE CENTER-ALIGNMENT — consolidated
-   ============================================ */
-@media (max-width: 767px) {
-  .events__text,
-  .events__text p,
-  .story__text,
-  .story__text p:not(.section-header__label),
-  .specials__body,
-  .specials__name,
-  .specials__desc,
-  .testimonials__card,
-  .testimonials__stars,
-  .testimonials__quote,
-  .hours__note,
-  .hours__note p { text-align: center; }
-
-  .events__features { display: inline-block; text-align: left; }
-  .events__actions { justify-content: center; align-items: center; }
-  .events__actions .btn { width: 100%; text-align: center; }
-  .story__text .section-header__line { margin: 1.25rem auto; }
-  .specials__card { border-left: none; border-top: 3px solid var(--gold); }
-  .specials__meta,
-  .testimonials__author { justify-content: center; }
-}
-
 /* Narrow mobile (479px): menu, form, footer centering */
 @media (max-width: 479px) {
   .menu__item-body,
@@ -2945,12 +2962,10 @@ img {
   }
 }
 
-/* Specials meta: center on mobile instead of space-between */
+/* Specials meta: stack on mobile */
 @media (max-width: 767px) {
   .specials__meta {
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
     gap: 0.35rem;
   }
 }
@@ -2996,18 +3011,3 @@ img {
   }
 }
 
-/* Footer cols: consistent center alignment on all mobile */
-@media (max-width: 767px) {
-  .footer__layout {
-    text-align: center;
-  }
-  .footer__col {
-    text-align: center;
-  }
-  .footer__socials {
-    justify-content: center;
-  }
-  .footer__brand {
-    text-align: center;
-  }
-}
