@@ -21,7 +21,7 @@
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --radius: 8px;
   --transition: 0.3s ease;
-  --section-pad: 2.5rem 0;
+  --section-pad: 3rem 0;
 }
 
 /* --- Theme Variables --- */
@@ -98,7 +98,7 @@ img {
 /* --- Section Headers --- */
 .section-header {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .section-header__label {
@@ -163,8 +163,9 @@ img {
 .section-header__sub {
   color: var(--text-secondary);
   max-width: 500px;
-  margin: 0 auto;
+  margin: 0.25rem auto 0;
   font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 /* --- Buttons --- */
@@ -544,8 +545,9 @@ img {
 .hero__subtitle {
   font-size: 0.95rem;
   color: var(--text-secondary);
-  max-width: 400px;
-  margin: 0 auto 1.5rem;
+  max-width: 440px;
+  margin: 0 auto 1.75rem;
+  line-height: 1.6;
   opacity: 0;
   animation: fadeUp 0.8s 0.8s forwards;
 }
@@ -749,7 +751,7 @@ img {
 }
 
 .menu__item-body {
-  padding: 1rem;
+  padding: 1rem 1.125rem;
 }
 
 .menu__item-header {
@@ -858,10 +860,10 @@ img {
 }
 
 .story__text p:not(.section-header__label) {
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   color: var(--text-secondary);
   font-size: 0.9rem;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .story__text .section-header__title {
@@ -1022,7 +1024,7 @@ img {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.5rem 1.25rem;
+  padding: 1.5rem;
 }
 
 .hours__day {
@@ -1174,7 +1176,7 @@ img {
 .reservation-form__row {
   display: grid;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .form-group {
@@ -1803,7 +1805,7 @@ img {
 
 .testimonials__grid {
   display: grid;
-  gap: 0.75rem;
+  gap: 1rem;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -1812,7 +1814,7 @@ img {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.25rem;
+  padding: 1.5rem;
   border-top: 2px solid var(--gold);
 }
 
@@ -1874,7 +1876,7 @@ img {
 /* Newsletter inline CTA between sections */
 .newsletter-cta {
   text-align: center;
-  padding: 1.25rem 1rem;
+  padding: 1.5rem 1rem;
 }
 .newsletter-cta__text {
   font-size: 0.9rem;
@@ -1908,7 +1910,7 @@ img {
 .gallery__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
+  gap: 0.75rem;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -1996,7 +1998,7 @@ img {
    ============================================ */
 .gallery__cta {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   padding-top: 1.5rem;
 }
 
@@ -2071,8 +2073,8 @@ img {
 .events__text p {
   color: var(--text-secondary);
   font-size: 0.9rem;
-  line-height: 1.6;
-  margin-bottom: 0.75rem;
+  line-height: 1.65;
+  margin-bottom: 1rem;
 }
 
 .events__features {
@@ -2230,7 +2232,7 @@ img {
 
 .specials__grid {
   display: grid;
-  gap: 0.75rem;
+  gap: 1rem;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -2262,7 +2264,7 @@ img {
 /* .specials__accent — fully removed (HTML elements + CSS cleaned) */
 
 .specials__body {
-  padding: 1.25rem;
+  padding: 1.25rem 1.375rem;
 }
 
 .specials__name {
@@ -2276,8 +2278,8 @@ img {
 .specials__desc {
   font-size: 0.875rem;
   color: var(--text-secondary);
-  line-height: 1.55;
-  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 .specials__meta {
@@ -2352,7 +2354,7 @@ img {
    ============================================ */
 .section-cta {
   text-align: center;
-  padding: 0.75rem 1rem;
+  padding: 1rem 1rem;
 }
 
 .section-cta__link {
@@ -2575,8 +2577,8 @@ img {
    ============================================ */
 .footer__newsletter {
   text-align: center;
-  padding: 1.75rem 0;
-  margin-top: 1.5rem;
+  padding: 2rem 0;
+  margin-top: 1.75rem;
   border-top: 1px solid rgba(255,255,255,0.04);
 }
 
