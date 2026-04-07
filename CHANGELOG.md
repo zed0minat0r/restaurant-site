@@ -410,3 +410,14 @@
 - REMOVED: Orphaned consolidation comment
 - CSS trimmed: 2596 -> 2548 lines (-48 lines, -1.8%)
 - No visual changes. Pure CSS organization and dead code removal.
+
+## Round 11 — Spark (2026-04-06)
+- REFINED: Hero overlay tuned for better text readability over background photo (center vignette, softer base gradient)
+- REFINED: Hero bg image focal point shifted up (center 40%) for better composition
+- REPLACED: Specials double gold border (top+left) with clean single border — less visual noise with photos
+- ADDED: Specials image wrapper with bottom gradient fade into card body — seamless photo-to-text transition
+- REFINED: Specials image height increased to 200px mobile (180px desktop) for better visual weight
+- REFINED: Story photo height increased (240->260px mobile, 320->340px desktop) with subtle bottom gradient overlay
+- REFINED: Light theme hero overlay rebalanced for photo visibility
+- REFINED: Specials card body padding tightened for better photo-text rhythm
+- No animations added. Mobile-first. Center-aligned.
