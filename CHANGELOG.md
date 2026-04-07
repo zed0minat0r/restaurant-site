@@ -2,6 +2,18 @@
 
 ## 2026-04-06
 
+### Audit Priority Fixes (Builder — Round 9)
+- REMOVED: CSS flame flicker animations (3 infinite keyframes: flicker1/2/3) replaced with static SVG flame icon in story section. Total infinite animations reduced from 7 to 1 (scrollBounce only).
+- REMOVED: ember-glow infinite animations (section divider diamond + hearth pulse dot) — now static with box-shadow only.
+- REMOVED: statusPulse infinite animation on hours status dot.
+- FIXED: Story body text left-aligned on mobile for readability. Headings/labels remain centered.
+- FIXED: Duplicate gallery mobile CSS block removed (was declared twice at separate locations).
+- FIXED: Duplicate ember-glow keyframe definition removed.
+- ADDED: Email field to reservation form (between name and phone).
+- REMOVED: Dead social links (Instagram/Facebook/TikTok with href="#"). Replaced footer column with Hours summary.
+- CLEANED: All dead .footer__socials CSS removed (~40 lines).
+- CLEANED: Unused .flame, .flame--1/2/3, .flame-base CSS removed.
+
 ### Simplicity Refinement Pass (Spark)
 
 - REMOVED: All 3 flame flicker infinite animations (flicker1/2/3 keyframes deleted). Flame is now static.
