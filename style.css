@@ -2286,19 +2286,17 @@ img {
 }
 
 .specials__badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  display: inline-block;
   font-family: var(--font-body);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--dark);
   background: var(--gold);
-  padding: 0.3rem 0.65rem;
+  padding: 0.25rem 0.6rem;
   border-radius: 100px;
-  z-index: 1;
+  margin-bottom: 0.5rem;
 }
 
 .specials__body {
