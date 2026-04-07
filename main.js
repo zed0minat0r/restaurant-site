@@ -702,15 +702,51 @@ var EMBER_SCHEDULE = {
   var msgIndex = 0;
   msgEl.textContent = shuffled[0];
 
-  // Rotate messages every 6 seconds
-  setInterval(function () {
-    msgEl.classList.add('fade-out');
-    setTimeout(function () {
-      msgIndex = (msgIndex + 1) % shuffled.length;
-      msgEl.textContent = shuffled[msgIndex];
-      msgEl.classList.remove('fade-out');
-    }, 400);
-  }, 6000);
+  // Rotate messages every 6 seconds, pausing when not visible
+  var hearthInterval = null;
+
+  function startRotation() {
+    if (hearthInterval) return;
+    hearthInterval = setInterval(function () {
+      msgEl.classList.add('fade-out');
+      setTimeout(function () {
+        msgIndex = (msgIndex + 1) % shuffled.length;
+        msgEl.textContent = shuffled[msgIndex];
+        msgEl.classList.remove('fade-out');
+      }, 400);
+    }, 6000);
+  }
+
+  function stopRotation() {
+    if (hearthInterval) {
+      clearInterval(hearthInterval);
+      hearthInterval = null;
+    }
+  }
+
+  // Use IntersectionObserver to only rotate when hearth bar is visible
+  if ('IntersectionObserver' in window) {
+    var hearthBar = msgEl.closest('.hearth-pulse') || msgEl.parentElement;
+    var observer = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        startRotation();
+      } else {
+        stopRotation();
+      }
+    }, { threshold: 0 });
+    observer.observe(hearthBar);
+  } else {
+    startRotation();
+  }
+
+  // Also pause when tab is in background
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      stopRotation();
+    } else if (msgEl.closest('.hearth-pulse')) {
+      startRotation();
+    }
+  });
 })();
 
 /* ============================================

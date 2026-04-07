@@ -2,6 +2,16 @@
 
 ## 2026-04-06
 
+### Builder Round 10 — Gallery Removal, Google Maps Embed, Hearth Optimization
+
+- REMOVED: Entire gallery section (5 textured placeholder rectangles + CTA). Cuts scroll length significantly. Gallery nav link also removed.
+- REMOVED: ~282 lines of gallery CSS (placeholders, textures, staggered animations, responsive overrides).
+- REPLACED: CSS grid-pattern map placeholder with Google Maps iframe embed. Address, parking info, and Get Directions link preserved below the map.
+- REMOVED: Old map placeholder CSS (grid pattern, map pin, z-index layers). Replaced with clean map embed styles.
+- FIXED: Hearth message rotation now uses IntersectionObserver — pauses setInterval when hearth bar is not visible. Also pauses when tab is in background (visibilitychange). Saves battery on mobile.
+- FIXED: "500+ five-star reviews" unverifiable claim replaced with neutral testimonials subheading.
+- CSS reduced from 2890 to 2608 lines (-282). No new sections added. Mobile-first.
+
 ### Audit Priority Fixes (Builder — Round 9)
 - REMOVED: CSS flame flicker animations (3 infinite keyframes: flicker1/2/3) replaced with static SVG flame icon in story section. Total infinite animations reduced from 7 to 1 (scrollBounce only).
 - REMOVED: ember-glow infinite animations (section divider diamond + hearth pulse dot) — now static with box-shadow only.

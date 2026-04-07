@@ -21,7 +21,7 @@
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --radius: 8px;
   --transition: 0.3s ease;
-  --section-pad: 3.5rem 0;
+  --section-pad: 4.5rem 0;
 }
 
 /* --- Theme Variables --- */
@@ -98,7 +98,7 @@ img {
 /* --- Section Headers --- */
 .section-header {
   text-align: center;
-  margin-bottom: 2.25rem;
+  margin-bottom: 2.75rem;
 }
 
 .section-header__label {
@@ -113,10 +113,11 @@ img {
 
 .section-header__title {
   font-family: var(--font-heading);
-  font-size: 1.75rem;
+  font-size: 1.85rem;
   font-weight: 600;
   color: var(--text);
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
 /* Ember divider — fading gold lines with a center diamond spark */
@@ -488,10 +489,6 @@ img {
   color: #8b6e1e;
 }
 
-[data-theme="light"] .gallery__label {
-  color: #524d48;
-}
-
 [data-theme="light"] .section-cta__link {
   color: #524d48;
 }
@@ -745,7 +742,7 @@ img {
 }
 
 .menu__item-body {
-  padding: 1rem 1.125rem;
+  padding: 1.125rem 1.25rem;
 }
 
 .menu__item-header {
@@ -1034,60 +1031,21 @@ img {
   text-align: center;
 }
 
-/* Map placeholder */
-.hours__map-placeholder {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+/* Map embed */
+.hours__map-embed {
   border-radius: var(--radius);
-  height: 100%;
-  min-height: 180px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  position: relative;
   overflow: hidden;
-}
-
-.hours__map-placeholder::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    repeating-linear-gradient(0deg, transparent, transparent 30px, var(--border) 30px, var(--border) 31px),
-    repeating-linear-gradient(90deg, transparent, transparent 30px, var(--border) 30px, var(--border) 31px);
-  opacity: 0.4;
-}
-
-.map-pin {
-  width: 24px;
-  height: 34px;
-  position: relative;
-  z-index: 1;
   margin-bottom: 1rem;
 }
 
-.map-pin::before {
-  content: '';
-  width: 24px;
-  height: 24px;
-  background: var(--gold);
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(-45deg);
+.hours__map-embed iframe {
   display: block;
+  width: 100%;
+  min-height: 200px;
 }
 
-.map-pin::after {
-  content: '';
-  width: 10px;
-  height: 10px;
-  background: var(--bg-card);
-  border-radius: 50%;
-  position: absolute;
-  top: 7px;
-  left: 7px;
+.hours__map-info {
+  text-align: center;
 }
 
 .hours__address {
@@ -1095,8 +1053,6 @@ img {
   font-size: 1.05rem;
   color: var(--text);
   margin-bottom: 0.5rem;
-  position: relative;
-  z-index: 1;
   line-height: 1.5;
 }
 
@@ -1104,14 +1060,7 @@ img {
   font-size: 0.8rem;
   color: var(--text-secondary);
   margin-bottom: 1rem;
-  position: relative;
-  z-index: 1;
   letter-spacing: 0.01em;
-}
-
-.hours__map-placeholder .btn {
-  position: relative;
-  z-index: 1;
 }
 
 /* ============================================
@@ -1472,14 +1421,6 @@ img {
     height: 220px;
   }
 
-  .gallery__grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .gallery__placeholder {
-    aspect-ratio: 4 / 3;
-  }
-
   .reservation-form__row {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -1723,7 +1664,7 @@ img {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.5rem;
+  padding: 1.75rem;
   border-top: 2px solid var(--gold);
   text-align: center;
 }
@@ -1835,117 +1776,6 @@ img {
   .testimonials__card--featured .testimonials__quote {
     font-size: 1.15rem;
   }
-}
-
-/* ============================================
-   GALLERY / ATMOSPHERE
-   ============================================ */
-.gallery {
-  padding: var(--section-pad);
-  background: var(--bg-surface);
-}
-
-.gallery__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.gallery__item--wide {
-  grid-column: span 2;
-}
-
-.gallery__item--wide .gallery__placeholder {
-  aspect-ratio: 16 / 7;
-}
-
-.gallery__item {
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.gallery__placeholder {
-  aspect-ratio: 3 / 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  background: linear-gradient(
-    135deg,
-    hsl(var(--hue, 25), var(--sat, 25%), 18%) 0%,
-    hsl(calc(var(--hue, 25) + 15), var(--sat, 25%), 14%) 100%
-  );
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  position: relative;
-  box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.15);
-}
-
-[data-theme="light"] .gallery__placeholder {
-  background: linear-gradient(
-    135deg,
-    hsl(var(--hue, 25), var(--sat, 25%), 80%) 0%,
-    hsl(calc(var(--hue, 25) + 15), var(--sat, 25%), 84%) 100%
-  );
-  box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.06);
-}
-
-.gallery__icon {
-  color: var(--gold);
-  opacity: 0.5;
-}
-
-.gallery__label {
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  opacity: 0.7;
-}
-
-@media (min-width: 480px) {
-  .gallery__grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .gallery__item--wide {
-    grid-column: span 2;
-  }
-
-  .gallery__item--wide .gallery__placeholder {
-    aspect-ratio: 21 / 9;
-  }
-
-  .gallery__label {
-    font-size: 0.875rem;
-    letter-spacing: 1px;
-  }
-
-  .gallery__placeholder {
-    gap: 0.75rem;
-  }
-}
-
-/* ============================================
-   GALLERY CTA
-   ============================================ */
-.gallery__cta {
-  text-align: center;
-  margin-top: 2.5rem;
-  padding-top: 1.5rem;
-}
-
-.gallery__cta-text {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
-  letter-spacing: 0.02em;
 }
 
 /* ============================================
@@ -2178,6 +2008,7 @@ img {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-top: 3px solid var(--gold);
+  border-left: 3px solid var(--gold);
   border-radius: var(--radius);
   overflow: hidden;
   position: relative;
@@ -2186,25 +2017,25 @@ img {
 .specials__badge {
   display: inline-block;
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--dark);
   background: var(--gold);
-  padding: 0.25rem 0.6rem;
+  padding: 0.3rem 0.7rem;
   border-radius: 100px;
   margin-bottom: 0.5rem;
 }
 
 .specials__body {
-  padding: 1.25rem 1.375rem;
+  padding: 1.5rem 1.5rem;
   text-align: center;
 }
 
 .specials__name {
   font-family: var(--font-heading);
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--text);
   margin-bottom: 0.6rem;
@@ -2644,125 +2475,6 @@ img {
   margin-top: 0.5rem;
 }
 
-/* ============================================
-   SPECIALS — left-border accent
-   ============================================ */
-.specials__card {
-  border-left: 3px solid var(--gold);
-}
-
-/* ============================================
-   GALLERY — staggered layout for variety
-   on mobile, alternate large/small tiles
-   ============================================ */
-@media (max-width: 479px) {
-  .gallery__grid {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-  .gallery__item--wide {
-    grid-column: span 1;
-  }
-  .gallery__item--wide .gallery__placeholder {
-    aspect-ratio: 16 / 9;
-  }
-}
-
-/* ============================================
-   GALLERY — visual variety & texture overlays
-   Spark (2026-04-01): break placeholder monotony
-   with unique textures per tile
-   ============================================ */
-
-/* Shared texture layer for all placeholders */
-.gallery__placeholder::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  opacity: 0.08;
-  pointer-events: none;
-  mix-blend-mode: overlay;
-}
-
-/* Item 1 (wide): subtle diagonal lines */
-.gallery__item:nth-child(1) .gallery__placeholder::before {
-  background: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 6px,
-    currentColor 6px,
-    currentColor 7px
-  );
-}
-
-/* Item 2: fine dot grid */
-.gallery__item:nth-child(2) .gallery__placeholder::before {
-  background: radial-gradient(circle, currentColor 1px, transparent 1px);
-  background-size: 12px 12px;
-}
-
-/* Item 3: horizontal fine lines */
-.gallery__item:nth-child(3) .gallery__placeholder::before {
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 8px,
-    currentColor 8px,
-    currentColor 9px
-  );
-}
-
-/* Item 4: crosshatch */
-.gallery__item:nth-child(4) .gallery__placeholder::before {
-  background:
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 8px,
-      currentColor 8px,
-      currentColor 9px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 8px,
-      currentColor 8px,
-      currentColor 9px
-    );
-}
-
-/* Item 5 (wide): concentric arcs */
-.gallery__item:nth-child(5) .gallery__placeholder::before {
-  background: repeating-radial-gradient(
-    circle at 30% 70%,
-    transparent,
-    transparent 14px,
-    currentColor 14px,
-    currentColor 15px
-  );
-}
-
-/* Varied aspect ratios for non-wide items on mobile */
-@media (max-width: 479px) {
-  .gallery__item:nth-child(2) .gallery__placeholder {
-    aspect-ratio: 4 / 3;
-  }
-  .gallery__item:nth-child(3) .gallery__placeholder {
-    aspect-ratio: 1 / 1;
-  }
-  .gallery__item:nth-child(4) .gallery__placeholder {
-    aspect-ratio: 3 / 4;
-  }
-}
-
-/* Staggered fade-in delays so tiles don't appear identically */
-.gallery__item:nth-child(1) { animation-delay: 0s; }
-.gallery__item:nth-child(2) { animation-delay: 0.08s; }
-.gallery__item:nth-child(3) { animation-delay: 0.16s; }
-.gallery__item:nth-child(4) { animation-delay: 0.24s; }
-.gallery__item:nth-child(5) { animation-delay: 0.32s; }
-
 /* Narrow mobile (479px): menu, form, footer centering */
 @media (max-width: 479px) {
   .menu__item-body,
@@ -2781,11 +2493,9 @@ img {
   .menu__item-tags { justify-content: center; }
   .form-group { align-items: center; }
   .form-group label { width: 100%; }
-  .form-group input,
-  .form-group select,
-  .form-group textarea { text-align: center; font-size: 16px; }
-  .form-group textarea { text-align: left; }
-  .form-group select { text-align: left; background-position: right 1rem center; }
+  .form-group input { text-align: center; font-size: 16px; }
+  .form-group select { text-align: left; font-size: 16px; background-position: right 1rem center; }
+  .form-group textarea { text-align: left; font-size: 16px; }
   .reservation-form .btn--lg { font-size: 0.9rem; padding: 1rem 1.5rem; }
   .footer__newsletter-form input { font-size: 16px; text-align: center; }
 }

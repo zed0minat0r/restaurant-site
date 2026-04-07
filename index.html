@@ -72,7 +72,6 @@
       <div class="nav__overlay" id="navOverlay"></div>
       <ul class="nav__links" id="navLinks">
         <li><a href="#menu">Menu</a></li>
-        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#story">Our Story</a></li>
         <li><a href="#hours">Hours</a></li>
         <li><a href="#testimonials">Reviews</a></li>
@@ -488,64 +487,15 @@
           </div>
         </div>
         <div class="hours__map anim-fade">
-          <div class="hours__map-placeholder">
-            <div class="map-pin"></div>
-            <p class="hours__address">
-              742 Hearthstone Lane<br>
-              Philadelphia, PA 19103
-            </p>
+          <div class="hours__map-embed">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.5!2d-75.165!3d39.9526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDU3JzA5LjQiTiA3NcKwMDknNTQuMCJX!5e0!3m2!1sen!2sus!4v1" width="100%" height="200" style="border:0; border-radius: var(--radius);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ember &amp; Oak location on Google Maps"></iframe>
+          </div>
+          <div class="hours__map-info">
+            <p class="hours__address">742 Hearthstone Lane, Philadelphia, PA 19103</p>
             <p class="hours__parking">Street parking available &middot; Garage at 8th &amp; Market</p>
             <a href="https://maps.google.com/?q=742+Hearthstone+Lane+Philadelphia+PA+19103" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Get Directions</a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery / Atmosphere -->
-  <section class="gallery" id="gallery">
-    <div class="container">
-      <div class="section-header anim-fade">
-        <p class="section-header__label">The Space</p>
-        <h2 class="section-header__title">Step Inside</h2>
-        <div class="section-header__line"></div>
-        <p class="section-header__sub">Walnut, flame, and just enough light to make everyone look good.</p>
-      </div>
-      <div class="gallery__grid">
-        <div class="gallery__item gallery__item--wide anim-fade">
-          <div class="gallery__placeholder" style="--hue:20;--sat:30%">
-            <svg class="gallery__icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12c-2-3-4-5.5-4-7.5a4 4 0 0 1 8 0c0 2-2 4.5-4 7.5z"/><path d="M8 21h8"/><path d="M12 12v9"/></svg>
-            <span class="gallery__label">Open Kitchen &amp; Live Fire</span>
-          </div>
-        </div>
-        <div class="gallery__item anim-fade">
-          <div class="gallery__placeholder" style="--hue:35;--sat:25%">
-            <svg class="gallery__icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="2" rx="1"/><path d="M6 9v8"/><path d="M18 9v8"/><path d="M4 17h16"/></svg>
-            <span class="gallery__label">Main Dining Room</span>
-          </div>
-        </div>
-        <div class="gallery__item anim-fade">
-          <div class="gallery__placeholder" style="--hue:10;--sat:28%">
-            <svg class="gallery__icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 22h8"/><path d="M12 11v11"/><path d="M5 3l3 8h8l3-8"/><circle cx="17" cy="3" r="0.5" fill="currentColor"/></svg>
-            <span class="gallery__label">Signature Cocktails</span>
-          </div>
-        </div>
-        <div class="gallery__item anim-fade">
-          <div class="gallery__placeholder" style="--hue:45;--sat:22%">
-            <svg class="gallery__icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="10" rx="9" ry="4"/><path d="M3 10v1c0 2.2 4 4 9 4s9-1.8 9-4v-1"/><path d="M12 18v3"/><path d="M8 21h8"/></svg>
-            <span class="gallery__label">Wood-Fired Plates</span>
-          </div>
-        </div>
-        <div class="gallery__item gallery__item--wide anim-fade">
-          <div class="gallery__placeholder" style="--hue:28;--sat:20%">
-            <svg class="gallery__icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2h8l-1 7H9L8 2z"/><path d="M12 9v8"/><path d="M8 21h8"/><path d="M12 17c-2 0-4-1-4-2"/></svg>
-            <span class="gallery__label">Bar &amp; Lounge</span>
-          </div>
-        </div>
-      </div>
-      <div class="gallery__cta anim-fade">
-        <p class="gallery__cta-text">See yourself here?</p>
-        <a href="#reservations" class="btn btn--outline">Reserve Your Evening</a>
       </div>
     </div>
   </section>
@@ -557,7 +507,7 @@
         <p class="section-header__label">Word of Mouth</p>
         <h2 class="section-header__title">Don't Take Our Word for It</h2>
         <div class="section-header__line"></div>
-        <p class="section-header__sub">500+ five-star reviews across Google, Yelp, and OpenTable. Rated #3 restaurant in Center City.</p>
+        <p class="section-header__sub">Hear from guests who&rsquo;ve joined us at the hearth.</p>
       </div>
       <div class="testimonials__grid">
         <div class="testimonials__card anim-fade">
