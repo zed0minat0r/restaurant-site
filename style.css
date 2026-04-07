@@ -415,7 +415,14 @@ img {
     radial-gradient(ellipse at 50% 100%, rgba(201, 163, 78, 0.06) 0%, transparent 50%),
     radial-gradient(ellipse at 30% 70%, rgba(139, 38, 53, 0.18) 0%, transparent 50%),
     radial-gradient(ellipse at 70% 20%, rgba(201, 163, 78, 0.06) 0%, transparent 40%),
-    linear-gradient(175deg, #0d0b0a 0%, #17120f 50%, #161414 100%);
+    linear-gradient(175deg, rgba(13,11,10,0.82) 0%, rgba(23,18,15,0.78) 50%, rgba(22,20,20,0.85) 100%);
+  z-index: 1;
+}
+
+.hero__bg-img {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1400&q=80') center center / cover no-repeat;
   z-index: 0;
 }
 
@@ -425,7 +432,7 @@ img {
     radial-gradient(ellipse at 25% 75%, rgba(139, 38, 53, 0.1) 0%, transparent 45%),
     radial-gradient(ellipse at 75% 25%, rgba(201, 163, 78, 0.12) 0%, transparent 40%),
     radial-gradient(circle at 50% 50%, rgba(139, 111, 71, 0.05) 0%, transparent 70%),
-    linear-gradient(175deg, #E4DACE 0%, #EDE5D8 35%, #F5F0E8 65%, #FAF7F2 100%);
+    linear-gradient(175deg, rgba(228,218,206,0.75) 0%, rgba(237,229,216,0.72) 35%, rgba(245,240,232,0.78) 65%, rgba(250,247,242,0.82) 100%);
 }
 
 /* Subtle film grain for premium texture */
@@ -435,14 +442,14 @@ img {
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
   background-size: 200px 200px;
-  z-index: 0;
+  z-index: 2;
   pointer-events: none;
   opacity: 0.5;
 }
 
 .hero__content {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   padding: 2rem 1.25rem;
 }
 
@@ -553,7 +560,7 @@ img {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
+  z-index: 3;
 }
 
 .hero__scroll-hint span {
@@ -870,25 +877,20 @@ img {
   line-height: 1.7;
 }
 
-/* CSS Flame Illustration */
-.story__illustration {
-  width: 110px;
-  height: 110px;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+/* Story Photo */
+.story__photo {
+  width: 100%;
+  max-width: 340px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
 }
 
-/* ── Campfire SVG ── */
-.campfire-svg {
+.story__photo-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
   display: block;
-  margin: 0 auto;
-  filter: drop-shadow(0 4px 16px rgba(201, 163, 78, 0.35));
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .campfire-svg animate { display: none; }
 }
 
 /* ============================================
@@ -1402,9 +1404,13 @@ img {
     gap: 4rem;
   }
 
-  .story__illustration {
-    width: 220px;
-    height: 220px;
+  .story__photo {
+    max-width: 400px;
+    flex-shrink: 0;
+  }
+
+  .story__photo-img {
+    height: 320px;
   }
 
   .reservation-form__row {
@@ -1975,6 +1981,13 @@ img {
   border-radius: var(--radius);
   overflow: hidden;
   position: relative;
+}
+
+.specials__img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
 }
 
 .specials__badge {

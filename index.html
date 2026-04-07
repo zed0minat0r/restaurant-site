@@ -51,6 +51,7 @@
   }
   </script>
 
+  <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -88,6 +89,7 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
+    <div class="hero__bg-img" aria-hidden="true"></div>
     <div class="hero__overlay"></div>
     <div class="hero__content">
       <p class="hero__tagline-top">Philadelphia &middot; Est. 2019</p>
@@ -127,6 +129,7 @@
       </div>
       <div class="specials__grid">
         <div class="specials__card anim-fade">
+          <img class="specials__img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Dry-aged tomahawk steak seared over open flame" loading="lazy">
           <div class="specials__body">
             <div class="specials__badge">Chef's Pick</div>
             <h3 class="specials__name">Dry-Aged Tomahawk</h3>
@@ -138,6 +141,7 @@
           </div>
         </div>
         <div class="specials__card anim-fade">
+          <img class="specials__img" src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=80" alt="Creamy risotto plated with fresh herbs" loading="lazy">
           <div class="specials__body">
             <div class="specials__badge">Seasonal</div>
             <h3 class="specials__name">Spring Pea Risotto</h3>
@@ -149,6 +153,7 @@
           </div>
         </div>
         <div class="specials__card anim-fade">
+          <img class="specials__img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Beautifully plated wagyu tataki with garnish" loading="lazy">
           <div class="specials__body">
             <div class="specials__badge">Rare Find</div>
             <h3 class="specials__name">A5 Wagyu Tataki</h3>
@@ -403,91 +408,8 @@
   <section class="story" id="story">
     <div class="container">
       <div class="story__layout">
-        <div class="story__illustration anim-fade">
-          <svg class="campfire-svg" width="120" height="140" viewBox="0 0 120 140" aria-hidden="true">
-            <!-- Glow -->
-            <ellipse cx="60" cy="120" rx="45" ry="12" fill="url(#glow)" opacity="0.5">
-              <animate attributeName="opacity" values="0.4;0.7;0.4" dur="3s" repeatCount="indefinite"/>
-              <animate attributeName="rx" values="42;48;42" dur="3s" repeatCount="indefinite"/>
-            </ellipse>
-            <!-- Logs -->
-            <rect x="18" y="112" width="84" height="12" rx="6" fill="url(#log1)" transform="rotate(-5,60,118)"/>
-            <rect x="24" y="104" width="72" height="11" rx="5.5" fill="url(#log2)" transform="rotate(5,60,110)"/>
-            <!-- Outer flame -->
-            <path d="M60 10 C60 10, 28 50, 28 78 C28 96, 42 108, 60 108 C78 108, 92 96, 92 78 C92 50, 60 10, 60 10Z" fill="url(#outerFlame)" opacity="0.9">
-              <animate attributeName="d" dur="1.5s" repeatCount="indefinite"
-                values="M60 10 C60 10, 28 50, 28 78 C28 96, 42 108, 60 108 C78 108, 92 96, 92 78 C92 50, 60 10, 60 10Z;
-                        M60 14 C60 14, 30 48, 30 76 C30 94, 43 106, 60 106 C77 106, 90 94, 90 76 C90 48, 60 14, 60 14Z;
-                        M60 8  C60 8,  26 52, 26 80 C26 97, 41 110, 60 110 C79 110, 94 97, 94 80 C94 52, 60 8, 60 8Z;
-                        M60 10 C60 10, 28 50, 28 78 C28 96, 42 108, 60 108 C78 108, 92 96, 92 78 C92 50, 60 10, 60 10Z"/>
-            </path>
-            <!-- Mid flame -->
-            <path d="M60 32 C60 32, 38 58, 38 76 C38 88, 48 96, 60 96 C72 96, 82 88, 82 76 C82 58, 60 32, 60 32Z" fill="url(#midFlame)" opacity="0.95">
-              <animate attributeName="d" dur="1.2s" repeatCount="indefinite"
-                values="M60 32 C60 32, 38 58, 38 76 C38 88, 48 96, 60 96 C72 96, 82 88, 82 76 C82 58, 60 32, 60 32Z;
-                        M60 36 C60 36, 40 56, 40 74 C40 86, 49 94, 60 94 C71 94, 80 86, 80 74 C80 56, 60 36, 60 36Z;
-                        M60 30 C60 30, 36 60, 36 78 C36 90, 47 98, 60 98 C73 98, 84 90, 84 78 C84 60, 60 30, 60 30Z;
-                        M60 32 C60 32, 38 58, 38 76 C38 88, 48 96, 60 96 C72 96, 82 88, 82 76 C82 58, 60 32, 60 32Z"/>
-            </path>
-            <!-- Inner flame (bright core) -->
-            <path d="M60 52 C60 52, 46 68, 46 80 C46 88, 52 94, 60 94 C68 94, 74 88, 74 80 C74 68, 60 52, 60 52Z" fill="url(#innerFlame)">
-              <animate attributeName="d" dur="0.9s" repeatCount="indefinite"
-                values="M60 52 C60 52, 46 68, 46 80 C46 88, 52 94, 60 94 C68 94, 74 88, 74 80 C74 68, 60 52, 60 52Z;
-                        M60 56 C60 56, 48 66, 48 78 C48 86, 53 92, 60 92 C67 92, 72 86, 72 78 C72 66, 60 56, 60 56Z;
-                        M60 50 C60 50, 44 70, 44 82 C44 90, 51 96, 60 96 C69 96, 76 90, 76 82 C76 70, 60 50, 60 50Z;
-                        M60 52 C60 52, 46 68, 46 80 C46 88, 52 94, 60 94 C68 94, 74 88, 74 80 C74 68, 60 52, 60 52Z"/>
-            </path>
-            <!-- Sparks -->
-            <circle r="1.5" fill="#DABB6A">
-              <animate attributeName="cx" values="55;52;48" dur="2.5s" repeatCount="indefinite"/>
-              <animate attributeName="cy" values="40;20;5" dur="2.5s" repeatCount="indefinite"/>
-              <animate attributeName="opacity" values="1;0.5;0" dur="2.5s" repeatCount="indefinite"/>
-            </circle>
-            <circle r="1" fill="#e8932c">
-              <animate attributeName="cx" values="65;68;72" dur="3s" repeatCount="indefinite"/>
-              <animate attributeName="cy" values="45;25;8" dur="3s" repeatCount="indefinite"/>
-              <animate attributeName="opacity" values="0.8;0.4;0" dur="3s" repeatCount="indefinite"/>
-            </circle>
-            <circle r="1.2" fill="#DABB6A">
-              <animate attributeName="cx" values="58;56;60" dur="2.8s" repeatCount="indefinite"/>
-              <animate attributeName="cy" values="35;15;0" dur="2.8s" repeatCount="indefinite"/>
-              <animate attributeName="opacity" values="0.9;0.3;0" dur="2.8s" repeatCount="indefinite"/>
-            </circle>
-            <defs>
-              <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#C9A34E" stop-opacity="0.4"/>
-                <stop offset="100%" stop-color="#C9A34E" stop-opacity="0"/>
-              </radialGradient>
-              <linearGradient id="log1" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#4a3220"/>
-                <stop offset="30%" stop-color="#6d4c30"/>
-                <stop offset="50%" stop-color="#8B6F47"/>
-                <stop offset="70%" stop-color="#6d4c30"/>
-                <stop offset="100%" stop-color="#4a3220"/>
-              </linearGradient>
-              <linearGradient id="log2" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#3d2918"/>
-                <stop offset="50%" stop-color="#7a5f37"/>
-                <stop offset="100%" stop-color="#3d2918"/>
-              </linearGradient>
-              <linearGradient id="outerFlame" x1="60" y1="10" x2="60" y2="108" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#d4422a"/>
-                <stop offset="40%" stop-color="#e8932c"/>
-                <stop offset="80%" stop-color="#C9A34E"/>
-                <stop offset="100%" stop-color="#8B2635"/>
-              </linearGradient>
-              <linearGradient id="midFlame" x1="60" y1="32" x2="60" y2="96" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#e8932c"/>
-                <stop offset="50%" stop-color="#DABB6A"/>
-                <stop offset="100%" stop-color="#C9A34E"/>
-              </linearGradient>
-              <linearGradient id="innerFlame" x1="60" y1="52" x2="60" y2="94" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#FFF4D6"/>
-                <stop offset="40%" stop-color="#FFEAA0"/>
-                <stop offset="100%" stop-color="#DABB6A"/>
-              </linearGradient>
-            </defs>
-          </svg>
+        <div class="story__photo anim-fade">
+          <img class="story__photo-img" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=80" alt="Warm restaurant interior with soft lighting and wood finishes" loading="lazy">
         </div>
         <div class="story__text anim-fade">
           <p class="section-header__label">Our Story</p>
