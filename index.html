@@ -404,25 +404,21 @@
     <div class="container">
       <div class="story__layout">
         <div class="story__illustration anim-fade">
-          <svg class="story__flame-icon" width="80" height="100" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M40 2C40 2 12 38 12 62C12 78.6 24.5 92 40 92C55.5 92 68 78.6 68 62C68 38 40 2 40 2Z" fill="url(#flame-outer)"/>
-            <path d="M40 30C40 30 24 52 24 66C24 74.8 31.2 82 40 82C48.8 82 56 74.8 56 66C56 52 40 30 40 30Z" fill="url(#flame-inner)"/>
-            <path d="M40 52C40 52 32 62 32 70C32 74.4 35.6 78 40 78C44.4 78 48 74.4 48 70C48 62 40 52 40 52Z" fill="#F2EBE0"/>
-            <defs>
-              <linearGradient id="flame-outer" x1="40" y1="2" x2="40" y2="92" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="transparent"/>
-                <stop offset="40%" stop-color="#8B2635"/>
-                <stop offset="100%" stop-color="#C9A34E"/>
-              </linearGradient>
-              <linearGradient id="flame-inner" x1="40" y1="30" x2="40" y2="82" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="transparent"/>
-                <stop offset="50%" stop-color="#C9A34E"/>
-                <stop offset="100%" stop-color="#DABB6A"/>
-              </linearGradient>
-            </defs>
-          </svg>
-          <div class="story__log"></div>
-          <div class="story__log story__log--2"></div>
+          <div class="campfire" aria-hidden="true">
+            <div class="campfire__flames">
+              <div class="campfire__flame campfire__flame--1"></div>
+              <div class="campfire__flame campfire__flame--2"></div>
+              <div class="campfire__flame campfire__flame--3"></div>
+              <div class="campfire__spark campfire__spark--1"></div>
+              <div class="campfire__spark campfire__spark--2"></div>
+              <div class="campfire__spark campfire__spark--3"></div>
+            </div>
+            <div class="campfire__glow"></div>
+            <div class="campfire__logs">
+              <div class="campfire__log campfire__log--1"></div>
+              <div class="campfire__log campfire__log--2"></div>
+            </div>
+          </div>
         </div>
         <div class="story__text anim-fade">
           <p class="section-header__label">Our Story</p>
