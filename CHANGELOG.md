@@ -402,3 +402,11 @@
 - VERIFIED: Google Maps embed already added by Builder/Spark (Nigel #3)
 - CSS: 2596 lines (no net change — cleanup offset by no new additions)
 - No animations added. Mobile-first. Center-aligned.
+
+## Round 10b — Spark (2026-04-06)
+- CONSOLIDATED: 6 separate @media (max-width: 479px) blocks merged into 2 (section-specific + global)
+- CONSOLIDATED: 2 separate @media (max-width: 767px) blocks merged into 1
+- REMOVED: Redundant footer mobile centering (base .footer__layout already has text-align: center)
+- REMOVED: Orphaned consolidation comment
+- CSS trimmed: 2596 -> 2548 lines (-48 lines, -1.8%)
+- No visual changes. Pure CSS organization and dead code removal.

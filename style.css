@@ -1594,27 +1594,6 @@ img {
   flex-shrink: 0;
 }
 
-/* Center footer content on mobile */
-@media (max-width: 479px) {
-  .footer__layout {
-    text-align: center;
-  }
-
-  .footer__col {
-    text-align: center;
-  }
-
-  .footer__logo {
-    text-align: center;
-  }
-
-  .footer__tagline {
-    text-align: center;
-  }
-}
-
-/* justify-content consolidated into main .mobile-bar block above */
-
 /* Add bottom padding to body so footer isn't hidden behind bar */
 @media (max-width: 1023px) {
   .footer {
@@ -2472,7 +2451,42 @@ img {
 }
 
 /* Narrow mobile (479px): menu, form, footer centering */
+/* Tap targets + iOS zoom prevention */
+.menu__tab { min-height: 44px; min-width: 44px; }
+.btn { min-height: 44px; }
+.btn--sm { min-height: 44px; }
+.form-group input,
+.form-group select,
+.form-group textarea,
+.footer__newsletter-form input { font-size: max(16px, 1rem); }
+
+/* Section CTA: ensure sufficient tap target */
+.section-cta__link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Tablet and below (767px): testimonials + specials stacking */
+@media (max-width: 767px) {
+  .testimonials__author {
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+  }
+  .testimonials__source {
+    border-left: none;
+    padding-left: 0;
+  }
+  .specials__meta {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+}
+
+/* Narrow mobile (479px): centering, stacking, and polish */
 @media (max-width: 479px) {
+  /* Center alignment */
   .menu__item-body,
   .menu__item-name,
   .menu__item-price,
@@ -2494,43 +2508,13 @@ img {
   .form-group textarea { text-align: left; font-size: 16px; }
   .reservation-form .btn--lg { font-size: 0.9rem; padding: 1rem 1.5rem; }
   .footer__newsletter-form input { font-size: 16px; text-align: center; }
-}
 
-/* Tap targets + iOS zoom prevention */
-.menu__tab { min-height: 44px; min-width: 44px; }
-.btn { min-height: 44px; }
-.btn--sm { min-height: 44px; }
-.form-group input,
-.form-group select,
-.form-group textarea,
-.footer__newsletter-form input { font-size: max(16px, 1rem); }
-
-/* ============================================
-   MOBILE POLISH — Pixel Round 10 (375px audit)
-   ============================================ */
-
-/* Testimonials author: stack vertically on mobile, remove left-border separator */
-@media (max-width: 767px) {
-  .testimonials__author {
-    flex-direction: column;
-    gap: 0.25rem;
-    text-align: center;
-  }
-  .testimonials__source {
-    border-left: none;
-    padding-left: 0;
-  }
-}
-
-/* Hours: stack day rows on narrow screens to prevent overflow */
-@media (max-width: 479px) {
+  /* Hours: stack day rows */
   .hours__day {
     flex-wrap: wrap;
     gap: 0.15rem;
   }
-  .hours__dots {
-    display: none;
-  }
+  .hours__dots { display: none; }
   .hours__day span:first-child,
   .hours__day span:last-child {
     text-align: center;
@@ -2540,57 +2524,25 @@ img {
     color: var(--gold);
     font-size: 0.9rem;
   }
-  .hours__schedule {
-    text-align: center;
-  }
-}
+  .hours__schedule { text-align: center; }
 
-/* Specials meta: stack on mobile */
-@media (max-width: 767px) {
-  .specials__meta {
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-}
+  /* Menu legend */
+  .menu__legend { gap: 0.5rem 0.75rem; }
 
-/* Menu legend: tighter gap on narrow mobile */
-@media (max-width: 479px) {
-  .menu__legend {
-    gap: 0.5rem 0.75rem;
-  }
-}
-
-/* Happy hour callout: soften radius when stacked */
-@media (max-width: 480px) {
+  /* Happy hour callout */
   .happy-hour-callout {
     border-radius: var(--radius);
     padding: 0.75rem 1rem;
   }
-}
 
-/* Reservation urgency: ensure wrapping is centered */
-@media (max-width: 479px) {
+  /* Reservation urgency */
   .reservation-urgency {
     flex-wrap: wrap;
     font-size: 0.85rem;
     padding: 0.65rem 1rem;
   }
-}
 
-/* Section CTA: ensure sufficient tap target */
-.section-cta__link {
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
+  /* Hearth pulse */
+  .hearth-pulse__label { font-size: 0.8rem; }
+  .hearth-pulse__message { font-size: 0.8rem; }
 }
-
-/* Hearth pulse: readable sizing on narrow screens */
-@media (max-width: 479px) {
-  .hearth-pulse__label {
-    font-size: 0.8rem;
-  }
-  .hearth-pulse__message {
-    font-size: 0.8rem;
-  }
-}
-
