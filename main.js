@@ -320,7 +320,8 @@ var EMBER_SCHEDULE = {
 
         var isEmpty = !field.value.trim();
         var isInvalidPhone = field.type === 'tel' && field.value.trim() && !/[\d]{7,}/.test(field.value.replace(/[\s\(\)\-\+\.]/g, ''));
-        if (isEmpty || isInvalidPhone) {
+        var isInvalidEmail = field.type === 'email' && field.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim());
+        if (isEmpty || isInvalidPhone || isInvalidEmail) {
           valid = false;
           field.style.borderColor = '#8B2635';
           field.setAttribute('aria-invalid', 'true');
@@ -328,7 +329,7 @@ var EMBER_SCHEDULE = {
           var errorMsg = document.createElement('span');
           errorMsg.className = 'form-error';
           errorMsg.setAttribute('role', 'alert');
-          errorMsg.textContent = isInvalidPhone ? 'Please enter a valid phone number' : 'This field is required';
+          errorMsg.textContent = isInvalidEmail ? 'Please enter a valid email address' : (isInvalidPhone ? 'Please enter a valid phone number' : 'This field is required');
           field.parentElement.appendChild(errorMsg);
 
           setTimeout(function () {

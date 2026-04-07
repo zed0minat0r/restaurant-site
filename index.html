@@ -400,22 +400,28 @@
     </div>
   </section>
 
-  <!-- Micro-CTA: Menu → Story -->
-  <div class="section-cta anim-fade" aria-hidden="true">
-    <a href="#story" class="section-cta__link">Discover our story <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></a>
-  </div>
-
   <!-- Our Story -->
   <section class="story" id="story">
     <div class="container">
       <div class="story__layout">
         <div class="story__illustration anim-fade">
-          <div class="story__flame">
-            <div class="flame flame--1"></div>
-            <div class="flame flame--2"></div>
-            <div class="flame flame--3"></div>
-            <div class="flame-base"></div>
-          </div>
+          <svg class="story__flame-icon" width="80" height="100" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M40 2C40 2 12 38 12 62C12 78.6 24.5 92 40 92C55.5 92 68 78.6 68 62C68 38 40 2 40 2Z" fill="url(#flame-outer)"/>
+            <path d="M40 30C40 30 24 52 24 66C24 74.8 31.2 82 40 82C48.8 82 56 74.8 56 66C56 52 40 30 40 30Z" fill="url(#flame-inner)"/>
+            <path d="M40 52C40 52 32 62 32 70C32 74.4 35.6 78 40 78C44.4 78 48 74.4 48 70C48 62 40 52 40 52Z" fill="#F2EBE0"/>
+            <defs>
+              <linearGradient id="flame-outer" x1="40" y1="2" x2="40" y2="92" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="transparent"/>
+                <stop offset="40%" stop-color="#8B2635"/>
+                <stop offset="100%" stop-color="#C9A34E"/>
+              </linearGradient>
+              <linearGradient id="flame-inner" x1="40" y1="30" x2="40" y2="82" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="transparent"/>
+                <stop offset="50%" stop-color="#C9A34E"/>
+                <stop offset="100%" stop-color="#DABB6A"/>
+              </linearGradient>
+            </defs>
+          </svg>
           <div class="story__log"></div>
           <div class="story__log story__log--2"></div>
         </div>
@@ -424,8 +430,7 @@
           <h2 class="section-header__title">Born from Flame</h2>
           <div class="section-header__line"></div>
           <p>It started in a backyard in South Philly. Chef Marcus Rivera couldn't stop cooking over fire. Sommelier Elena Torres kept showing up with bottles that made the food sing. In 2019, they stopped pretending it was a hobby and opened a restaurant.</p>
-          <p>You'll smell the oak smoke before you see the kitchen. The hearth is the first thing you notice &mdash; a live fire that never goes out during service. Every cut is seared over cherrywood embers. Every vegetable is charred to the edge of caramelization. The farms are within 50 miles because Marcus picks up half the produce himself on Tuesday mornings.</p>
-          <p>The room is warm walnut and soft Edison light. There's vinyl on a turntable &mdash; usually jazz, sometimes Motown if the kitchen is in a mood. You can sit at the counter and watch the fire work, or settle into a corner booth and let the evening unfold. Either way, you'll leave planning your next visit.</p>
+          <p>You'll smell the oak smoke before you see the kitchen &mdash; a live hearth that never goes out during service. Every cut is seared over cherrywood embers, every vegetable charred to the edge of caramelization with produce Marcus picks up himself on Tuesday mornings. The room is warm walnut and soft Edison light, vinyl on the turntable, and a counter where you can watch the fire work.</p>
         </div>
       </div>
     </div>
@@ -489,6 +494,7 @@
               742 Hearthstone Lane<br>
               Philadelphia, PA 19103
             </p>
+            <p class="hours__parking">Street parking available &middot; Garage at 8th &amp; Market</p>
             <a href="https://maps.google.com/?q=742+Hearthstone+Lane+Philadelphia+PA+19103" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Get Directions</a>
           </div>
         </div>
@@ -676,6 +682,10 @@
             <input type="text" id="resName" name="name" placeholder="Your name" required>
           </div>
           <div class="form-group">
+            <label for="resEmail">Email</label>
+            <input type="email" id="resEmail" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
             <label for="resPhone">Phone</label>
             <input type="tel" id="resPhone" name="phone" placeholder="(555) 123-4567" pattern="[\d\s\(\)\-\+\.]{7,}" required>
           </div>
@@ -714,12 +724,8 @@
           <p>742 Hearthstone Lane<br>Philadelphia, PA 19103</p>
         </div>
         <div class="footer__col">
-          <h4>Follow Along</h4>
-          <div class="footer__socials">
-            <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
-            <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-            <a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
-          </div>
+          <h4>Hours</h4>
+          <p>Tue&ndash;Sun: 5 PM&ndash;10 PM<br>Monday: Closed</p>
         </div>
       </div>
       <div class="footer__newsletter">

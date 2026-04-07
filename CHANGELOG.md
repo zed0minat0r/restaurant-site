@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026-04-06
+
+### Simplicity Refinement Pass (Spark)
+
+- REMOVED: All 3 flame flicker infinite animations (flicker1/2/3 keyframes deleted). Flame is now static.
+- REMOVED: statusPulse infinite animation on hours open dot. Static glow remains.
+- REMOVED: ember-glow infinite animation on section divider diamond. Static styling remains.
+- REMOVED: ember-glow infinite animation on hearth pulse dot. Static glow remains.
+- REMOVED: Duplicate ember-glow keyframe definition (was defined twice with different values).
+- REMOVED: Duplicate gallery mobile media query block (was declared twice at end of file).
+- REMOVED: Menu-to-Story micro-CTA to reduce navigation noise and scroll density.
+- CHANGED: Story text left-aligned on mobile for better readability (headings stay centered).
+- CHANGED: Story section condensed from 3 paragraphs to 2 (tighter, same character).
+- CHANGED: Section padding increased from 3rem to 3.5rem for better breathing room.
+- CHANGED: Section header bottom margin increased from 2rem to 2.25rem.
+- CHANGED: Story paragraph font-size bumped from 0.9rem to 0.925rem with line-height 1.7.
+- ADDED: Parking info under address in Hours section ("Street parking available, Garage at 8th & Market").
+- NET: Infinite animations reduced from 7 to 1 (scrollBounce only). Keyframes reduced from 12 to 6. CSS reduced by 117 lines.
+
 ## 2026-04-01
 
 ### Mobile Center-Alignment Audit & Visual Fixes (Pixel)
