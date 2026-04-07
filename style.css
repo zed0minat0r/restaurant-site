@@ -1401,6 +1401,7 @@ img {
   }
 
   .story__layout {
+    flex-direction: row;
     gap: 4rem;
   }
 
@@ -1419,11 +1420,6 @@ img {
 
   .hours__layout {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .story__layout {
-    flex-direction: row;
-    gap: 4rem;
   }
 
   .story__text .section-header__title {
